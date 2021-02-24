@@ -1,9 +1,9 @@
 {
-  "prefix": "PREFİXİNİZ",
-  "token": "TOKENİNİZ",
-  "sahip": "KENDİ İDNİZ",
+  "prefix": ".",
+  "token": "ODE0MjA5MDM4Mjk5NDMwOTU1.YDahQg.nQUFnrRGq8qT1zmi7Kt3RgvLTT0",
+  "sahip": "794223256680923187",
 
-  "durum": "BOTUN DURUMU",
+  "durum": "AceBots",
   
   "susturulmuş":"MUTED ROL İD",
   "cezalı":"CEZALI ROL İD", 
@@ -18,7 +18,7 @@
   "banlog":"BAN LOG KANALI İD",
   "jaillog":"JAİL LOG KANALI İD",
   
-  "botses":"BOTUN SESE GİRMESİ İÇİN SES KANAL İD",
+  "botses":"814201479958233145",
   
   "erkekrol1":"VERİLCEK ERKEK ROL1",
   "erkekrol2":"VERİLCEK ERKEK ROL2",
