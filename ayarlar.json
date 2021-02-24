@@ -1,27 +1,48 @@
 {
-  "prefix": "BOT PREFİX",
-  "token": "BOT TOKEN",
-  "sahip": "İDNİZ",
+  "prefix": "PREFİXİNİZ",
+  "token": "TOKENİNİZ",
+  "sahip": "KENDİ İDNİZ",
+
+  "durum": "BOTUN DURUMU",
   
-  "durum": "BOT DURUM",
-  "botses": "SES KANAL İD",
-  
-  "susturulmuş":"MUTE ROL İD",
+  "susturulmuş":"MUTED ROL İD",
   "cezalı":"CEZALI ROL İD", 
  
-  "banyetkili":"BAN YETKİLİ İD",
-  "jailyetkili":"JAİL YETKİLİ İD",
-  "muteyetkili":"MUTE YETKİLİ İD",
+  "banyetkili":"BAN YETKİLİ ROL İD",
+  "jailyetkili":"JAİL YETKİLİ ROL İD",
+  "muteyetkili":"MUTE YETKİLİ ROL İD",
+  "logger":"İSTEDİĞİNİZ BİR YETKİLİ İD",
   
-  "mutelog":"MUTE LOG KANAL İD",
-  "banlog":"BAN LOG KANAL İD",
-  "jaillog":"JAİL LOG KANAL İD",
-  "sikayet":"ŞİKAYET KANALI İD",
+  "mutelog":"MUTE LOG KANALI İD",
+  "banlog":"BAN LOG KANALI İD",
+  "jaillog":"JAİL LOG KANALI İD",
   
-  "erkekrol1":"ERKEK ROL 1 İD",
-  "erkekrol2":"ERKEK ROL 2 İD",
-  "kızrol1":"KIZ ROL 1 İD",
-  "kızrol2":"KIZ ROL 2 İD",
+  "botses":"BOTUN SESE GİRMESİ İÇİN SES KANAL İD",
+  
+  "erkekrol1":"VERİLCEK ERKEK ROL1",
+  "erkekrol2":"VERİLCEK ERKEK ROL2",
+  "erkekrol3":"VERİLCEK ERKEK ROL3",
 
-  "tag":"TAGINIZ!"
+  "chatlog":"CHAT LOG KANAL İD",
+  "modlog":"MOD LOG KANAL İD",
+  
+  "kızrol1":"VERİLCEK KIZ ROL1",
+  "kızrol2":"VERİLCEK KIZ ROL2",
+  "kızrol3":"VERİLCEK KIZ ROL3",
+
+  "booster":"BOOSTER ROL İD",
+  "tag":"TAGINIZ",
+  
+  "basariliemoji":"EMOJİ İD",
+  "basarisizemoji":"",
+  "botkomut":   "",
+  "kayıtyetkili": "",
+  "kayıtsız":     "",
+
+  "genelsohbet":  "",
+  "kayıtsohbet":  "",
+
+  "sunucu":       "",
+  "tagkanal":     "",
+  "tagrol":       ""
 }

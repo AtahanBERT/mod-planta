@@ -1,25 +1,40 @@
 const Discord = require("discord.js");
+const db = require("quick.db")
+const ayarlar = require('../ayarlar.json');
+
 exports.run = async (client, message, args) => {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+     let basarili = ayarlar.basariliemoji;
+    let basarisiz = ayarlar.basarisizemoji;
+        let yetkili = ayarlar.logger;
+
+
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:qmi2:809010861162233857> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+}
   
-  if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(acebot.setDescription("Bu Komutu Kullanabilmek İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın."));
+if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
 
-  let herkez = message.guild.roles.cache.find(r => r.name === "@everyone");
-  message.channel.createOverwrite(herkez, {SEND_MESSAGES: null});
 
-  message.channel.send(new Discord.MessageEmbed().setDescription("**Sohbet Kanalı Başarıyla Açıldı.**"));
 
+  let every = message.guild.roles.cache.find(r => r.name === "@everyone");
+  message.channel.createOverwrite(every, {
+    SEND_MESSAGES: null
+  });
+
+
+ message.react(basarili);
 };
+
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ["sohbet-a"],
   permLevel: 0
 };
 
 exports.help = {
   name: 'sohbet-aç',
-  description: `Sohbeti Everyone'a Açarsınız`,
-  usage: '!sohbet-aç'
+  description: 'İstediğiniz kişiyi uyarır.',
+  usage: 'aç'
 };
