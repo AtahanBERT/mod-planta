@@ -8,6 +8,7 @@
   "susturulmuş":"MUTED ROL İD",
   "cezalı":"CEZALI ROL İD", 
  
+  "kayıtyetkili": "KAYIT YETKİLİ İD",
   "banyetkili":"BAN YETKİLİ ROL İD",
   "jailyetkili":"JAİL YETKİLİ ROL İD",
   "muteyetkili":"MUTE YETKİLİ ROL İD",
@@ -34,15 +35,16 @@
   "tag":"TAGINIZ",
   
   "basariliemoji":"EMOJİ İD",
-  "basarisizemoji":"",
-  "botkomut":   "",
-  "kayıtyetkili": "",
-  "kayıtsız":     "",
+  "basarisizemoji":"EMOJİ İD",
+  
+  "botkomut":   "BOT KOMUT KANAL İDSİ",
+  
+  "kayıtsız":     "UNREGİSTER PERMİ",
 
-  "genelsohbet":  "",
-  "kayıtsohbet":  "",
+  "genelsohbet":  "GENEL SOHBET İD",
+  "kayıtsohbet":  "KAYIT SOHBET İD",
 
-  "sunucu":       "",
-  "tagkanal":     "",
-  "tagrol":       ""
+  "sunucu":       "SUNUCU İDSİ",
+  "tagkanal":     "TAG LOG KANAL İDSİ",
+  "tagrol":       "TAG ALINCA VERİLCEK ROL İDSİ"
 }

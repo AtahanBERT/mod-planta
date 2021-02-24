@@ -1,6 +1,7 @@
 dependencies:
   ascii-table: 0.0.9
   chalk: 4.0.0
+  discord-anti-spam: 2.5.0
   discord-logs: 1.7.7
   discord.js: 12.2.0
   express: 4.17.1
@@ -750,6 +751,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+  /discord-anti-spam/2.5.0:
+    dev: false
+    resolution:
+      integrity: sha512-7AaBvPkLsb8nCmJRH5JtivWCgDNvhS5ZbXix9ObXd7S+A+9hGVOnH1i+fbhT7ZDReVehiji9nKhLxMBne4yo1w==
   /discord-logs/1.7.7:
     dependencies:
       '@types/node': 14.14.6
@@ -1972,6 +1977,7 @@ shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
   chalk: ^4.0.0
+  discord-anti-spam: ^2.5.0
   discord-logs: ^1.7.7
   discord.js: ^12.2.0
   express: ^4.17.1
