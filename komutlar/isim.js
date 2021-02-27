@@ -6,7 +6,7 @@ const ayarlar = require('../ayarlar.json');
  
 
 
-exports.run = async (client, message, args) => {
+exports.off = async (client, message, args) => {
   
     let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
@@ -41,7 +41,7 @@ let isimler = stat.filter(x => x.user === member.id).map(x => `\`${number++}.\` 
 
 
   
-if(member.user.username.includes('そ')) {
+if(member.user.username.includes('')) {
     
 
 member.setNickname(`そ ${isim} | ${yaş}`);
