@@ -139,14 +139,8 @@ client.on("ready", () => {
 
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('`\そ`\ ');
-  }
-});
-
-client.on('message', msg => {
   if (msg.content.toLowerCase() === '.tag') {
-    msg.channel.send('`\そ`\ ');
+    msg.channel.send('`\`\ ');
   }
 });
 

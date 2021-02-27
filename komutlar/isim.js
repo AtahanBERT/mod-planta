@@ -44,7 +44,7 @@ let isimler = stat.filter(x => x.user === member.id).map(x => `\`${number++}.\` 
 if(member.user.username.includes('')) {
     
 
-member.setNickname(`そ ${isim} | ${yaş}`);
+member.setNickname(` ${isim} | ${yaş}`);
 message.channel.send(new discord.MessageEmbed().setAuthor(member.user.username, member.user.avatarURL({dynamic: true})).setDescription(`<a:qmi1:809010834146983966> Başarılı bir şekilde ${member} kullanıcının ismini \`そ ${isim} | ${yaş}\` şeklinde değiştirdim.`).setColor('GREEN')).then(message => message.delete({timeout: 4000}));
 }
 else{
