@@ -167,16 +167,16 @@ client.on("userUpdate", async (oldUser, newUser) => { //acebots
   try {
 
   if (newUser.username.includes(tag) && !client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
-  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("GREEN").setDescription(`<a:qmi1:809010834146983966> ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı alarak bizi mutlu etti. Tagımızı aldığın için sana <@&${rol}> adlı rolü verdim. Ailemize Hoşgeldin :)`));
+  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("GREEN").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı alarak bizi mutlu etti. Tagımızı aldığın için sana <@&${rol}> adlı rolü verdim. Ailemize Hoşgeldin :)`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.add(rol);  
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("• ").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('そ '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
   }//acebots
   if (!newUser.username.includes(tag) && client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
-  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("RED").setDescription(`<a:qmi2:809010861162233857> ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı çıkararak bizi üzdü. Tagımızı çıkardığın için senden <@&${rol}> adlı rolü aldım. Ailemize tekrardan bekleriz...`));
+  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("RED").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı çıkararak bizi üzdü. Tagımızı çıkardığın için senden <@&${rol}> adlı rolü aldım. Ailemize tekrardan bekleriz...`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.remove(rol);//acebots
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("そ ").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('• '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
 
     
   } //acebots 
