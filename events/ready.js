@@ -4,6 +4,6 @@ const ayarlar = require("../ayarlar.json");
 
 module.exports = client => {
   let durum = ayarlar.durum
-client.user.setActivity(durum, {type: 'WATCHING'}); 
+client.user.setActivity(durum, {type: 'PLAYING'}); 
 
 }

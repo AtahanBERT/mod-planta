@@ -1,9 +1,8 @@
 {
   "prefix": "PREFİXİNİZ",
-  "token": "TOKENİNİZ",
   "sahip": "KENDİ İDNİZ",
 
-  "durum": "AceBots",
+  "durum": "",
   
   "susturulmuş":"MUTED ROL İD",
   "cezalı":"CEZALI ROL İD", 
@@ -18,7 +17,7 @@
   "banlog":"BAN LOG KANALI İD",
   "jaillog":"JAİL LOG KANALI İD",
   
-  "botses":"SESE SOKMAK İÇİN İD",
+  "botses":"795970687188992052",
   
   "erkekrol1":"VERİLCEK ERKEK ROL1",
   "erkekrol2":"VERİLCEK ERKEK ROL2",
