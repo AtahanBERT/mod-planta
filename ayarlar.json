@@ -4,18 +4,18 @@
 
   "durum": "",
   
-  "susturulmuş":"MUTED ROL İD",
-  "cezalı":"CEZALI ROL İD", 
+  "susturulmuş":"786556114204360724",
+  "cezalı":"786556114204360724", 
  
   "kayıtyetkili": "KAYIT YETKİLİ İD",
-  "banyetkili":"BAN YETKİLİ ROL İD",
+  "banyetkili":"789637815268933673",
   "jailyetkili":"JAİL YETKİLİ ROL İD",
-  "muteyetkili":"MUTE YETKİLİ ROL İD",
+  "muteyetkili":"812394203338375230",
   "logger":"İSTEDİĞİNİZ BİR YETKİLİ İD",
   
-  "mutelog":"MUTE LOG KANALI İD",
-  "banlog":"BAN LOG KANALI İD",
-  "jaillog":"JAİL LOG KANALI İD",
+  "mutelog":"815248389180489749",
+  "banlog":"815248827941912617",
+  "jaillog":"815248987556413451",
   
   "botses":"795970687188992052",
   
@@ -23,8 +23,8 @@
   "erkekrol2":"VERİLCEK ERKEK ROL2",
   "erkekrol3":"VERİLCEK ERKEK ROL3",
 
-  "chatlog":"CHAT LOG KANAL İD",
-  "modlog":"MOD LOG KANAL İD",
+  "chatlog":"789530104098455562",
+  "modlog":"789530104098455562",
   
   "kızrol1":"VERİLCEK KIZ ROL1",
   "kızrol2":"VERİLCEK KIZ ROL2",
