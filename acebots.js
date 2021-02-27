@@ -319,16 +319,16 @@ client.on("message", async message => {
 
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
-	warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
-	kickThreshold: 5, // Amount of messages sent in a row that will cause a ban.
-	banThreshold: 5, // Amount of messages sent in a row that will cause a ban.
-	maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
+	warnThreshold: 7, // Amount of messages sent in a row that will cause a warning.
+	kickThreshold: 10, // Amount of messages sent in a row that will cause a ban.
+	banThreshold: 14, // Amount of messages sent in a row that will cause a ban.
+	maxInterval: 3000, // Amount of time (in milliseconds) in which messages are considered spam.
 	warnMessage: '{@user}, Flood/spam yapmayı kes yoksa sunucudan atılacaksın.', // Message that will be sent in chat upon warning a user.
 	kickMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı kicklendi.', // Message that will be sent in chat upon kicking a user.
 	banMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı banlandı.', // Message that will be sent in chat upon banning a user.
-	maxDuplicatesWarning: 10, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesKick: 13, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesBan: 17, // Amount of duplicate messages that trigger a warning.
+	maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+	maxDuplicatesKick: 12, // Amount of duplicate messages that trigger a warning.
+	maxDuplicatesBan: 15, // Amount of duplicate messages that trigger a warning.
 	exemptPermissions: ['ADMINISTRATOR'], // Bypass users with any of these permissions.
 	ignoreBots: true, // Ignore bot messages.
 	verbose: true, // Extended Logs from module.
