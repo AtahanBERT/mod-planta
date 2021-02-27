@@ -323,13 +323,13 @@ const antiSpam = new AntiSpam({
 	kickThreshold: 5, // Amount of messages sent in a row that will cause a ban.
 	banThreshold: 5, // Amount of messages sent in a row that will cause a ban.
 	maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
-	warnMessage: '{@user}, Flod/spam yapmayı kes yoksa sunucudan atılacaksın.', // Message that will be sent in chat upon warning a user.
+	warnMessage: '{@user}, Flood/spam yapmayı kes yoksa sunucudan atılacaksın.', // Message that will be sent in chat upon warning a user.
 	kickMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı kicklendi.', // Message that will be sent in chat upon kicking a user.
 	banMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı banlandı.', // Message that will be sent in chat upon banning a user.
-	maxDuplicatesWarning: 5, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesKick: 7, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesBan: 8, // Amount of duplicate messages that trigger a warning.
-	exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+	maxDuplicatesWarning: 10, // Amount of duplicate messages that trigger a warning.
+	maxDuplicatesKick: 13, // Amount of duplicate messages that trigger a warning.
+	maxDuplicatesBan: 17, // Amount of duplicate messages that trigger a warning.
+	exemptPermissions: ['ADMINISTRATOR'], // Bypass users with any of these permissions.
 	ignoreBots: true, // Ignore bot messages.
 	verbose: true, // Extended Logs from module.
 	ignoredUsers: [], // Array of User IDs that get ignored.
@@ -343,7 +343,7 @@ client.on('message', (message) => antiSpam.message(message));
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
-const botadi = "qmi Tarafından Yapılmıştır."
+const botadi = "Planta Tarafından Yapılmıştır."
 const kanal = ayarlar.modlog
 const chat = ayarlar.chatlog
 
