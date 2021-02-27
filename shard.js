@@ -3,7 +3,7 @@ const ayarlar = require ('./ayarlar.json')
 
 const shards = new ShardingManager ('./index.js', {
 
-token : ayarlar.token,
+token : process.env.token,
 
 totalShards : 1
 
