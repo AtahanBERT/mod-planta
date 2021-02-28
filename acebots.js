@@ -522,3 +522,5 @@ client.on("messageDelete", async deletedMessage => {
     .setTimestamp()
   scbul.send(embed);
 });
+
+
