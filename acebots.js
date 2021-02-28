@@ -153,13 +153,13 @@ client.on('messageDelete', message => {
 ////////////////////////////KÜFÜR ENGEL////////////////////////////////
 
 
-client.on("userUpdate", async (oldUser, newUser) => { //acebots 
+client.on("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
-  //acebots
+  
           let tag = ayarlar.tag
           let sunucu = ayarlar.sunucu
-          let kanal = ayarlar.tagkanal//acebots //acebots 
+          let kanal = ayarlar.tagkanal
           let rol = ayarlar.tagrol
 
           
@@ -179,11 +179,11 @@ client.on("userUpdate", async (oldUser, newUser) => { //acebots
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
 
     
-  } //acebots 
+  } 
 } catch (e) {
 console.log(`Bir hata oluştu! ${e}`)
  }
-} //acebots 
+} 
 });
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
