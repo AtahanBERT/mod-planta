@@ -326,7 +326,7 @@ const antiSpam = new AntiSpam({
 	exemptPermissions: ['ADMINISTRATOR'], // Bypass users with any of these permissions.
 	ignoreBots: true, // Ignore bot messages.
 	verbose: true, // Extended Logs from module.
-	ignoredUsers: ["776837094962102282","429357746002067493","",], // Array of User IDs that get ignored.
+	ignoredUsers: ["776837094962102282","429357746002067493","451677789939171339","448377317065097228",], // Array of User IDs that get ignored.
 	// And many more options... See the documentation.
 });
 
