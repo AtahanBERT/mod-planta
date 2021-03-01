@@ -35,6 +35,6 @@ exports.conf = {
 }
 exports.help = {
   name: 'ee',
-  description: 'Kayıt Olunacak Kanalı Ayarlar',
-  usage: '!kayıt-kanal #kanal'
+  description: '',
+  usage: ''
 }

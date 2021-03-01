@@ -18,7 +18,7 @@ exports.run = async(client, message, args) => {
 
 
 const ace = new Discord.MessageEmbed()
-.setFooter('qmi Tarafından Yapılmıştır.')
+.setFooter('Planta Team Tarafından Yapılmıştır.')
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setDescription(`
 > **\`${prefix}pp -> .pp veya .pp @üye\`** 
@@ -43,7 +43,7 @@ const ace = new Discord.MessageEmbed()
   
   const acee = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-  .setFooter('Planta Tarafından Yapılmıştır.')
+  .setFooter('Planta Team Tarafından Yapılmıştır.')
 .setAuthor(`Orenda Kayıt Botu Yardım Menüsü`)
 .setDescription(`
 > **\`${prefix}erkek -> .e @üye\`** 
