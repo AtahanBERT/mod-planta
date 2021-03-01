@@ -24,7 +24,7 @@ exports.run = async (client ,message, args) =>{
 
     if (!message.member.hasPermission("ADMINISTRATOR") & !message.member.roles.cache.get(yetkili) ) return message.react(basarisiz).then(x => x.delete({timeout: 3000})); //acebots  
     if (!mutekisi) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Lütfen bir kullanıcı etiketleyiniz!`)).then(x => x.delete({timeout: 5000}));
-    if (message.member.roles.highest.position <= mutekisi.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
+    if (message.member.roles.highest.position <= mutekisi.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
     if (!mutezaman) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Lütfen bir zaman giriniz! \n 1 Saniye = 1s \n 1 Dakika = 1m \n 1 Saat = 1h \n 1 Gün = 1d`));
     if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Sesde Susturmak için sebep belirtmelisin!")).then(x => x.delete({timeout: 3000}));
     await mutekisi.voice.setMute(true, sebep);

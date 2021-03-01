@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = async (bot, message, args) => {
  const istatistikler = new Discord.MessageEmbed()
- message.channel.send(`**Buyur Bizim Tagımız:** \`ま\``)
+ message.channel.send(`ま`)
  return message.channel.send();
   
 };
