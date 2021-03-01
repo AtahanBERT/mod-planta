@@ -7,7 +7,7 @@ var prefix = ayarlar.prefix;
 exports.run = async(client, message, args) => {
   
    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:qmi2:809010861162233857> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
 }
 
     let kanal = ayarlar.botkomut;
@@ -43,7 +43,7 @@ const ace = new Discord.MessageEmbed()
   
   const acee = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-  .setFooter('qmi Tarafından Yapılmıştır.')
+  .setFooter('Planta Tarafından Yapılmıştır.')
 .setAuthor(`Orenda Kayıt Botu Yardım Menüsü`)
 .setDescription(`
 > **\`${prefix}erkek -> .e @üye\`** 
