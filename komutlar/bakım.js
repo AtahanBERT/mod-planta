@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
   
   if(message.author.id != ayarlar.sahip) return
   
-  if(!args[0]) return message.channel.send('Bakım modunu açmak için !bakım aç')
+  if(!args[0]) return message.channel.send('Bakım modunu açmak için m!bakım aç')
   
   if(args[0] === 'aç') {
     if(db.fetch(`bakim`)) return message.channel.send('Bakım modu zaten açık')
@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["bakim"],
   permLevel: 0
 }
 
