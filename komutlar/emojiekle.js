@@ -20,7 +20,7 @@ exports.run = async(client, message, args) => {
     if (!ad) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Bir isim belirtmelisin!`));
   
     guild.emojis.create(link, ad)
-      .then(emoji => message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription(`<a:qmi1:809010834146983966> Başarıyla ${emoji.name} adında emoji oluşturuldu. (${emoji})`)))
+      .then(emoji => message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription(`<a:plantatik3:810180493424721921> Başarıyla ${emoji.name} adında emoji oluşturuldu. (${emoji})`)))
       .catch(console.error);
     return;
   };

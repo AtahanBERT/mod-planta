@@ -6,7 +6,7 @@ const ayarlar = require("../ayarlar.json");
 exports.run = async(client, message, args) => {
   
    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:qmi2:809010861162233857> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
 }
   
     let yetkili = ayarlar.banyetkili;
@@ -18,12 +18,12 @@ exports.run = async(client, message, args) => {
     let basarisiz = ayarlar.basarisizemoji;
   
     if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
-    if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Banlamak için birisini etiketlemelisin!`)).then(x => x.delete({timeout: 3000}));
-    if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Banlamak için bir sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
-    if(user.id === message.author.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:qmi2:809010861162233857> Kendini banlayamazsın.')).then(x => x.delete({timeout: 3000}));
-    if(user.id === client.user.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:qmi2:809010861162233857> Botu banlayamazsın.')).then(x => x.delete({timeout: 3000}));
-    if(user.id === message.guild.ownerID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription ('<a:qmi2:809010861162233857> Sunucu sahibini banlayamazsın.')).then(x => x.delete({timeout: 3000}));
-    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Sahibimin üzerinde komut kullanamazsın!`));
+    if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Banlamak için birisini etiketlemelisin!`)).then(x => x.delete({timeout: 3000}));
+    if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Banlamak için bir sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
+    if(user.id === message.author.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Kendini banlayamazsın.')).then(x => x.delete({timeout: 3000}));
+    if(user.id === client.user.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Botu banlayamazsın.')).then(x => x.delete({timeout: 3000}));
+    if(user.id === message.guild.ownerID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription ('<a:plantacarp:815252488168931368> Sunucu sahibini banlayamazsın.')).then(x => x.delete({timeout: 3000}));
+    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
 
 
    message.guild.members.cache.get(user.id).ban({reason: `${sebep}`});

@@ -31,10 +31,10 @@ exports.run = function(client, message, args) {
    let tag = message.guild.members.cache.filter(m => m.user.username.includes("ま")).size;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Querencia İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('qmi Tarafından Yapılmıştır.')
-  .setDescription(`<a:qmi6:809042600862023700> **Sunucudaki Kullanıcı Sayısı** ${toplam}
- <a:qmi6:809042600862023700> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
-  <a:qmi6:809042600862023700> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
-  <a:qmi6:809042600862023700> **Sunucudaki Boost Sayısı** ${boost}`);
+  .setDescription(`**Sunucudaki Kullanıcı Sayısı** ${toplam}
+ **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
+  **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
+  **Sunucudaki Boost Sayısı** ${boost}`);
   message.channel.send(acebots).then(x => x.delete({timeout: 15000}));
 };
 
