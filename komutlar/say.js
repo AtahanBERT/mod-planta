@@ -30,12 +30,12 @@ exports.run = function(client, message, args) {
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
    let tag = message.guild.members.cache.filter(m => m.user.username.includes("ま")).size;
   
-  const acebots = new Discord.MessageEmbed().setAuthor('Querencia İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('qmi Tarafından Yapılmıştır.')
+  const acebots = new Discord.MessageEmbed().setAuthor('Planta Team İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Planta Team Tarafından Yapılmıştır.')
   .setDescription(`**Sunucudaki Kullanıcı Sayısı** ${toplam}
  **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
   **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
   **Sunucudaki Boost Sayısı** ${boost}`);
-  message.channel.send(acebots).then(x => x.delete({timeout: 15000}));
+  message.channel.send(acebots).then(x => x.delete({timeout: 25000}));
 };
 
 exports.conf = {
