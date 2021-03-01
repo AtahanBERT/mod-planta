@@ -45,12 +45,12 @@ exports.run = function (client, message, args) {
     const embed = new Discord.MessageEmbed()
 .setColor('GREEN')
 .addField('Profil', `
-<a:qmi6:809042600862023700> **Ad:** ${üye.username}\n
-**<a:qmi6:809042600862023700> ID: ** ${üye.id}\n
-<a:qmi6:809042600862023700> **Oynadığı Oyun: ** ${üye.presence.game ? üye.presence.game.name : 'Şu an oyun oynamıyor'}\n
-<a:qmi6:809042600862023700> **Durum** ${durm}\n
-**<a:qmi6:809042600862023700> Oluşturulduğu Tarih: ** ${(`${moment(üye.createdAt).format('DD')} ${aylar[moment(üye.createdAt).format('MM')]} ${moment(üye.createdAt).format('YYYY HH:mm:ss')}`)}\n
-<a:qmi6:809042600862023700>**Bot mu?** ${üye.bot ? 'Evet' : 'Hayır'}`)
+**Ad:** ${üye.username}\n
+**ID: ** ${üye.id}\n
+**Oynadığı Oyun: ** ${üye.presence.game ? üye.presence.game.name : 'Şu an oyun oynamıyor'}\n
+**Durum** ${durm}\n
+**Oluşturulduğu Tarih: ** ${(`${moment(üye.createdAt).format('DD')} ${aylar[moment(üye.createdAt).format('MM')]} ${moment(üye.createdAt).format('YYYY HH:mm:ss')}`)}\n
+**Bot mu?** ${üye.bot ? 'Evet' : 'Hayır'}`)
 .setThumbnail(üye.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
     message.channel.send(embed)
   } else {
@@ -58,12 +58,12 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username)
 .setColor('GREEN')
 .addField('Profil', `
-**<a:qmi6:809042600862023700> Ad:** ${message.author.username + '#' + message.author.discriminator}\n
-**<a:qmi6:809042600862023700> ID: ** ${message.author.id}\n
-**<a:qmi6:809042600862023700> Oynadığı Oyun: ** ${message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor'}\n
-**<a:qmi6:809042600862023700> Durum** ${durm}\n
-**<a:qmi6:809042600862023700> Oluşturulduğu Tarih: ** ${(`${moment(message.author.createdAt).format('DD')} ${aylar[moment(message.author.createdAt).format('MM')]} ${moment(message.author.createdAt).format('YYYY HH:mm:ss')}`)}\n
-**<a:qmi6:809042600862023700> Bot mu?** ${message.author.bot ? 'Evet' : 'Hayır'}`)
+**Ad:** ${message.author.username + '#' + message.author.discriminator}\n
+**ID: ** ${message.author.id}\n
+**Oynadığı Oyun: ** ${message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor'}\n
+**Durum** ${durm}\n
+**Oluşturulduğu Tarih: ** ${(`${moment(message.author.createdAt).format('DD')} ${aylar[moment(message.author.createdAt).format('MM')]} ${moment(message.author.createdAt).format('YYYY HH:mm:ss')}`)}\n
+**Bot mu?** ${message.author.bot ? 'Evet' : 'Hayır'}`)
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 message.channel.send(embed)
   

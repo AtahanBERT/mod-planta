@@ -29,7 +29,7 @@ exports.run = async (bot, message, args) => {
 
     if (!role) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Rol alabilmem için rolü belirtmelisiniz!`)).then(x => x.delete({timeout: 3000}));
     let aRole = message.mentions.roles.first();
-    if (!aRole) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Etiketlediğiniz rolü sunucuda bulamıyorum!`)).then(x => x.delete({timeout: 3000}));
+    if (!aRole) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Etiketlediğiniz rolü sunucuda bulamıyorum!`)).then(x => x.delete({timeout: 3000}));
 
     if (!rMember.roles.cache.has(aRole.id)) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Bu rolü bu kullanıcıda görüyorum!')).then(x => x.delete({timeout: 3000}));  
      await (rMember.roles.remove(aRole.id));
