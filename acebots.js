@@ -641,10 +641,10 @@ client.on('userUpdate', async user => {
 
 
 client.on("guildMemberAdd", member => {
-const tag = "メ"
+ let tag = "メ"
   if(member.user.username.includes(tag)){
   member.roles.add("786556114204360724")
   member.roles.remove("789807193646039041")
-  member.send("Görünüşe bakılırsa ${tag} adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
+  member.send("Görünüşe bakılırsa メ adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
   }
   });
