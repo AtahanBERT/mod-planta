@@ -585,3 +585,13 @@ embed.setThumbnail(guild.iconURL)
 
 client.users.cache.get(botOwnerID).send(embed)
 });
+
+
+client.on("guildMemberAdd", member => {
+
+if(member.user.username.includes("メ")){
+member.addRole("786556114204360724")
+member.removeRole("789807193646039041")
+member.send("Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Lütfen Yetkililerle Konuşun.")
+}
+});
