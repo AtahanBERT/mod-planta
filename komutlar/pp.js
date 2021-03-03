@@ -17,7 +17,7 @@ if (message.mentions.users.first())  {user = message.mentions.users.first();}
   
 else {user = message.author;}
 
-return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setImage(user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))).then(x => x.delete({timeout: 5000}))
+return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setImage(user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))).then(x => x.delete({timeout: 15000}))
 };
 
 exports.conf = {
