@@ -641,7 +641,7 @@ client.on('userUpdate', async user => {
 
 
 client.on("guildMemberAdd", member => {
- let tag = "メ"
+  let tag = "メ"
   if(member.user.username.includes(tag)){
   member.roles.add("786556114204360724")
   member.roles.remove("789807193646039041")
