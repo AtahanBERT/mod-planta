@@ -106,11 +106,11 @@ module.exports.run = async (client, message, args) => {
           )
           .setTimestamp()
           .setFooter("Planta Tarafından Yapılmıştır.");
-          message.channel.send("<@&817165046433841163>");
         return ch.send(csd).then(mr => {
           message.channel.send(
             "Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!"
           );
+        message.channel.send("<@&817165046433841163> Bu Kanala Bakmayı Unutma <#817105505684029481>");
         });
       } else {
         message.reply("Zaten Henüz Cevaplanmamış Bir Başvurun Var!");
