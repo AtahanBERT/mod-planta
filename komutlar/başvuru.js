@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 
-let sahip = ["429357746002067493","451677789939171339","448377317065097228","694566095369142312"];
+let sahip = ["429357746002067493","451677789939171339","448377317065097228","694566095369142312","776837094962102282","723190267389411409"];
 let rol = ["812394234001752075","812393738956701706"];
 let log = "817105505684029481";
 
@@ -106,6 +106,7 @@ module.exports.run = async (client, message, args) => {
           )
           .setTimestamp()
           .setFooter("Planta Tarafından Yapılmıştır.");
+          message.channel.send("<@&817165046433841163>");
         return ch.send(csd).then(mr => {
           message.channel.send(
             "Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!"
