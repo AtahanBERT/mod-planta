@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 
-let sahip = "812394099197739058";
+let sahip = ["429357746002067493","451677789939171339"];
 let rol = ["812394234001752075","812393738956701706"];
-let log = "BAŞVURU LOG ID YAZ";
+let log = "817105505684029481";
 
 module.exports.run = async (client, message, args) => {
   if (args[0] === "onayla") {
