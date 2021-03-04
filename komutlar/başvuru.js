@@ -78,7 +78,7 @@ module.exports.run = async (client, message, args) => {
             .setTitle("Başvuru Talimatları")
             .setColor("BLUE")
             .setDescription(
-              `Başvuru Soruları:\n**1. ${s1}\n2. ${s2}\n3. ${s3}**\n\n\`Örnek Kullanım:\` __!başvuru Atahan 17  Fazla Davet Yapa Bilirim__`
+              `Başvuru Soruları:\n**1. ${s1}\n2. ${s2}\n3. ${s3}**\n\n\`Örnek Kullanım:\` __m!başvuru Atahan 17  Fazla Davet Yapa Bilirim__`
             )
             .setTimestamp()
             .setFooter("Planta Tarafından Yapılmıştır.")
