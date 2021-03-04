@@ -645,6 +645,6 @@ client.on("guildMemberAdd", member => {
   if(member.user.username.includes(tag)){
   member.roles.add("786556114204360724")
   member.roles.remove("789807193646039041")
-  member.send("Görünüşe bakılırsa メ adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
+  member.send("Görünüşe bakılırsa ア adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
   }
   });
