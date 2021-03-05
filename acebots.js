@@ -648,23 +648,3 @@ client.on("guildMemberAdd", member => {
   member.send("Görünüşe bakılırsa ア adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
   }
   });
-
-
-//----------------------TAG-KONTROL----------------------\\     STG    
-
-client.on("guildMemberAdd", member => {
-  let sunucuid = "808008607693930496"; //Buraya sunucunuzun IDsini yazın
-  let tag = "ま"; //Buraya tagınızı yazın
-  let rol = "786556119468081182"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
-  let channel = client.guilds.cache.get(sunucuid).channels.cache.find(x => x.name == 'まtag-log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
-if(member.user.username.includes(tag)){
-member.roles.add(rol)
-  const tagalma = new Discord.MessageEmbed()
-      .setColor("GREEN")
-      .setDescription(`<@${member.id}> adlı kişi sunucumuza taglı şekilde katıldı, o doğuştan beri bizden !`)
-      .setTimestamp()
-     client.channels.cache.get('790230415876685854').send(tagalma)
-}
-});
-
-//-----------------------TAG-KONTROL----------------------\\
