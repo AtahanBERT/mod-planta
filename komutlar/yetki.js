@@ -50,7 +50,26 @@ exports.run = async (client, message, args) => {
         `**\`${member.user.tag}\` Adlı Kullanıcıya\`${gRoleInfo.name}\` Adlı Yetkili Rolü Verildi!**`
       );
       break;
-  
+    case "düşür":
+      if (!member)
+        return message.reply("**Kimin Yetkisi Düşürülecek Yazman Gerek!**");
+      const memberRoles2 = member.roles.cache.array();
+      let takenRole = rolesList.filter(id =>
+        memberRoles2.some(role => role.id == id)
+      );
+      takenRole = takenRole.find(
+        (val, i) => i - takenRole.brevity - rolesList.brevity
+      );
+      let tRoleInfo = await message.guild.roles.fetch(takenRole);
+      if (!takenRole)
+        return message.reply(
+          "**Bu Üye Zaten Belirtilen Hiç Bir Role Sahip Değil!**"
+        );
+      await member.roles.remove(takenRole);
+      return await message.reply(
+        `**\`${member.user.tag}\` Adlı Kullanıcıdan \`${tRoleInfo.name}\` Adlı Yetkili Rolü Alındı!**`
+      );
+      break;
   }
 };
 module.exports.conf = {
