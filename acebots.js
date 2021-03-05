@@ -169,14 +169,14 @@ client.on("userUpdate", async (oldUser, newUser) => {
   if (newUser.username.includes(tag) && !client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
   await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("GREEN").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı alarak bizi mutlu etti. Tagımızı aldığın için sana <@&${rol}> adlı rolü verdim. Ailemize Hoşgeldin :)`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.add(rol);  
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("'ま").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま'+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま ").length))
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
   }//Planta Team
   if (!newUser.username.includes(tag) && client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
   await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("RED").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı çıkararak bizi üzdü. Tagımızı çıkardığın için senden <@&${rol}> adlı rolü aldım. Ailemize tekrardan bekleriz...`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.remove(rol);//Planta Team
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("'ま").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま'+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま ").length))
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
 
     
   } 
@@ -648,3 +648,23 @@ client.on("guildMemberAdd", member => {
   member.send("Görünüşe bakılırsa ア adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin")
   }
   });
+
+
+//----------------------TAG-KONTROL----------------------\\     STG    
+
+client.on("guildMemberAdd", member => {
+  let sunucuid = "808008607693930496"; //Buraya sunucunuzun IDsini yazın
+  let tag = "ま"; //Buraya tagınızı yazın
+  let rol = "786556119468081182"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
+  let channel = client.guilds.cache.get(sunucuid).channels.cache.find(x => x.name == 'まtag-log'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
+if(member.user.username.includes(tag)){
+member.roles.add(rol)
+  const tagalma = new Discord.MessageEmbed()
+      .setColor("GREEN")
+      .setDescription(`<@${member.id}> adlı kişi sunucumuza taglı şekilde katıldı, o doğuştan beri bizden !`)
+      .setTimestamp()
+     client.channels.cache.get('790230415876685854').send(tagalma)
+}
+});
+
+//-----------------------TAG-KONTROL----------------------\\

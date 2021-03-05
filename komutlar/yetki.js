@@ -58,7 +58,7 @@ exports.run = async (client, message, args) => {
         memberRoles2.some(role => role.id == id)
       );
       takenRole = takenRole.find(
-        (val, i) => i - takenRole.brevity - rolesList.brevity
+        (val, i) => i - takenRole.length - rolesList.length
       );
       let tRoleInfo = await message.guild.roles.fetch(takenRole);
       if (!takenRole)
