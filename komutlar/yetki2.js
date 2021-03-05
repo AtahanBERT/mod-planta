@@ -28,29 +28,28 @@ exports.run = async (client, message, args) => {
     "812393807239839814",
     "812394003093782548",
   ];
-
-  switch (args[0]) {
-    case "yükselt":
+  
+   switch (args[0]) {
+       case "düşür":
       if (!member)
-        return message.reply("**Kimin Yetkisi Yükseltilecek Yazman Gerek!**");
-      const memberRoles = member.roles.cache.array();
-      let givenRole = rolesList.filter(
-        id => !memberRoles.some(role => role.id == id)
+        return message.reply("**Kimin Yetkisi Düşürülecek Yazman Gerek!**");
+      const memberRoles2 = member.roles.cache.array();
+      let takenRole = rolesList.filter(id =>
+        memberRoles2.some(role => role.id == id)
       );
-      givenRole = givenRole.find(
-        (val, i) => rolesList.length - givenRole.length - i
+      takenRole = takenRole.find(
+        (val, i) => i - takenRole.length - rolesList.length
       );
-      let gRoleInfo = await message.guild.roles.fetch(givenRole);
-      if (!givenRole)
+      let tRoleInfo = await message.guild.roles.fetch(takenRole);
+      if (!takenRole)
         return message.reply(
-          "**Bu Üye Zaten Belirtilen En Yüksek Role Sahip!**"
+          "**Bu Üye Zaten Belirtilen Hiç Bir Role Sahip Değil!**"
         );
-      await member.roles.add(givenRole);
+      await member.roles.remove(takenRole);
       return await message.reply(
-        `**\`${member.user.tag}\` Adlı Kullanıcıya\`${gRoleInfo.name}\` Adlı Yetkili Rolü Verildi!**`
+        `**\`${member.user.tag}\` Adlı Kullanıcıdan \`${tRoleInfo.name}\` Adlı Yetkili Rolü Alındı!**`
       );
       break;
-  
   }
 };
 module.exports.conf = {
