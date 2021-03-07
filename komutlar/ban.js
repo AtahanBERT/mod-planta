@@ -17,7 +17,7 @@ exports.run = async(client, message, args) => {
     let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
   
-    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("")) return message.react(basarisiz);
+    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
     if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Banlamak için birisini etiketlemelisin!`)).then(x => x.delete({timeout: 3000}));
     if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Banlamak için bir sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
     if(user.id === message.author.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Kendini banlayamazsın.')).then(x => x.delete({timeout: 3000}));
@@ -45,5 +45,5 @@ exports.conf = {
 };
 
 exports.help = {
-	name: "ban"
+	name: ""
 }
