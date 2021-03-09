@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
     return message.reply("**Yetersiz ❌ Yetkin Yok!**");
   if (!args.slice(0).join(" "))
     return await message.reply(
-      `**❌ Hatalı Kullanım\nDoğru Kullanım: \`!yetki yükselt/düşür @ÜYE\`**`
+      `**❌ Hatalı Kullanım\nDoğru Kullanım: \`m!yetki yükselt/düşür @ÜYE\`**`
     );
   const member = message.mentions.members.first();
 
