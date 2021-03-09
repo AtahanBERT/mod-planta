@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 }
  
     let yetkili = ayarlar.kayıtyetkili;
-    let cezalı = ayarlar.kayıtsız;
+    let unregister = ayarlar.kayıtsız;
     let kullanıcı = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     let member = message.guild.member(kullanıcı);
     let basarili = ayarlar.basariliemoji;
@@ -24,7 +24,8 @@ exports.run = async (client, message, args) => {
    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
 
 member.roles.cache.forEach(r => {
-member.roles.add(cezalı);
+member.roles.add(unregister);
+member.cache.get(kullanıcı).setNickname(`${tag} ${isim} ${yaş}`);
 member.roles.remove(r.id);
 });
   

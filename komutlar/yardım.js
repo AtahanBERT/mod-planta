@@ -44,7 +44,7 @@ const ace = new Discord.MessageEmbed()
   const acee = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   .setFooter('Planta Team Tarafından Yapılmıştır.')
-.setAuthor(`Orenda Kayıt Botu Yardım Menüsü`)
+.setAuthor(`Planta Kayıt Botu Yardım Menüsü`)
 .setDescription(`
 > **\`${prefix}erkek -> .e @üye\`** 
 > **\`${prefix}kız -> .k @üye\`** 
