@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     let member = message.guild.member(kullanıcı);
     let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
-
+    let tag = ayarlar.tag
 
 
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
 
 member.roles.cache.forEach(r => {
 member.roles.add(unregister);
-member.cache.get(kullanıcı).setNickname(`${tag} ${isim} ${yaş}`);
+member.setNickname(`${tag}| -İsim Yaş-`);
 member.roles.remove(r.id);
 });
   
