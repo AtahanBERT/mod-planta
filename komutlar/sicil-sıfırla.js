@@ -20,8 +20,7 @@ message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${m
   
 if(member) {
 let sicil = kdb.delete(`kullanici.${member.id}.sicil`) || [];
-message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${member} Kullanıcısına Ait Sicil Verilerini Sildim!`))
-
+message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${member} Kullanıcısına Ait Sicil Verilerini Sildim!`).setFooter(`ま PŁΛЛTΛ TΞΛM`))
 };
   
 }
@@ -30,7 +29,7 @@ message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${m
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["sicil-sıfırla"],
+  aliases: ["sicil-sifirla"],
   PermLevel: 0
 };
 
@@ -39,5 +38,5 @@ exports.conf = {
 exports.help = {
   name: "sicil-sıfırla",
   description: "",
-  usage: ""
+  usage: "sicil-sıfırla"
 };

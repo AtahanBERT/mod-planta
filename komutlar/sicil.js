@@ -25,7 +25,7 @@ message.channel.send(new MessageEmbed()
 .setColor("RED")
 .setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true}))
 .setDescription(`**<@!${uye.id}> İsimli Kullanıcının Sicili** \n\n ${sicilPanel}`)
-.setFooter(`Ramo`))
+.setFooter(`ま PŁΛЛTΛ TΞΛM`))
 };
 
 module.exports.conf = {
