@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const ayarlar = require("../ayarlar.json");
 const db = require('quick.db');
+const jdb = new db.table("cezalar");
+const kdb = new db.table("kullanici");
+const moment = require('moment')
 
 
 exports.run = async (client, message, args) => {
@@ -28,6 +31,23 @@ exports.run = async (client, message, args) => {
    if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Jaile atmak için sebep belirtmelisin!")).then(x => x.delete({timeout: 3000}));
    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
 
+
+   let muteler = jdb.get(`tempmute`) || [];
+                if (!muteler.some(j => j.id == kullanıcı.id)) {
+                  kdb.add(`kullanici.${message.author.id}.mute`, 1);
+                    db.add('case', 1)
+                    const numara = await db.fetch('case')
+                    moment.locale("tr");
+                  kdb.push(`kullanici.${kullanici.id}.sicil`, {
+                    Yetkili: message.author.id,
+                    Sebep: sebep,
+                    Ceza: "JAIL",
+                    Süre: vakit,
+                    cezano: numara,
+                    Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+                  });
+                };
+  
 member.roles.cache.forEach(r => {
 member.roles.add(cezalı);
 member.roles.remove(r.id);
