@@ -13,6 +13,7 @@ exports.run = async (client, message, args) => {
 }
     
     let basarili = ayarlar.basariliemoji;
+    let sebep = args[2];
     let basarisiz = ayarlar.basarisizemoji;
     let yetkili = ayarlar.jailyetkili;
     let jaillogkanal = ayarlar.jaillog;
@@ -31,14 +32,25 @@ exports.run = async (client, message, args) => {
    if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Jaile atmak için sebep belirtmelisin!")).then(x => x.delete({timeout: 3000}));
    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
 
-
+let zaman1 = args[1]
+.replace("sn", "s")
+.replace("dk", "m")
+.replace("sa", "h")
+.replace("gün", "d");
+  
+var vakit = zaman1
+.replace("m", " dakika")
+.replace("s", " saniye")
+.replace("h", " saat")
+.replace("d", " d");  
+  
    let muteler = jdb.get(`tempmute`) || [];
                 if (!muteler.some(j => j.id == kullanıcı.id)) {
                   kdb.add(`kullanici.${message.author.id}.mute`, 1);
                     db.add('case', 1)
                     const numara = await db.fetch('case')
                     moment.locale("tr");
-                  kdb.push(`kullanici.${kullanici.id}.sicil`, {
+                  kdb.push(`kullanıcı.${kullanıcı.id}.sicil`, {
                     Yetkili: message.author.id,
                     Sebep: sebep,
                     Ceza: "JAIL",
