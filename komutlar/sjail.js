@@ -20,7 +20,7 @@ const jaillog = message.guild.channels.cache.find(c => c.id === '815248987556413
 //-------------------------------------------------------------------------------\\
 
 
-let basari = ayarlar.basariliemoji
+let basarisiz = ayarlar.basarisizemoji
 let basarisiz = ayarlar.basarisizemoji
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 let zaman = args[1]

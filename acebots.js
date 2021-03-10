@@ -330,9 +330,9 @@ const antiSpam = new AntiSpam({
 	// And many more options... See the documentation.
 });
 
-client.on('ready', () => console.log(`Logged in as ${client.user.tag}.`));
+client.off('ready', () => console.log(`Logged in as ${client.user.tag}.`));
 
-client.on('message', (message) => antiSpam.message(message));
+client.off('message', (message) => antiSpam.message(message));
 
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
