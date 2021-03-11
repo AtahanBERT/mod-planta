@@ -7,7 +7,7 @@ const sonuc = message.guild.members.cache.filter(mr => mr.user.username.includes
 message.reply("Belirtilen Taga Sahip Bu Sunucuda `"+sonuc+"` Kişi Var!")
 }
 module.exports.conf = {
-aliases: ['tag-i']
+aliases: []
 }
 
 module.exports.help = {

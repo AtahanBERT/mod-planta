@@ -1,4 +1,5 @@
-const Discord = require("discord.js");const db = require('quick.db');
+const Discord = require("discord.js");
+const db = require('quick.db');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, emoji, args) => {
@@ -26,7 +27,7 @@ if (!voiceChannel) return;
   
 let log = new Discord.MessageEmbed()
 .setColor("#7289D")
-.setAuthor(kullanıcı.displayName, kullanıcı.user.avatarURL({dynamic: true, size: 2048}))
+.setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
 .setDescription(`${kullanıcı}, ${message.author} \`${message.member.voice.channel.name}\` Odasına Çekmek İstiyor. Kabul ediyormusun ?`)
   
 let mesaj = await message.channel.send(log)

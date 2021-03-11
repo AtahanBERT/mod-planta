@@ -1,14 +1,18 @@
 const { MessageEmbed } = require('discord.js');
-const config = require("../ayarlar.json")
+const db = require('quick.db');
+const ayarlar = require('../ayarlar.json');
 
-exports.run = async(client, message, args) => {
+exports.run = async (client, message, emoji, args) => {
   
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+}
 if(!["812394203338375230"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
 return message.channel.send(new MessageEmbed().setDescription(`${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
   
-let basarisiz = config.basarisizemoji
-let basari = config.basariliemoji
+let basarisiz = ayarlar.basarisizemoji
+let basari = ayarlar.basariliemoji
 const kanal = message.member.voiceChannel
 const member = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 if(!member) return;
