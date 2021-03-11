@@ -1,7 +1,12 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js");const db = require('quick.db');
+const ayarlar = require('../ayarlar.json');
 
-exports.run = async (client, message, args) => {
-
+exports.run = async (client, message, emoji, args) => {
+  
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+}
+  
 if (!message.member.voice.channel) {
 return message.reply("Ses kanalında olman lazım!");
 }
@@ -21,6 +26,7 @@ if (!voiceChannel) return;
   
 let log = new Discord.MessageEmbed()
 .setColor("#7289D")
+.setAuthor(kullanıcı.displayName, kullanıcı.user.avatarURL({dynamic: true, size: 2048}))
 .setDescription(`${kullanıcı}, ${message.author} \`${message.member.voice.channel.name}\` Odasına Çekmek İstiyor. Kabul ediyormusun ?`)
   
 let mesaj = await message.channel.send(log)
