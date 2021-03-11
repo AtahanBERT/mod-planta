@@ -41,7 +41,7 @@ let isimler = stat.filter(x => x.user === member.id).map(x => `\`${number++}.\` 
 
 
   
-if(member.user.username.includes(tag)) {
+if(member.user.username.includes('ま')) {
     
 
 member.setNickname(`${tag} ${isim} ${yaş}`);
@@ -67,10 +67,10 @@ message.react(basarili)
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [""],
+    aliases: ["isim"],
     permLevel: 0
 };
 
 exports.help = {
-    name: ""
+    name: "isim"
 }
