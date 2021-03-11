@@ -20,9 +20,9 @@ exports.run = async (client, message, emoji, args) => {
   
   if (!uye) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Ses odasına gidilecek üyeyi belirtmelisin!")).then(x => x.delete({timeout: 5000}));
   if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> İkiniz veya ikinizden birisi ses kanalında değil!")).then(x => x.delete({timeout: 5000}));
-  if (message.member.roles.cache.get('791766967219519538')) {
+ {
       await message.member.voice.setChannel(uye.voice.channelID);
-  } else {
+  }  {
     const reactionFilter = (reaction, user) => {
       return ['✅'].includes(reaction.emoji.name) && user.id === uye.id;
     };
