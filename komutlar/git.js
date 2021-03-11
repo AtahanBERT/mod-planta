@@ -24,20 +24,27 @@ exports.run = async (client, message, emoji, args) => {
       await message.member.voice.setChannel(uye.voice.channelID);
   } else {
     const reactionFilter = (reaction, user) => {
-      return ['✅'].includes(reaction.emoji.name) && user.id === uye.id;
+      return ['✅','❌'].includes(reaction.emoji.name) && user.id === uye.id;
     };
     message.channel.send({embed: new Discord.MessageEmbed().setColor('BLUE').setAuthor(uye.displayName, uye.user.avatarURL({dynamic: true, size: 2048})).setDescription(`${message.author} senin ses kanalına girmek için izin istiyor! Onaylıyor musun?`)}).then(async msj => {
       await msj.react('✅');
+      await msj.react('❌');
       msj.awaitReactions(reactionFilter, {max: 1, time: 15000, error: ['time']}).then(c => {
 	let cevap = c.first();
 	if (cevap) {
 	  message.member.voice.setChannel(uye.voice.channelID);
           msj.delete();
-	};
-      });
-    });
+    let striga = new Discord.MessageEmbed()
+.setColor("0x800d0d")
+.setDescription(`${uye} Odaya Çekilme Teklifini Reddetti`)
+message.channel.send(striga)
+}
+})
+}
+	
+      );
+    };
   };
-};
 exports.conf = {
   enabled: true,
   guildOnly: true,
