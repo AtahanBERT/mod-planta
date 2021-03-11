@@ -189,7 +189,7 @@ console.log(`Bir hata oluştu! ${e}`)
 
 
 
-client.on("guildMemberAdd", member => {
+client.off("guildMemberAdd", member => {
       let yetkili = ayarlar.kayıtyetkili
           let kayıtsohbet2 = ayarlar.kayıtsohbet //acebots 
 
