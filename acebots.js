@@ -648,3 +648,96 @@ client.on("guildMemberAdd", member => {
   member.send(`Görünüşe bakılırsa ${tag} adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin`)
   }
   });
+
+client.on("message" , async msg => {
+  
+  if(!msg.guild) return;
+  if(msg.content.startsWith(ayarlar.prefix+"afk")) return; 
+  
+  let afk = msg.mentions.users.first()
+  
+  const kisi = db.fetch(`afkid_${msg.author.id}_${msg.guild.id}`)
+  
+  const isim = db.fetch(`afkAd_${msg.author.id}_${msg.guild.id}`)
+ if(afk){
+   const sebep = db.fetch(`afkSebep_${afk.id}_${msg.guild.id}`)
+   const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
+   if(msg.content.includes(kisi3)){
+
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`<@` + msg.author.id + `> Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`))
+   }
+ }
+  if(msg.author.id === kisi){
+
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`<@${kisi}> Başarıyla Afk Modundan Çıktınız`))
+   db.delete(`afkSebep_${msg.author.id}_${msg.guild.id}`)
+   db.delete(`afkid_${msg.author.id}_${msg.guild.id}`)
+   db.delete(`afkAd_${msg.author.id}_${msg.guild.id}`)
+    msg.member.setNickname(isim)
+    
+  }
+  
+});
+
+
+client.on('guildMemberAdd', async member => {
+const data = require('quick.db')
+const asd = data.fetch(`${member.guild.id}.jail.${member.id}`)
+if(asd) {
+let data2 = await data.fetch(`jailrol_${member.guild.id}`)
+let rol = member.guild.roles.cache.get(data2)
+if(!rol) return;
+let kişi = member.guild.members.cache.get(member.id)
+kişi.roles.add(rol.id);
+kişi.roles.cache.forEach(r => {
+kişi.roles.remove(r.id)
+data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )})
+    data.set(`${member.guild.id}.jail.${kişi.id}`)
+  const wasted = new Discord.MessageEmbed()
+  .setAuthor(member.user.tag, member.user.avatarURL({ dynamic : true }))
+  .setColor(`#0x800d0d`)
+  .setDescription(`Dostum hadi ama !!! Jaildan Kaçamazsın ikimizde birbirimizi kandırmayalım...!`)
+  .setTimestamp()
+    member.send(wasted)
+} 
+  
+  
+});
+
+
+client.on('guildMemberAdd', async(member) => {
+let mute = member.guild.roles.cache.find(r => r.name === "MUTELİ ROLÜNÜN ADI NEYSE YAZ");
+let mutelimi = db.fetch(`muteli_${member.guild.id + member.id}`)
+let süre = db.fetch(`süre_${member.id + member.guild.id}`)
+if (!mutelimi) return;
+if (mutelimi == "muteli") {
+member.roles.add(ayarlar.MuteliRol)
+ 
+member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
+ setTimeout(function(){
+    //msg.channel.send(`<@${user.id}> Muten açıldı.`)
+db.delete(`muteli_${member.guild.id + member.id}`)
+    member.send(`<@${member.id}> Muten açıldı.`)
+    member.roles.remove('muteli rol id');
+  }, (süre));
+}
+});
+
+
+client.on('guildMemberAdd', async(member) => {
+let rol = member.guild.roles.cache.find(r => r.name === "CEZALI ROLÜNÜN ADI NEYSE YAZ");
+let cezalımı = db.fetch(`cezali_${member.guild.id + member.id}`)
+let sürejail = db.fetch(`süreJail_${member.id + member.guild.id}`)
+if (!cezalımı) return;
+if (cezalımı == "cezali") {
+member.roles.add(ayarlar.JailCezalıRol)
+ 
+member.send("Cezalıyken Sunucudan Çıktığın için Yeniden Cezalı Rolü Verildi!")
+ setTimeout(function(){
+    // msg.channel.send(`<@${user.id}> Muten açıldı.`)
+db.delete(`cezali_${member.guild.id + member.id}`)
+    member.send(`<@${member.id}> Cezan açıldı.`)
+    member.roles.remove('786556114204360724');
+  }, (sürejail));
+}
+})
