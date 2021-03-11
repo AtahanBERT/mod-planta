@@ -14,8 +14,8 @@ module.exports.run = async (client, message, args) => {
 if(!["812394187529125940"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
-const cezalırol = '786556114204360724'//Jail rolü
-const jaillog = message.guild.channels.cache.find(c => c.id === '815248987556413451')//Jail Log
+const cezalırol = ayarlar.cezalı//Jail rolü
+const jaillog = message.guild.channels.cache.find(c => c.id === ayarlar.jaillog)//Jail Log
 
 //-------------------------------------------------------------------------------\\
 

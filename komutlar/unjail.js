@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 const datab = require('quick.db')
 const moment = require('moment')
+const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
 
 //-------------------------------------------------------------------------------\\
@@ -8,21 +9,22 @@ exports.run = async (client, message, args) => {
 if(!["812394187529125940"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
 return message.channel.send(new MessageEmbed().setDescription(`${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
-const cezalırol = ''//Jail Rol 
-const jaillog = message.guild.channels.cache.find(c => c.id === '')//Jail Log
+const cezalırol = ayarlar.cezalı//Jail Rol 
+const jaillog = message.guild.channels.cache.find(c => c.id === ayarlar.jaillog)//Jail Log
 
 //-------------------------------------------------------------------------------\\
 
-
+let basari = ayarlar.basariliemoji
+let basarisiz = ayarlar.basarisizemoji
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 let sebep = args[1]
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(!sebep) return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Etiketlenen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-if(!kullanici.bannable)return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Etiketlenen kullanıcıya komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-if(kullanici.id === message.author.id)return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Kendine komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-if(kullanici.id === client.user.id)return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bir botu komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-if(kullanici.id === message.guild.OwnerID) return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Sunucu sahibinine komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(!kullanici.bannable)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Etiketlenen kullanıcıya komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(kullanici.id === message.author.id)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Kendine komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(kullanici.id === client.user.id)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir bot üzerinde bu komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(kullanici.id === message.guild.OwnerID) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Sunucu sahibimin üzerinde komutu kullanamazsın.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 let zaman1 = args[1]
 .replace("sn", "s")
@@ -57,7 +59,7 @@ let aylar = tumaylar;
 
 moment.locale("tr");
 jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezası Bitirildi !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
-message.react('✅')
+message.react(basari)
 
 kullanici.roles.remove(cezalırol)
 message.guild.roles.cache.forEach(async r => {
@@ -71,7 +73,7 @@ if(roller){kullanici.roles.add(roller)}
   exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['unjail', 'ceza-kaldır'],
+    aliases: ['unjail','ceza-kaldır'],
     permLevel: 0,
 }
 
