@@ -711,7 +711,7 @@ let mutelimi = db.fetch(`muteli_${member.guild.id + member.id}`)
 let süre = db.fetch(`süre_${member.id + member.guild.id}`)
 if (!mutelimi) return;
 if (mutelimi == "muteli") {
-member.roles.add(ayarlar.MuteliRol)
+member.roles.add(ayarlar.susturulmuş)
  
 member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
  setTimeout(function(){
@@ -729,7 +729,7 @@ let cezalımı = db.fetch(`cezali_${member.guild.id + member.id}`)
 let sürejail = db.fetch(`süreJail_${member.id + member.guild.id}`)
 if (!cezalımı) return;
 if (cezalımı == "cezali") {
-member.roles.add(ayarlar.JailCezalıRol)
+member.roles.add(ayarlar.cezalı)
  
 member.send("Cezalıyken Sunucudan Çıktığın için Yeniden Cezalı Rolü Verildi!")
  setTimeout(function(){

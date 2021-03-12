@@ -48,7 +48,7 @@ exports.conf = {
 
   enabled: true,
   guildOnly: true,
-  aliases: ["vmute"],
+  aliases: ["smute"],
   permLevel: 0
 };
 

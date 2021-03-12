@@ -11,22 +11,22 @@ module.exports.run = async (client, message, args) => {
 if(!["812394203338375230"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
 return message.channel.send(new MessageEmbed().setDescription(`${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
  
-const mutelog = message.guild.channels.cache.find(c => c.id === '')//Mute log
-const muterol = message.guild.roles.cache.find(r => r.id === '')//Muteli rolü
+const mutelog = message.guild.channels.cache.find(c => c.id === ayarlar.mutelog)//Mute log
+const muterol = message.guild.roles.cache.find(r => r.id === ayarlar.susturulmuş)//Muteli rolü
 
 //-------------------------------------------------------------------------------\\
 
 let basari = ayarlar.basariliemoji
 let basarisiz = ayarlar.basarisizemoji
 let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-if (!member) return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${message.author}, lütfen bir kullanıcı etiketle !`))
+if (!member) return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, lütfen bir kullanıcı etiketle !`))
   
 let mute = message.mentions.members.first() || message.guild.members.cache.find(r => r.id === args[0]);
-if (!mute) { new MessageEmbed().setColor('0x800d0d').setDescription(`${message.author}, lütfen mute atmam gereken kullanıcı belirt !`);
+if (!mute) { new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, lütfen mute atmam gereken kullanıcı belirt !`);
 } else {
 if (mute.roles.highest.position >= message.member.roles.highest.position) 
 {
-        return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`));
+        return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`));
 } else {
 let sebep = args[1]
 if(!sebep) return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`))  
@@ -67,14 +67,14 @@ new MessageEmbed()
 .setColor('009caf')
 .setDescription(`
 <@${member.id}> (\`${member.id}\`) Metin Kanallarına Yazılış Engeli Kaldırıldı.
-Yetkili: <@${message.author.id}> (\`${message.author.id}\`)
+Yetkili: <@${message.author.id}> (\`${basarisiz} ${message.author.id}\`)
 **Süre:** \`${vakit}\`
 **Sebep:** \`${sebep}\`
 **Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\`)
 
 `))
 mute.roles.remove(muterol)
-message.react('✅')
+message.react(basari)
 } 
 
 
