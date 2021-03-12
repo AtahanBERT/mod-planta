@@ -80,7 +80,7 @@ Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`)
 data.set(`muteli_${member.guild.id + member.id}`, 'muteli')
 data.set(`süre_${member.id + member.guild.id}`, zamandilimi)
                  
-message.react('✅')          
+message.react(basari)          
 message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp().setDescription(`${basari} ${message.author} tarafından ${member} **${sebep}** sebebiyle **${zamandilimi} boyunca** mute atıldı`));
 mutelog.send(
 new MessageEmbed()

@@ -37,7 +37,7 @@ const embed1 = new Discord.MessageEmbed()
 .setDescription(` Başarılı bir şekilde ${kullanıcı} adlı \`erkek\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`)
 client.channels.cache.get(jaillogkanal).send(embed1);//Log Kanal İd
   
-   message.react(basarili);
+   message.react('✅');
 
   
 };

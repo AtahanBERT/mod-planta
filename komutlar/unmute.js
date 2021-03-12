@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 //-------------------------------------------------------------------------------\\
   
 if(!["812394203338375230"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
-return message.channel.send(new MessageEmbed().setDescription(`${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
  
 const mutelog = message.guild.channels.cache.find(c => c.id === ayarlar.mutelog)//Mute log
 const muterol = message.guild.roles.cache.find(r => r.id === ayarlar.susturulmuş)//Muteli rolü
@@ -74,7 +74,7 @@ Yetkili: <@${message.author.id}> (\`${message.author.id}\`)
 
 `))
 mute.roles.remove(muterol)
-message.react(basari)
+message.react('✅')
 } 
 
 

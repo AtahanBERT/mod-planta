@@ -40,7 +40,7 @@ const embed1 = new Discord.MessageEmbed().setColor('GREEN')
 client.channels.cache.get(jaillogkanal).send(embed1);//Log Kanal İd
   
   
- message.react(basarili);
+ message.react('✅');
 
   
   

@@ -57,7 +57,7 @@ kullanici.voice.setMute(false);
   exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["vmute", "sesli-sustur-kaldır"],
+  aliases: ["unsmute", "sesli-sustur-kaldır"],
   permLevel: 0,
 }
 

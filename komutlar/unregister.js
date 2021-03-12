@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
    if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('<a:plantacarp:815252488168931368> Kayıtsıza atabilmek için bir kullanıcı belirtmelisin!')).then(x => x.delete({timeout: 3000}));
-   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:qmi2:809010861162233857> Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
+   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
 
 member.roles.cache.forEach(r => {
@@ -30,7 +30,7 @@ member.roles.remove(r.id);
 });
   
 
-return message.react(basarili)
+return message.react('✅')
   
 };
 

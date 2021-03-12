@@ -34,7 +34,7 @@ const embed1 = new Discord.MessageEmbed()
 .setDescription(`${basarili} ${kullanıcı} adlı kullanıcı <@${message.author.id}> tarafından susturulması kaldırıldı.`) 
 client.channels.cache.get(mutelogkanal).send(embed1);//KANAL İD
   
- message.react(basarili);
+ message.react('✅');
 
   
 }

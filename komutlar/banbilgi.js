@@ -22,7 +22,7 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['ban-info', 'ban-geçmişi'],
+  aliases: ['ban-info','ban-geçmişi'],
   permLevel: 0
 };
 

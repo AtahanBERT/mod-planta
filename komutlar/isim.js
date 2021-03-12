@@ -62,7 +62,7 @@ message.channel.send(embed).then(message => message.delete({timeout: 4000}));;
   
 
 };
-message.react(basarili)
+message.react('✅')
 };
 exports.conf = {
     enabled: true,

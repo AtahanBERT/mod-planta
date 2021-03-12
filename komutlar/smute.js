@@ -33,7 +33,7 @@ exports.run = async (client ,message, args) =>{
   
 
   
- message.react(basarili)
+ message.react('✅')
   db.add(`mutesayısı_${message.author.id}`, 1);
 
 
