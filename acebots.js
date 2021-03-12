@@ -169,14 +169,14 @@ client.on("userUpdate", async (oldUser, newUser) => {
   if (newUser.username.includes(tag) && !client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
   await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("GREEN").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı alarak bizi mutlu etti. Tagımızı aldığın için sana <@&${rol}> adlı rolü verdim. Ailemize Hoşgeldin :)`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.add(rol);  
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま ").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま").length))
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま'+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
   }//Planta Team
   if (!newUser.username.includes(tag) && client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
   await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("RED").setDescription(` ${newUser} adlı kullanıcı (\`${tag}\`) tagımızı çıkararak bizi üzdü. Tagımızı çıkardığın için senden <@&${rol}> adlı rolü aldım. Ailemize tekrardan bekleriz...`));
   await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.remove(rol);//Planta Team
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま ").length))
-  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま '+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice(("ま").length))
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).setNickname('ま'+client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
 
     
   } 
@@ -715,7 +715,6 @@ member.roles.add(ayarlar.MuteliRol)
  
 member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
  setTimeout(function(){
-    //msg.channel.send(`<@${user.id}> Muten açıldı.`)
 db.delete(`muteli_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Muten açıldı.`)
     member.roles.remove('815258071898128394');
@@ -734,7 +733,6 @@ member.roles.add(ayarlar.JailCezalıRol)
  
 member.send("Cezalıyken Sunucudan Çıktığın için Yeniden Cezalı Rolü Verildi!")
  setTimeout(function(){
-    // msg.channel.send(`<@${user.id}> Muten açıldı.`)
 db.delete(`cezali_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Cezan açıldı.`)
     member.roles.remove('786556114204360724');
