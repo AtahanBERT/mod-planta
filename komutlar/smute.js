@@ -28,7 +28,7 @@ exports.run = async (client ,message, args) =>{
     if (!mutezaman) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Lütfen bir zaman giriniz! \n 1 Saniye = 1s \n 1 Dakika = 1m \n 1 Saat = 1h \n 1 Gün = 1d`));
     if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Sesde Susturmak için sebep belirtmelisin!")).then(x => x.delete({timeout: 3000}));
     await mutekisi.voice.setMute(true, sebep);
-    const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${mutekisi} adlı kullanıcı, ${message.author.tag} tarafından \`${sebep === "" ? "Sebep belirtilmemiş." : sebep}\` sebebi ile \`${args[1]}\` süresi boyunca susturuldu!`)
+    const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`${basarili} Başarılı bir şekilde ${mutekisi} adlı kullanıcı, ${message.author.tag} tarafından \`${sebep === "" ? "Sebep belirtilmemiş." : sebep}\` sebebi ile \`${args[1]}\` süresi boyunca susturuldu!`)
     client.channels.cache.get(mutelogkanal).send(logkanal)
   
 
@@ -39,7 +39,7 @@ exports.run = async (client ,message, args) =>{
 
   setTimeout(function() {
 mutekisi.voice.setMute(false, sebep)
-    message.channel.send(new Discord.MessageEmbed().setColor('#bae800').setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
+    message.channel.send(new Discord.MessageEmbed().setColor('#bae800').setDescription(`${basarisiz} <@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
 );
   }, ms(mutezaman));
 };
