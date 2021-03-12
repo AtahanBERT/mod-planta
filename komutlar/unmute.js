@@ -59,7 +59,7 @@ let tumaylar = {
 }
 let aylar = tumaylar; 
        {
-message.react('✅')
+message.react(basari)
 message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp().setDescription(`${basari} ${message.author} tarafından ${member} **${sebep}** sebebiyle mute kaldırıldı`));
 mutelog.send(
 new MessageEmbed()
@@ -67,7 +67,7 @@ new MessageEmbed()
 .setColor('009caf')
 .setDescription(`
 <@${member.id}> (\`${member.id}\`) Metin Kanallarına Yazılış Engeli Kaldırıldı.
-Yetkili: <@${message.author.id}> (\`${basarisiz} ${message.author.id}\`)
+Yetkili: <@${message.author.id}> (\`${message.author.id}\`)
 **Süre:** \`${vakit}\`
 **Sebep:** \`${sebep}\`
 **Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\`)
