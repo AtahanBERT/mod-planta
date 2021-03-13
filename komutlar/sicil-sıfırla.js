@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const data = require('quick.db');
 const kdb = new data.table("kullanici");
+const ayarlar = require('../ayarlar.json');
 exports.run = async (client, message, args) => {
   
 //-------------------------------------------------------------------------------\\
@@ -9,18 +10,19 @@ return message.channel.send(new MessageEmbed().setDescription(`${message.author}
   
 //-------------------------------------------------------------------------------\\
   
-  
+let basari = ayarlar.basariliemoji
+let basarisiz = ayarlar.basarisizemoji
 let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-if(!member) return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(!member) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 if (!member) {
 let sicil = kdb.delete(`kullanici.${member.id}.sicil`) || [];
-message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${message.author} Sana Ait Sicil Verilerini Sildim!`))
+message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${message.author} Sana Ait Sicil Verilerini Sildim!`))
 }
   
 if(member) {
 let sicil = kdb.delete(`kullanici.${member.id}.sicil`) || [];
-message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${member} Kullanıcısına Ait Sicil Verilerini Sildim!`).setFooter(`ま PŁΛЛTΛ TΞΛM`))
+message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${member} Kullanıcısına Ait Sicil Verilerini Sildim!`).setFooter(`ま PŁΛЛTΛ TΞΛM`))
 };
   
 }

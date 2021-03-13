@@ -9,7 +9,7 @@ const db = require("quick.db")
 exports.run = function(client, message, args) {
   
    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
   
       let kanal = ayarlar.botkomut;
@@ -28,7 +28,7 @@ exports.run = function(client, message, args) {
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
-   let tag = message.guild.members.cache.filter(m => m.user.username.includes("ま")).size;
+   let tag = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Planta Team İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Planta Team Tarafından Yapılmıştır.')
   .setDescription(`**Sunucudaki Kullanıcı Sayısı** ${toplam}

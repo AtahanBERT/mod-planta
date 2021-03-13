@@ -9,14 +9,14 @@ var prefix = ayarlar.prefix;
 exports.run = async (bot, message, args) => {
  
    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
   
   
      let kanal = ayarlar.botkomut;
      let basarili = ayarlar.basariliemoji;
      let basarisiz = ayarlar.basarisizemoji;
-        let yetkili = ayarlar.logger;
+     let yetkili = ayarlar.logger;
 
   if(message.channel.id !== kanal) return message.react(basarisiz);
 
@@ -25,14 +25,14 @@ exports.run = async (bot, message, args) => {
 
   
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
-    if (!rMember) return message.channel.send(new Discord.MessageEmbed().setDescription(`<a:plantacarp:815252488168931368> Rol vermem için bir kişiyi etiketlemelisin!`)).then(x => x.delete({timeout: 3000}));
+    if (!rMember) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol vermem için bir kişiyi etiketlemelisin!`)).then(x => x.delete({timeout: 3000}));
     let role = message.mentions.roles.first()
 
-    if (!role) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Rol verebilmem için rolü belirtmelisiniz!`)).then(x => x.delete({timeout: 3000}));
+    if (!role) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Rol verebilmem için rolü belirtmelisiniz!`)).then(x => x.delete({timeout: 3000}));
     let aRole = message.mentions.roles.first()
-    if (!aRole) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Etiketlediğiniz rolü sunucuda bulamıyorum!`)).then(x => x.delete({timeout: 3000}));
+    if (!aRole) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Etiketlediğiniz rolü sunucuda bulamıyorum!`)).then(x => x.delete({timeout: 3000}));
 
-    if (rMember.roles.cache.has(aRole.id)) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Bu rolü bu kullanıcıda görüyorum!')).then(x => x.delete({timeout: 3000}));
+    if (rMember.roles.cache.has(aRole.id)) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Bu rolü bu kullanıcıda görüyorum!`)).then(x => x.delete({timeout: 3000}));
     await (rMember.roles.add(aRole.id))
  message.react(basarili)
 

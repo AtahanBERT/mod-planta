@@ -7,12 +7,12 @@ const prefix = ayarlar.prefix
 exports.run = function (client, message, args) {
   
    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz}Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
   
   let basarisiz = ayarlar.basarisizemoji;
   let kanal = ayarlar.botkomut;
-        let yetkili = ayarlar.logger;
+  let yetkili = ayarlar.logger;
 
   if(message.channel.id !== kanal) return message.react(basarisiz)
 
