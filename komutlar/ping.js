@@ -21,6 +21,6 @@ exports.conf = {
 
 exports.help = {
   name: 'ping',
-  description: 'Ping(Bunuda Almayında)',
+  description: 'Ping',
   usage: 'ping'
 };

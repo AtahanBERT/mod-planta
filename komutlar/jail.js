@@ -9,7 +9,7 @@ const moment = require('moment')
 exports.run = async (client, message, args) => {
   
      if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
     
     let basarili = ayarlar.basariliemoji;
@@ -27,10 +27,10 @@ exports.run = async (client, message, args) => {
 
 
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
-   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('<a:plantacarp:815252488168931368> Jaile atabilmek için bir kullanıcı belirtmelisin!')).then(x => x.delete({timeout: 3000}));
-   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
-   if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Jaile atmak için sebep belirtmelisin!")).then(x => x.delete({timeout: 3000}));
-   if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:plantacarp:815252488168931368> Sahibimin üzerinde komut kullanamazsın!`));
+   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Jaile atabilmek için bir kullanıcı belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
+   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
+   if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Jaile atmak için sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
+   if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`));
 
 let zaman1 = args[1]
 .replace("sn", "s")
@@ -66,7 +66,7 @@ member.roles.remove(r.id);
 });
   
 
-const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
+const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`${basarili} Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
     db.add(`jailsayısı_${message.author.id}`, 1); 
 
