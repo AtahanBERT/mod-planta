@@ -1,7 +1,10 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
+const ayarlar = require("../ayarlar.json");
+let basari = ayarlar.basariliemoji;
+let basarisiz = ayarlar.basarisizemoji;
 
-let sahip = ["429357746002067493","451677789939171339","448377317065097228","694566095369142312","776837094962102282","723190267389411409"];
+let sahip = ["429357746002067493","451677789939171339","448377317065097228","694566095369142312","776837094962102282","723190267389411409"];//Yetkili Üye ID
 let rol = ["812394234001752075","812393738956701706"];
 let log = "817105505684029481";
 
@@ -11,6 +14,7 @@ module.exports.run = async (client, message, args) => {
       return message.reply(
         "Bu Komutu Sadece Sistemde Yetkili Sahipler Kullana Bilir!"
       );
+    
     let mem;
     let meme = message.mentions.members.first();
     let memem = message.guild.members.cache.get(args[1]);
@@ -29,10 +33,10 @@ module.exports.run = async (client, message, args) => {
 
     mem.roles.add(rol);
     message.channel.send(
-      "Başarı ile Üyenin Başvurusu Onaylandı ve Rolü Verildi!"
+      "${basari} Başarı ile Üyenin Başvurusu Onaylandı ve Rolü Verildi!"
     );
     mem.send(
-      "Hey Tebrikler " +
+      `${basari} Hey Tebrikler ` +
         message.guild.name +
         " Sunucusunda Yetkili Olma Talebin Onaylandı!"
     );
@@ -41,7 +45,7 @@ module.exports.run = async (client, message, args) => {
     if (args[0] === "red") {
       if (!sahip.includes(message.author.id))
         return message.reply(
-          "Bu Komutu Sadece Sistemde Yetkili Sahipler Kullana Bilir!"
+          `${basarisiz} Bu Komutu Sadece Sistemde Yetkili Sahipler Kullana Bilir!`
         );
       let mem;
       let meme = message.mentions.members.first();
@@ -58,12 +62,12 @@ module.exports.run = async (client, message, args) => {
       let data = db.get(`basvuru.${mem.id}`);
       if (!data)
         return message.reply(
-          "Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!"
+          `${basarisiz} Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!`
         );
 
-      message.channel.send("Başarı ile Üyenin Başvurusu Reddedildi!");
+      message.channel.send(`${basari} Başarı ile Üyenin Başvurusu Reddedildi!`);
       mem.send(
-        "Hey Üzgünüm " +
+        `${basarisiz} Hey Üzgünüm ` +
           message.guild.name +
           " Sunucusunda Yetkili Olma Talebin Reddedildi!"
       );
@@ -108,12 +112,12 @@ module.exports.run = async (client, message, args) => {
           .setFooter("Planta Tarafından Yapılmıştır.");
         return ch.send(csd).then(mr => {
           message.channel.send(
-            "Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!"
+            `${basari} Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!`
           );
-        message.channel.send("<@&817165046433841163> Bu Kanala Bakmayı Unutma <#817105505684029481>");
+        message.channel.send(`<@&817165046433841163> Bu Kanala Bakmayı Unutma <#${log}>`);
         });
       } else {
-        message.reply("Zaten Henüz Cevaplanmamış Bir Başvurun Var!");
+        message.reply(`${basarisiz} Zaten Henüz Cevaplanmamış Bir Başvurun Var!`);
       }
     }
   }

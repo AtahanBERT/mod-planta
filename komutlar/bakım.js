@@ -9,13 +9,15 @@ exports.run = (client, message, args) => {
   
   if(!args[0]) return message.channel.send('Bakım modunu açmak için m!bakım aç')
   
+  let basari = ayarlar.basariliemoji
+  let basarisiz = ayarlar.basarisizemoji
   if(args[0] === 'aç') {
-    if(db.fetch(`bakim`)) return message.channel.send('Bakım modu zaten açık')
+    if(db.fetch(`bakim`)) return message.channel.send(`${basarisiz} Bakım modu zaten açık`)
     message.channel.send('Bakım modu açıldı.')
     db.set(`bakim`, 'acik')
   }
   if(args[0] === 'kapat'){
-    if(!db.fetch(`bakim`)) return message.channel.send('Bakım modu zaten kapalı.')
+    if(!db.fetch(`bakim`)) return message.channel.send(`${basarisiz} Bakım modu zaten kapalı.`)
     message.channel.send('Bakım modu kapatıldı.')
     db.delete(`bakim`)
   }

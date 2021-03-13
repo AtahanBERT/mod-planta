@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
-let basarili = ayarlar.basariliemoji
+let basarili = ayarlar.basariliemoji;
 exports.run = async (client, message, args) => {
   const kisi = db.fetch(`afkid_${message.author.id}_${message.guild.id}`);
   if (kisi) return;
