@@ -1,7 +1,7 @@
 const { ShardingManager } = require ('discord.js')
 const ayarlar = require ('./ayarlar.json')
 
-const shards = new ShardingManager ('./index.js', {
+const shards = new ShardingManager ('./bot.js', {
 
 token : process.env.token,
 

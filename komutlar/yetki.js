@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 
   //Lütfen Rol ID Lerini Alttan Yazmaya Başlayın
   //Ve En Düşük Yetkiden Başlayarak Gidin Yani En
-  //Üstte En Yüksek Yetki Gelecek Şekilde ID Leri Yazın!
+  //Üstte En Düşük Yetki Gelecek Şekilde ID Leri Yazın!
   //"ROL ID" AZALTA VEYA COGALTA BILIRSINIZ
   const rolesList = [
     "812393738956701706",
