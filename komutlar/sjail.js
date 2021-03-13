@@ -9,6 +9,10 @@ const prefix = ayarlar.prefix;
 
 module.exports.run = async (client, message, args) => {
 
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
+} 
+  
 //-------------------------------------------------------------------------------\\
   
 if(!["812394187529125940"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 

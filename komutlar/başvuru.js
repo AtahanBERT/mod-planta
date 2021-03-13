@@ -25,15 +25,15 @@ module.exports.run = async (client, message, args) => {
       mem = memem;
     }
     if (!mem) {
-      message.reply("Bir Kişiyi Etiketlemelisin veya Id Girmelisin!");
+      message.reply(`${basarisiz} Bir Kişiyi Etiketlemelisin veya Id Girmelisin!`);
     }
     let data = db.get(`basvuru.${mem.id}`);
     if (!data)
-      return message.reply("Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!");
+      return message.reply(`${basarisiz} Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!`);
 
     mem.roles.add(rol);
     message.channel.send(
-      "${basari} Başarı ile Üyenin Başvurusu Onaylandı ve Rolü Verildi!"
+      `${basari} Başarı ile Üyenin Başvurusu Onaylandı ve Rolü Verildi!`
     );
     mem.send(
       `${basari} Hey Tebrikler ` +
@@ -57,7 +57,7 @@ module.exports.run = async (client, message, args) => {
         mem = memem;
       }
       if (!mem) {
-        message.reply("Bir Kişiyi Etiketlemelisin veya Id Girmelisin!");
+        message.reply(`${basarisiz} Bir Kişiyi Etiketlemelisin veya Id Girmelisin!`);
       }
       let data = db.get(`basvuru.${mem.id}`);
       if (!data)

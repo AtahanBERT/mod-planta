@@ -7,6 +7,11 @@ const moment = require('moment');
 const ayarlar = require('../ayarlar.json')
 module.exports.run = async (client, message, args) => {
   
+  if(data.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
+}
+  
+  
 //-------------------------------------------------------------------------------\\
 
 if(!["812394203338375230"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 

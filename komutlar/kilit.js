@@ -1,9 +1,17 @@
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
+const db = require("quick.db");
 
 module.exports.run = async(client, message, args) => {
+  
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
+}
+  
+  
   if(!message.member.hasPermission("ADMINISTRATOR")) return 
   let basari = ayarlar.basariliemoji
+  let basarisiz = ayarlar.basarisizemoji
   let everyone = message.guild.roles.cache.find(a => a.name === "@everyone");
   let permObjesi = {};
   let everPermleri = message.channel.permissionOverwrites.get(everyone.id);
