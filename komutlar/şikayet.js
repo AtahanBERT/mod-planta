@@ -5,14 +5,16 @@ const ayarlar = require("../ayarlar.json");
 
 
 exports.run = function(client, message, args) {
-  
-    let şikayetlog = ayarlar.sikayet
+    
+    let basari = ayarlar.basariliemoji
+    let basarisiz = ayarlar.basarisizemoji
+    let şikayetlog = ayarlar.sikayetlog
     let prefix = ayarlar.prefix
     let type = args.slice(0).join(' ');
-    if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
+    if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> ${basarisiz} **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
 const ace = new Discord.MessageEmbed()
-.setDescription(`<@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
+.setDescription(`${basari} <@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 message.channel.send(ace)
 

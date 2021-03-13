@@ -73,7 +73,7 @@ if(roller){kullanici.roles.add(roller)}
   exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['unjail','ceza-kaldır'],
+    aliases: ['unjail','ceza-kaldır','unj'],
     permLevel: 0,
 }
 

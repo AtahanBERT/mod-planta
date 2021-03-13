@@ -36,7 +36,8 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}unmute -> .unmute @üye\`** 
 > **\`${prefix}smute -> .mute @üye <Süre> <Sebep>\`** 
 > **\`${prefix}sunmute -> .unmute @üye\`** 
-> **\`${prefix}jail -> .jail @üye <Sebep>\`** 
+> **\`${prefix}jail -> .jail @üye <Sebep>\`**
+> **\`${prefix}unjail -> .unj @üye <sebep> \`**
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** 
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** `)
  message.channel.send(ace)
