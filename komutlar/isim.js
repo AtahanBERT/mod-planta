@@ -2,8 +2,6 @@ const discord = require('discord.js');
 const db = require('quick.db');
 const ayarlar = require('../ayarlar.json');
 
- 
-
 
 exports.run = async (client, message, args) => {
   
@@ -30,7 +28,7 @@ exports.run = async (client, message, args) => {
   if (!member) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} İsmini değiştireceğin kullanıcıyı belirtmelisin!`));
   if (!isim) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Bir isim belirtmelisin! `));
   if (!yaş) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Bir yaş belirtmelisin! `));
-  if(yaş < 15) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Kullanıcısının Yaşı **15**'den küçük olduğu için kayıt edemiyorum.`)).then(message => message.delete({timeout: 4000}));
+  if(yaş < 13) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Kullanıcısının Yaşı **13**'den küçük olduğu için kayıt edemiyorum.`)).then(message => message.delete({timeout: 4000}));
   if (!ayarlar.sahip) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`));
  
   var number = 1;
