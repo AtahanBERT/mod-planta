@@ -5,7 +5,7 @@ const ayarlar = require('../ayarlar.json');
 exports.run = async (client, message, emoji, args) => {
   
   if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
 
     let basarili = ayarlar.basariliemoji;
@@ -18,8 +18,8 @@ exports.run = async (client, message, emoji, args) => {
 	let uye = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   
   
-  if (!uye) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> Ses odasına gidilecek üyeyi belirtmelisin!")).then(x => x.delete({timeout: 5000}));
-  if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription("<a:plantacarp:815252488168931368> İkiniz veya ikinizden birisi ses kanalında değil!")).then(x => x.delete({timeout: 5000}));
+  if (!uye) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Ses odasına gidilecek üyeyi belirtmelisin!`)).then(x => x.delete({timeout: 5000}));
+  if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} İkiniz veya ikinizden birisi ses kanalında değil!`)).then(x => x.delete({timeout: 5000}));
  {
       await message.member.voice.setChannel(uye.voice.channelID);
   }  {
@@ -35,7 +35,7 @@ exports.run = async (client, message, emoji, args) => {
           msj.delete();
     let striga = new Discord.MessageEmbed()
 .setColor("0x800d0d")
-.setDescription(`${uye} Odaya Çekilme Teklifini Reddetti`)
+.setDescription(`${basarisiz} ${uye} Odaya Çekilme Teklifini Reddetti`)
 message.channel.send(striga)
 }
 })
