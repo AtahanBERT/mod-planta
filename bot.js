@@ -311,28 +311,6 @@ client.on("message", async message => {
         }
         }}}}});
 
-const AntiSpam = require('discord-anti-spam');
-const antiSpam = new AntiSpam({
-	warnThreshold: 6, // Amount of messages sent in a row that will cause a warning.
-	kickThreshold: 10, // Amount of messages sent in a row that will cause a ban.
-	banThreshold: 14, // Amount of messages sent in a row that will cause a ban.
-	maxInterval: 3000, // Amount of time (in milliseconds) in which messages are considered spam.
-	warnMessage: '{@user}, Flood/spam yapmayı kes yoksa sunucudan atılacaksın.', // Message that will be sent in chat upon warning a user.
-	kickMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı kicklendi.', // Message that will be sent in chat upon kicking a user.
-	banMessage: '**{user_tag}** adlı kullanıcı flood/spam dolayı banlandı.', // Message that will be sent in chat upon banning a user.
-	maxDuplicatesWarning: 6, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
-	maxDuplicatesBan: 16, // Amount of duplicate messages that trigger a warning.
-	exemptPermissions: ['ADMINISTRATOR'], // Bypass users with any of these permissions.
-	ignoreBots: true, // Ignore bot messages.
-	verbose: true, // Extended Logs from module.
-	ignoredUsers: ["776837094962102282","429357746002067493","451677789939171339","448377317065097228",], // Array of User IDs that get ignored.
-	// And many more options... See the documentation.
-});
-
-client.off('ready', () => console.log(`Logged in as ${client.user.tag}.`));
-
-client.off('message', (message) => antiSpam.message(message));
 
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
