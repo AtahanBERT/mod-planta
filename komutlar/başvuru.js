@@ -9,10 +9,12 @@ let sahip = ["429357746002067493","451677789939171339","448377317065097228","694
 let rol = ["812394234001752075","812393738956701706"];
 let log = ayarlar.başvurulog;
 let kanal = ayarlar.basvurukanal;
+let kanal2 = ayarlar.başvurulog;
 
 module.exports.run = async (client, message, args) => {
   
   if(message.channel.id !== kanal) return message.react(basarisiz);
+  
   
   if (args[0] === "onayla") {
     if (!sahip.includes(message.author.id))
