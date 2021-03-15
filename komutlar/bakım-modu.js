@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 const database = require('quick.db');
-const database = require('../ayarlar');
+const ayarlar = require('../ayarlar.json');
+let basarisiz = ayarlar.basarisizemoji;
+let basari = ayarlar.basariliemoji;
 
-exports.run = async (client, message, args) => {// can#0002
-if(message.author.id !== ayarlar.sahip) return;
+exports.run = async (client, message, args) => {
+if(message.author.id !== ayarlar.sahp) return;
 
 function gönderkardesim(content) {
 const infoEmbed = new Discord.MessageEmbed()
@@ -18,7 +20,7 @@ const durum = await database.fetch(client.user.id);
 if(durum == true) {
 
 await database.delete(client.user.id);
-return gönderkardesim('Bakım artık sona erdi.');
+return gönderkardesim(`${basari} Bakım artık sona erdi.`);
 
 } else {
 
@@ -28,7 +30,7 @@ author: message.author,
 time: Date.now() 
 });
 
-return gönderkardesim('Bakım modu açıldı.\nArtık hiç bir kimse komutları kullanamayacak.');
+return gönderkardesim(`${basari} Bakım modu açıldı.\nArtık hiç bir kimse komutları kullanamayacak.`);
 };
 
 
