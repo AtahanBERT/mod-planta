@@ -1,7 +1,7 @@
 {
-  "//1": "AceBots Gelişmiş Public Moderasyon Altyapısı",
-  "//2": "Abone Olmayı Unutmayın!",
-  "//3": "Projeyi Gizliye Alıp 'ÖNEMLİ' Kısmını Okumayı Unutmayınız...",
+  "//1": "Planta Team Gelişmiş Public Moderasyon Altyapısı",
+  "//2": "Sunucumuza Gelemyi Unutmayın!",
+  "//3": "Tokeniniz .env Ye Yazmayı Unutmayın!",
   "name": "hello-express",
   "version": "0.0.1",
   "description": "Gelişmiş Public Moderasyon Botu Altyapısı",
@@ -32,7 +32,7 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://qmi-moderasyon.glitch.me"
+    "url": "https://planta-mod.glitch.me"
   },
   "license": "GPL-3.0",
   "keywords": [
