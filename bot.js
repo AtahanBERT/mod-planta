@@ -743,3 +743,19 @@ client.on('messageDelete', message => {
   data.set(`snipe.id.${message.guild.id}`, message.author.id)
 
 });
+
+
+client.on('guildMemberAdd', async member => {
+
+let guild = member.guild;
+if(guild.memberCount > 999) {
+
+let toplamölç = guild.memberCount;
+let toplam = new Intl.NumberFormat().format(toplamölç)
+if(toplam.includes(',')) {
+let k = toplam.split(',')
+guild.setName(`${guild.name} #${k[0]}K`)
+}
+
+}
+});
