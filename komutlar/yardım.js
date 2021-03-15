@@ -39,7 +39,9 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}jail -> .jail @üye <Sebep>\`**
 > **\`${prefix}unjail -> .unj @üye <sebep> \`**
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** 
-> **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** `)
+> **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** 
+> **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`
+> **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \``)
  message.channel.send(ace)
   
   const acee = new Discord.MessageEmbed()
