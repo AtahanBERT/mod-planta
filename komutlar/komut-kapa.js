@@ -2,6 +2,7 @@ const ayarlar = require('../ayarlar.json');
 
 let ownerid = ayarlar.sahip;
 let basarisiz = ayarlar.basarisizrmoji;
+let basari = ayarlar.basariliemoji;
 
 exports.run = (client, message, args) => {
   if (message.author.id == ownerid) {
@@ -12,13 +13,13 @@ exports.run = (client, message, args) => {
     command = client.aliases.get(args[0]);
   }
   if (!command) {
-    return message.channel.send("`" + args[0] + "` adında bir komut yok.");
+    return message.channel.send(`${basarisiz} **` + args[0] + "** adında bir komut yok.");
   } else {
-    message.channel.send(`${basarisiz} ` + command + "` adlı komut devre dışı bırakılıyor...")
+    message.channel.send(`${basari} **` + command + "** adlı komut devre dışı bırakılıyor...")
       .then(m => {
         client.unload(command)
           .then(() => {
-            m.edit(`${basari} ` + command + ``` adlı komut başarıyla devre dışı bırakıldı.");
+            m.edit(`${basari} **` + command +  "** adlı komut başarıyla devre dışı bırakıldı.");
           })
           .catch(e => {
             m.edit(`${basarisiz} Komut kapatılırken bir hata oluştu: ${command}\n\`\`\`${e.stack}\`\`\``);
