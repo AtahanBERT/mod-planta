@@ -230,7 +230,7 @@ let kanal = ayarlar.kayıtsohbet //acebots
   
      client.channels.cache.get(kanal).send(`
     ${member.user} Aramıza Hoşgeldin Senin Gelmenle Beraber **${guild.memberCount}** Kişiye Ulaştık
-Sunucu kurallarımız <#> kanalında belirtilmiştir. Unutma sunucu içerisinde ki ceza işlemlerin kuralları okuduğunu varsayarak gerçekleştirilecek.
+Sunucu kurallarımız <#808828129187201105> kanalında belirtilmiştir. Unutma sunucu içerisinde ki ceza işlemlerin kuralları okuduğunu varsayarak gerçekleştirilecek.
 Hesabın **${moment(user.createdAt).format('DD')} ${aylar[moment(user.createdAt).format('MM')]} ${moment(user.createdAt).format('YYYY HH:mm:ss')}** zamanında kurulmuş olup ${kontrol}.
 <@&${yetkili}> etiketli yetkililer seninle ilgilenecektir.`)
 });
