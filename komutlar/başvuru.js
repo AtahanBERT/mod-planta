@@ -12,8 +12,6 @@ let kanal = ayarlar.başvurukanal;
 
 module.exports.run = async (client, message, args) => {
   
-  if(message.channel.id !==! ["817105505684029481","815618508171509810"]) return message.react(basarisiz);
-  
   if (args[0] === "onayla") {
     if (!sahip.includes(message.author.id))
       return message.reply(

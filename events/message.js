@@ -7,6 +7,7 @@ let basarisiz = ayarlar.basarisizemoji;
 module.exports = async message => {
   
   
+  
  /* if(cmd) kısmının üzerine bunu yazıyorsunuz */
   if(cmd && cmd.help.name !== 'bakım-modu') {
   const neblmölçmedimikamk = await require('quick.db').fetch(client.user.id);
@@ -19,6 +20,9 @@ module.exports = async message => {
   return message.reply(`${basarisiz} ***${client.user.username}*** şu anda bakımda.\nYaklaşık ***${RESULT} önce*** bakıma alınmış.\nBakıma alan: ***${chimped.author.tag}***`);
   };
   };
+  
+  
+  
   
 const ms = require('parse-ms');
   let client = message.client;
