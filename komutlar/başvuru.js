@@ -7,6 +7,7 @@ let basarisiz = ayarlar.basarisizemoji;
 
 let sahip = ["429357746002067493","451677789939171339","448377317065097228","694566095369142312","776837094962102282","723190267389411409"];//Yetkili Üye ID
 let rol = ["812394234001752075","812393738956701706"];
+let yetkili = ayarlar.başvuruyetkili;
 let log = ayarlar.başvurulog;
 let kanal = ayarlar.başvurukanal;
 
@@ -117,7 +118,7 @@ module.exports.run = async (client, message, args) => {
           message.channel.send(
             `${basari} Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!`
           );
-        message.channel.send(`<@&817165046433841163> Bu Kanala Bakmayı Unutma <#${log}>`);
+        message.channel.send(`<@&yetkili> Bu Kanala Bakmayı Unutma <#${log}>`);
         });
       } else {
         message.reply(`${basarisiz} Zaten Henüz Cevaplanmamış Bir Başvurun Var!`);
