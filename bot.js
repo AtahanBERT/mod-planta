@@ -507,11 +507,11 @@ client.users.cache.get(botOwnerID).send(embed)
 
 
 client.on('userUpdate', async user => {
-    let sunucuid = "786554677855518730"; 
-    let tag = "ア"; 
-    let cezalırol = "786556114204360724";
-    let kayıtsız = "789807193646039041";
-    let channel = client.guilds.cache.get(sunucuid).channels.cache.find(x => x.name == 'まjail-chat');//nereye mesaj atmasını istiyorsanız, o kanalın tam ismini yazıniz!
+    let sunucuid = ayarlar.sunucu; 
+    let tag = ayarlar.yasaktag; 
+    let cezalırol = ayarlar.cezalı;
+    let kayıtsız = ayarlar.kayıtsız;
+    let channel = client.guilds.cache.get(sunucuid).channels.cache.get(ayarlar.jailkanal);//nereye mesaj atmasını istiyorsanız, o kanalın tam ismini yazıniz!
     if (!tag) return;
     if (!cezalırol) return;
     if (!channel) return;
@@ -558,10 +558,10 @@ client.on('userUpdate', async user => {
 
 
 client.on("guildMemberAdd", member => {
-  let tag = "ア"
+  let tag = ayarlar.yasaktag
   if(member.user.username.includes(tag)){
-  member.roles.add("786556114204360724")
-  member.roles.remove("789807193646039041")
+  member.roles.add(ayarlar.cezalı)
+  member.roles.remove(ayarlar.kayıtsız)
   member.send(`Görünüşe bakılırsa ${tag} adlı tagda bulunuyorsun aramıza katılmak için tagı kaldırabilirsin`)
   }
   });
@@ -683,20 +683,4 @@ client.on('messageDelete', message => {
   data.set(`snipe.mesaj.${message.guild.id}`, message.content)
   data.set(`snipe.id.${message.guild.id}`, message.author.id)
 
-});
-
-
-client.on('guildMemberAdd', async member => {
-
-let guild = member.guild;
-if(guild.memberCount > 999) {
-
-let toplamölç = guild.memberCount;
-let toplam = new Intl.NumberFormat().format(toplamölç)
-if(toplam.includes(',')) {
-let k = toplam.split(',')
-guild.setName(`${guild.name} #${k[0]}K`)
-}
-
-}
 });
