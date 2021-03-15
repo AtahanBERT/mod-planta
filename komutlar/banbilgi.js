@@ -4,7 +4,7 @@ const db = require('quick.db')
 exports.run = async (client, message, args) => {
 //-------------------------------------------------------------------------------\\
   
-if((message.member.roles.cache.get === ayarlar.banyetkili) && (!message.member.hasPermission("ADMINISTRATOR"))) 
+if(!["789637815268933673"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL()({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 //-------------------------------------------------------------------------------\\
