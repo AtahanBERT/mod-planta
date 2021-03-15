@@ -135,15 +135,7 @@ client.login(process.env.token);
 client.on("ready", () => {
   const gir = ayarlar.botses;
   client.channels.cache.get(gir).join();
-  });      //
-
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '.tag') {
-    msg.channel.send('`\`\ ');
-  }
-});
-
+  });      
 
 client.on('messageDelete', message => {
   db.set(`snipe.mesaj.${message.guild.id}`, message.content)
@@ -186,57 +178,6 @@ console.log(`Bir hata oluştu! ${e}`)
 } 
 });
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
-
-
-
-client.off("guildMemberAdd", member => {
-      let yetkili = ayarlar.kayıtyetkili
-          let kayıtsohbet2 = ayarlar.kayıtsohbet //acebots 
-
-
-  let guild = member.guild;
-
-  const channel = member.guild.channels.cache.find(channel => channel.id === (kayıtsohbet2)); /// Kayıt Kanalı Adı
- let aylartoplam = {
-    "01": "Ocak",
-        "02": "Şubat",
-        "03": "Mart",
-        "04": "Nisan",
-        "05": "Mayıs", //acebots 
-        "06": "Haziran",
-        "07": "Temmuz",
-        "08": "Ağustos",//acebots
-        "09": "Eylül", //acebots 
-        "10": "Ekim",
-        "11": "Kasım",
-        "12": "Aralık"
-  }
- let aylar = aylartoplam 
-
-let user = client.users.cache.get(member.id);
-require("moment-duration-format"); //acebots 
-
-   const kurulus = new Date().getTime() - user.createdAt.getTime();
-    const gün = moment.duration(kurulus).format("D")   
-   var kontrol = [];
-
-if(gün < 7) {
- kontrol = '**Şüphelidir**' 
-} if(gün > 7) {//acebots
-kontrol = '**Güvenlidir**' 
-} 
-let kanal = ayarlar.kayıtsohbet //acebots 
- if(!kanal) return;
-  
-     client.channels.cache.get(kanal).send(`
-    ${member.user} Aramıza Hoşgeldin Senin Gelmenle Beraber **${guild.memberCount}** Kişiye Ulaştık
-Sunucu kurallarımız <#808828129187201105> kanalında belirtilmiştir. Unutma sunucu içerisinde ki ceza işlemlerin kuralları okuduğunu varsayarak gerçekleştirilecek.
-Hesabın **${moment(user.createdAt).format('DD')} ${aylar[moment(user.createdAt).format('MM')]} ${moment(user.createdAt).format('YYYY HH:mm:ss')}** zamanında kurulmuş olup ${kontrol}.
-<@&${yetkili}> etiketli yetkililer seninle ilgilenecektir.`)
-});
-
-
-//////////////////////////////////////////////////////////OTO ROL//////////////////////////////////////////////////////////////
 
 client.on("guildMemberAdd", member => {
  const rolver = ayarlar.kayıtsız;
