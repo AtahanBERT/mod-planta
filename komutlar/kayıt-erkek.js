@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
    
 
 
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
  if (!member) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Erkek olarak kaydedeceğin kullanıcıyı belirtmelisin!`));
  if (!ayarlar.sahip) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`));
 
@@ -41,16 +41,16 @@ exports.run = async (client, message, args) => {
   
 
   
-message.react(basarili)
+message.react('✅')
 
 };
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [""],
+    aliases: ["e"],
     permLevel: 0
 };
 
 exports.help = {
-    name: ""
+    name: "erkek"
 }

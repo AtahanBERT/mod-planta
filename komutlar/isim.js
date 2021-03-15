@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
 }
   
   
-  if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
+  if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
   if (!member) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} İsmini değiştireceğin kullanıcıyı belirtmelisin!`));
   if (!isim) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Bir isim belirtmelisin! `));
   if (!yaş) return message.channel.send(new discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Bir yaş belirtmelisin! `));
