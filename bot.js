@@ -213,7 +213,7 @@ client.on("message", async message => {
         }
         if (uyarisayisi === 2) {
           message.delete();
-          await kullanici.kick({reason: `Reklam Yapma Orsp Coc!`});
+          await kullanici.kick({reason: `Reklam Yapma Orsp Cocu!`});
           let ikrudka = new Discord.MessageEmbed()
  
            .setColor("#0054ff")
@@ -572,6 +572,7 @@ client.on("message" , async msg => {
   if(msg.content.startsWith(ayarlar.prefix+"afk")) return; 
   
   let afk = msg.mentions.users.first()
+  let basari = ayarlar.basariliemoji;
   
   const kisi = db.fetch(`afkid_${msg.author.id}_${msg.guild.id}`)
   
@@ -586,7 +587,7 @@ client.on("message" , async msg => {
  }
   if(msg.author.id === kisi){
 
-       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`<@${kisi}> Başarıyla Afk Modundan Çıktınız`))
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basari} <@${kisi}> Başarıyla Afk Modundan Çıktınız`))
    db.delete(`afkSebep_${msg.author.id}_${msg.guild.id}`)
    db.delete(`afkid_${msg.author.id}_${msg.guild.id}`)
    db.delete(`afkAd_${msg.author.id}_${msg.guild.id}`)
@@ -677,10 +678,3 @@ if(client.ping > 550) {
            .then(msg.reply('✅ Bölge Değiştirildi! ')) 
            .catch(console.error);
 }});
-
-client.on('messageDelete', message => {
-  const data = require("quick.db")
-  data.set(`snipe.mesaj.${message.guild.id}`, message.content)
-  data.set(`snipe.id.${message.guild.id}`, message.author.id)
-
-});
