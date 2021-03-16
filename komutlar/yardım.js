@@ -44,17 +44,7 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \``)
  message.channel.send(ace)
   
-  const acee = new Discord.MessageEmbed()
-.setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-  .setFooter('Planta Team Tarafından Yapılmıştır.')
-.setAuthor(`Planta Kayıt Botu Yardım Menüsü`)
-.setDescription(`
-> **\`${prefix}erkek -> .e @üye\`** 
-> **\`${prefix}kız -> .k @üye\`** 
-> **\`${prefix}isim -> .i @üye <İsim> <Yaş>\`** `)
- message.channel.send(acee);
 }
-//evet
 exports.conf = {
 	enabled : true,
 	guildOnly : false,
