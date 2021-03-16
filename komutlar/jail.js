@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
 
 
 
-   if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
+   if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
    if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Jaile atabilmek için bir kullanıcı belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
    if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
    if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Jaile atmak için sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
@@ -66,7 +66,7 @@ member.roles.remove(r.id);
 });
   
 
-const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`${basarili} Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
+const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
     db.add(`jailsayısı_${message.author.id}`, 1); 
 
