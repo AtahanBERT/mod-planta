@@ -573,6 +573,7 @@ client.on("message" , async msg => {
   
   let afk = msg.mentions.users.first()
   let basari = ayarlar.basariliemoji;
+  let basarisiz = ayarlar.basarisizemoji;
   
   const kisi = db.fetch(`afkid_${msg.author.id}_${msg.guild.id}`)
   
@@ -582,7 +583,7 @@ client.on("message" , async msg => {
    const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
    if(msg.content.includes(kisi3)){
 
-       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`<@` + msg.author.id + `> Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`))
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basarisiz} <@` + msg.author.id + `> Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`))
    }
  }
   if(msg.author.id === kisi){
@@ -624,7 +625,7 @@ data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )})
 
 
 client.on('guildMemberAdd', async(member) => {
-let mute = member.guild.roles.cache.find(r => r.name === "ま Muted");
+let mute = member.guild.roles.cache.find(ayarlar.susturulmuş);
 let mutelimi = db.fetch(`muteli_${member.guild.id + member.id}`)
 let süre = db.fetch(`süre_${member.id + member.guild.id}`)
 if (!mutelimi) return;
@@ -635,14 +636,14 @@ member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
  setTimeout(function(){
 db.delete(`muteli_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Muten açıldı.`)
-    member.roles.remove('815258071898128394');
+    member.roles.remove(ayarlar.susturulmuş);
   }, (süre));
 }
 });
 
 
 client.on('guildMemberAdd', async(member) => {
-let rol = member.guild.roles.cache.find(r => r.name === "ま Jail");
+let rol = member.guild.roles.cache.find(ayarlar.cezalı);
 let cezalımı = db.fetch(`cezali_${member.guild.id + member.id}`)
 let sürejail = db.fetch(`süreJail_${member.id + member.guild.id}`)
 if (!cezalımı) return;
@@ -653,7 +654,7 @@ member.send("Cezalıyken Sunucudan Çıktığın için Yeniden Cezalı Rolü Ver
  setTimeout(function(){
 db.delete(`cezali_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Cezan açıldı.`)
-    member.roles.remove('786556114204360724');
+    member.roles.remove(ayarlar.cezalı);
   }, (sürejail));
 }
 });
