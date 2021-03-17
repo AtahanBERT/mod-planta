@@ -118,7 +118,7 @@ module.exports.run = async (client, message, args) => {
           message.channel.send(
             `${basari} Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!`
           );
-        message.channel.send(`<@&yetkili> Bu Kanala Bakmayı Unutma <#${log}>`);
+        message.channel.send(`<@&${yetkili}> Bu Kanala Bakmayı Unutma <#${log}>`);
         });
       } else {
         message.reply(`${basarisiz} Zaten Henüz Cevaplanmamış Bir Başvurun Var!`);
