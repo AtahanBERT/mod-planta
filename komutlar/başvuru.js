@@ -9,7 +9,6 @@ let sahip = ayarlar.başvuruyetkiliüye;//Yetkili Üye ID
 let rol = ayarlar.başvuruverilcekrol;
 let yetkili = ayarlar.başvuruyetkirol;
 let log = ayarlar.başvurulog;
-let kanal = ayarlar.başvurukanal;
 
 module.exports.run = async (client, message, args) => {
   
