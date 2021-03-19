@@ -40,8 +40,9 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}unjail -> .unj @üye <sebep> \`**
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** 
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** 
-> **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`
-> **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \``)
+> **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`**
+> **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \`** 
+> **\`${prefix}isimdeğiştir @üye <isim> .isim @üye <isim> \`** `)
  message.channel.send(ace)
   
 }
