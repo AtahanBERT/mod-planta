@@ -6,10 +6,6 @@ const db = require('quick.db')
 exports.run = function(client, message, args) {
          
   let basarisiz = ayarlar.basarisizemoji;
-  let kanal = ayarlar.botkomut;
-  
-  if(message.channel.id !== kanal) return message.react(basarisiz);
-
   
 const embed = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
 let user;

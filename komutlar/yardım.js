@@ -10,11 +10,9 @@ exports.run = async(client, message, args) => {
   if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
 }
 
-    let kanal = ayarlar.botkomut;
     let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
-  
-  if(message.channel.id !== kanal) return message.react(basarisiz);
+
 
 
 const ace = new Discord.MessageEmbed()
