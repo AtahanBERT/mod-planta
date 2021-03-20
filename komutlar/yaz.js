@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = (client, message, args) => {
   let mesaj = args.slice(0).join(' ');
-let basarisiz = ayarlar.basarisizemoji
+let basarisiz = ayarlar.basarisizemoji;
 if (mesaj.length < 1) return message.reply(`${basarisiz} Yazmam için herhangi bir şey yazmalısın.`);
   message.delete();
   message.channel.send(mesaj);
