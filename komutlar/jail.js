@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
 
 
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
-   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Jaile atabilmek için bir kullanıcı belirtmelisin!`)).then(x => x.delete({timeout: 5000}));
+   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Jaile atabilmek için bir kullanıcı belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
    if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
    if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Jaile atmak için sebep belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
    if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`));
