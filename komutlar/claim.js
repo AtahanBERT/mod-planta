@@ -14,6 +14,7 @@ if (!message.member.roles.cache.get(yetki)) return message.channel.send(new Disc
         let gu = message.guild.members.cache.find(r => r.id == u[i].id)
         gu.roles.add(addrole);
         gu.roles.remove(removerole);
+        message.react('✅');
       }
       //console.log(usize + " USERS\n" + u)
               
