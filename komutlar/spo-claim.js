@@ -1,9 +1,13 @@
 const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
+let yetki = "823271581547102209";
+let basarisiz = ayarlar.basarisizemoji;
+
 
 exports.run = async(client, message) => {
-      if (message.author.id !== "s") return message.channel.send(new Discord.MessageEmbed().setDescription(`Üzgünüm **ADMINISTRATOR** Yetkin Yok)).then(m => m.delete({timeout: 5000}));
-      let addrole = "verilcek rol";
-      let removerole = "alıncak rol"
+if (!message.member.roles.cache.get(yetki));
+      let addrole = ["823506822279200789","810645500676145232"];
+      let removerole = ""
       let usize = message.mentions.users.array().length;
       let u = message.mentions.users.array();
       for(let i=0; i < usize; i++){
@@ -23,7 +27,7 @@ exports.conf = {
 };
 
 exports.help = {
-    name: 'cl',
+    name: 'sp',
     description: '',
-    usage: 'cl'
+    usage: 'sp'
 };
