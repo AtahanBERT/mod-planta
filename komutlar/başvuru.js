@@ -4,8 +4,6 @@ const ayarlar = require("../ayarlar.json");
 let basari = ayarlar.basariliemoji;
 let basarisiz = ayarlar.basarisizemoji;
 
-
-let sahip = ayarlar.başvuruyetkiliüye;//Yetkili Üye ID
 let rol = ayarlar.başvuruverilcekrol;
 let yetkili = ayarlar.başvuruyetkirol;
 let log = ayarlar.başvurulog;
