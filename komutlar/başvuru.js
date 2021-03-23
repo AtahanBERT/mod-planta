@@ -26,16 +26,14 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       mem = memem;
     }
     if (!mem) {
-      message.reply(`${basarisiz} Bir Kişiyi Etiketlemelisin veya Id Girmelisin!`);
+      message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin veya ID girmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     }
     let data = db.get(`basvuru.${mem.id}`);
     if (!data)
-      return message.reply(`${basarisiz} Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!`);
+      return message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
     mem.roles.add(rol);
-    message.channel.send(
-      `${basari} Başarı ile Üyenin Başvurusu Onaylandı ve Rolü Verildi!`
-    );
+    message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu onaylandı!.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
     mem.send(
       `${basari} Hey Tebrikler ` +
         message.guild.name +
@@ -57,15 +55,13 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
         mem = memem;
       }
       if (!mem) {
-        message.reply(`${basarisiz} Bir Kişiyi Etiketlemelisin veya Id Girmelisin!`);
+        message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin veya ID girmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
       }
       let data = db.get(`basvuru.${mem.id}`);
       if (!data)
-        return message.reply(
-          `${basarisiz} Bahsedilen Üyenin Bir Başvuru Talebi Bulunamadı!`
-        );
+        return message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-      message.channel.send(`${basari} Başarı ile Üyenin Başvurusu Reddedildi!`);
+      message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
       mem.send(
         `${basarisiz} Hey Üzgünüm ` +
           message.guild.name +
