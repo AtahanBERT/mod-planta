@@ -72,13 +72,14 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       let s1 = "İsmin Nedir?";
       let s2 = "Kaç Yaşındasın?";
       let s3 = "Bize Ne Gibi Katkıların Ola Bilir?";
+      let s4 = "NOT: Başvuru Odasını Açmak İçin Tag Alın.";
       if (!args[0])
         return message.channel.send(
           new Discord.MessageEmbed()
             .setTitle("Başvuru Talimatları")
             .setColor("BLUE")
             .setDescription(
-              `Başvuru Soruları:\n**1. ${s1}\n2. ${s2}\n3. ${s3}**\n\n\`Örnek Kullanım:\` __m!başvuru Atahan 17  Fazla Davet Yapa Bilirim__`
+              `Başvuru Soruları:\n**1. ${s1}\n2. ${s2}\n3. ${s3}**\n\n\`Örnek Kullanım:\` __m!başvuru Atahan 17  Fazla Davet Yapa Bilirim__\n${s4}`
             )
             .setTimestamp()
             .setFooter("Planta Tarafından Yapılmıştır.")
