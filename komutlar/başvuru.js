@@ -26,14 +26,15 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       mem = memem;
     }
     if (!mem) {
-      message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin veya ID girmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+      message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin veya ID girmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     }
     let data = db.get(`basvuru.${mem.id}`);
     if (!data)
-      return message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+      return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
     mem.roles.add(rol);
-    message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu onaylandı!.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
+    message.react('✅')
+    message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu onaylandı!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
     mem.send(
       `${basari} Hey Tebrikler ` +
         message.guild.name +
@@ -59,8 +60,9 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       }
       let data = db.get(`basvuru.${mem.id}`);
       if (!data)
-        return message.reply(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+        return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bahesedilen üyenin başvuru talebi bulunamadı.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
+      message.react('✅')
       message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
       mem.send(
         `${basarisiz} Hey Üzgünüm ` +
@@ -107,13 +109,12 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           .setTimestamp()
           .setFooter("Planta Tarafından Yapılmıştır.");
         return ch.send(csd).then(mr => {
-          message.channel.send(
-            `${basari} Başvurun Sisteme Eklendi Lütfen Ekipten Cevap Bekle!`
-          );
+          message.react('✅')
+          message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başvurun sırayı eklendi <@&${yetkili}> rolündeki yetkililerin cevaplamısını bekle!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
         message.channel.send(`<@&${yetkili}> Bu Kanala Bakmayı Unutma <#${log}>`);
         });
       } else {
-        message.reply(`${basarisiz} Zaten Henüz Cevaplanmamış Bir Başvurun Var!`);
+        message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Beklenen bir başvurun var.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
       }
     }
   }
