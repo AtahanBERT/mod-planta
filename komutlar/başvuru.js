@@ -13,10 +13,8 @@ let log = ayarlar.başvurulog;
 module.exports.run = async (client, message, args) => {
   
   if (args[0] === "onayla") {
-    if (!sahip.includes(message.author.id))
-      return message.reply(
-        "Bu Komutu Sadece Sistemde Yetkili Sahipler Kullana Bilir!"
-      );
+      if (!message.member.roles.cache.get(yetkili))
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
     
     let mem;
     let meme = message.mentions.members.first();
@@ -46,10 +44,9 @@ module.exports.run = async (client, message, args) => {
     db.delete(`basvuru.${mem.id}`);
   } else {
     if (args[0] === "red") {
-      if (!sahip.includes(message.author.id))
-        return message.reply(
-          `${basarisiz} Bu Komutu Sadece Sistemde Yetkili Sahipler Kullana Bilir!`
-        );
+      if (!message.member.roles.cache.get(yetkili))
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+     
       let mem;
       let meme = message.mentions.members.first();
       let memem = message.guild.members.cache.get(args[1]);
