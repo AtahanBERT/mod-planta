@@ -5,6 +5,7 @@ let basari = ayarlar.basariliemoji;
 let basarisiz = ayarlar.basarisizemoji;
 
 let rol = ayarlar.başvuruverilcekrol;
+let kanal = ayarlar.başvurukanal;
 let yetkili = ayarlar.başvuruyetkirol;
 let log = ayarlar.başvurulog;
 
@@ -84,6 +85,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
             .setTimestamp()
             .setFooter("Planta Tarafından Yapılmıştır.")
         );
+      
       let data = db.get(`basvuru.${message.author.id}`);
       if (!data) {
         if (!args[0]) return message.reply("**İsmin Nedir Yazman Gerek!**");
