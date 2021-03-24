@@ -506,7 +506,7 @@ client.users.cache.get(botOwnerID).send(embed)
 
 
 
-client.on('userUpdate', async user => {
+client.off('userUpdate', async user => {
     let sunucuid = ayarlar.sunucu; 
     let tag = ayarlar.yasaktag; 
     let cezalırol = ayarlar.cezalı;
@@ -557,7 +557,7 @@ client.on('userUpdate', async user => {
   });
 
 
-client.on("guildMemberAdd", member => {
+client.off("guildMemberAdd", member => {
   let tag = ayarlar.yasaktag
   if(member.user.username.includes(tag)){
   member.roles.add(ayarlar.cezalı)
