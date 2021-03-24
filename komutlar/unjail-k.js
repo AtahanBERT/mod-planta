@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz); 
   
 let kullanıcı = message.mentions.users.first()|| message.guild.members.cache.get(args[0])
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('<a:plantacarp:815252488168931368> Bir üye etiketlemen gerekiyor!'));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Bir üye etiketlemen gerekiyor!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first();
 let member = message.guild.member(kullanıcı);
@@ -36,11 +36,9 @@ member.roles.add(erkek3);//Verilecek 2. Erkek Rol
    
 
 const embed1 = new Discord.MessageEmbed().setColor('GREEN')
-.setDescription(`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`)
+.setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
 client.channels.cache.get(jaillogkanal).send(embed1);//Log Kanal İd
-  
-  
- message.react('✅');
+message.react('✅');
 
   
   

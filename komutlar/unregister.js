@@ -19,9 +19,9 @@ exports.run = async (client, message, args) => {
 
 
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
-   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Kayıtsıza atabilmek için bir kullanıcı belirtmelisin!`)).then(x => x.delete({timeout: 3000}));
-   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).then(x => x.delete({timeout: 5000}));
-   if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`));
+   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} Kayıtsıza atabilmek için bir kullanıcı belirtmelisin!`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+   if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+   if (!ayarlar.sahip) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} Sahibimin üzerinde komut kullanamazsın!`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 member.roles.cache.forEach(r => {
 member.roles.add(unregister);

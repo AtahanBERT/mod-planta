@@ -18,13 +18,13 @@ exports.run = async (bot , message, args) => {
 
     let kanal = bot.channels.get == ayarlar.banlog //log kanal id
 
-    if(!banlımember) return message.reply(`${basarisiz} Lütfen Banı Açılcak Bir Kullanıcıyı Belirtin.`)
+    if(!banlımember) return message.reply((`${basarisiz} Lütfen Banı Açılcak Bir Kullanıcıyı Belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    
     if(!sebep) sebep = `${basarisiz} bir sebep belirtilmedi`
 
     try{
       
-    message.channel.send(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`)
+    message.channel.send((`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
     message.guild.unban(banlımember.user)
    
     }catch(err){   
