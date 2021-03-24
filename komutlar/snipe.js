@@ -15,7 +15,8 @@ const data = require('quick.db')
   const embed = new MessageEmbed()
   .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
   .setDescription(`Silinen mesaj: ` + silinen)
-.setColor(`#f3c7e1`)
+  .setColor(`#f3c7e1`)
+  .setTimestamp()
   message.channel.send(embed) }
 }
 exports.conf = {
