@@ -16,8 +16,8 @@ exports.run = function(client, message, args) {
 if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
   
 if(isNaN(args[0])) {
-  var errembed = new Discord.MessageEmbed().setDescription((`${basarisiz} Lütfen 1-100 arasında sayı belirtiniz!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-return message.channel.send(errembed).then(x => x.delete({timeout: 5000}));
+  var errembed = new Discord.MessageEmbed().setDescription((`${basarisiz} Lütfen 1-100 arasında sayı belirtiniz!`))
+return message.channel.send((errembed).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 }
   
 if (args[0] < 1) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} **1** adetten az mesaj silemem!`)).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
