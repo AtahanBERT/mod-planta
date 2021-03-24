@@ -135,9 +135,6 @@ client.login(process.env.token);
 client.on('message', async (msg, member, guild) => {
   
  {
-  exports.run = async(client, message) => { 
-  
-if (!message.member.roles.cache.get(ayarlar.rewardsyetkili))
    
 if (msg.content.toLowerCase() === '10s'){
  
@@ -146,7 +143,7 @@ msg.channel.send('<a:10s:824360871244988477>');
 }
   
 }
-}});
+});
 
 client.on("ready", () => {
   const gir = ayarlar.botses;

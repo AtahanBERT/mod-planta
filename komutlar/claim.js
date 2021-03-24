@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-let yetki = "823271581547102209";
+let yetki = ayarlar.rewardsyetkili;
 let basarisiz = ayarlar.basarisizemoji;
 
 
