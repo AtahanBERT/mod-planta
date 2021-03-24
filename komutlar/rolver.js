@@ -13,12 +13,9 @@ exports.run = async (bot, message, args) => {
 }
   
   
-     let kanal = ayarlar.botkomut;
      let basarili = ayarlar.basariliemoji;
      let basarisiz = ayarlar.basarisizemoji;
      let yetkili = ayarlar.logger;
-
-  if(message.channel.id !== kanal) return message.react(basarisiz);
 
   
  if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
