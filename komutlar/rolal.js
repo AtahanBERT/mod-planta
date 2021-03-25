@@ -28,11 +28,11 @@ exports.run = async (bot, message, args) => {
     if (!role) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol alabilmem için rolü belirtmelisiniz!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let aRole = message.mentions.roles.first();
     if (!aRole) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Etiketlediğiniz rolü sunucuda bulamıyorum!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-    if (message.member.roles.highest.comparePositionTo(role) < 1) {
+    if (message.member.roles.highest.comparePositionTo(role) < 1) 
   return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Bu rol senden daha yüksekte bulunuyor!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
   
     if (!rMember.roles.cache.has(aRole.id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Bu rolü bu kullanıcıda görüyorum!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
- }
+ 
   await (rMember.roles.remove(aRole.id));
  message.react('✅')
 
