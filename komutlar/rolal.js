@@ -37,7 +37,7 @@ await (rMember.roles.remove(aRole.id));
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['rolal','rolçıkar', 'rolsil'],
+  aliases: [],
   permLevel: 0,
 };
 
