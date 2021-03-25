@@ -24,6 +24,7 @@ exports.run = async (bot, message, args) => {
     if (!rMember) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol almam için bir kişiyi etiketlemelisin!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let role = message.mentions.roles.first();
 
+        if(message.member.roles.highest.position <= rMember.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Etiketlenen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     if (!role) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol alabilmem için rolü belirtmelisiniz!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let aRole = message.mentions.roles.first();
     if (!aRole) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Etiketlediğiniz rolü sunucuda bulamıyorum!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -42,7 +43,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "",
+  name: "rolal",
   description: "Kişilere Rol Yetkisi Verir",
-  usage: " <mesaj>"
+  usage: "rolal <mesaj>"
 };
