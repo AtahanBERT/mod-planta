@@ -25,6 +25,7 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}rolver -> .rolver @üye @rol\`** 
 > **\`${prefix}rolal -> .rolal @üye @rol\`** 
 > **\`${prefix}ban -> .ban @üye <sebep>\`** 
+> **\`${prefix}kick -> .kick @üye <sebep>\`**
 > **\`${prefix}git -> .git @üye\`** 
 > **\`${prefix}çek -> .çek @üye\`** 
 > **\`${prefix}say -> .say\`** 
@@ -40,7 +41,7 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** 
 > **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`**
 > **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \`** 
-> **\`${prefix}isimdeğiştir @üye <isim> -> .isim @üye <isim> \`** `)
+> **\`${prefix}isimdeğiştir -> .isim @üye <isim> \`** `)
  message.channel.send(ace)
   
 }
