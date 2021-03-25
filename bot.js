@@ -16,6 +16,7 @@ const snekfetch = require('snekfetch');
 const queue = new Map();
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
+const ms = require('ms');
 
 
 const app = express();
@@ -650,7 +651,7 @@ member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
 db.delete(`muteli_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Muten açıldı.`)
     member.roles.remove(ayarlar.susturulmuş);
-  }, (süre));
+  }, ms(süre));
 }
 });
 
@@ -668,7 +669,7 @@ member.send("Cezalıyken Sunucudan Çıktığın için Yeniden Cezalı Rolü Ver
 db.delete(`cezali_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Cezan açıldı.`)
     member.roles.remove(ayarlar.cezalı);
-  }, (sürejail));
+  }, ms(sürejail));
 }
 });
 
