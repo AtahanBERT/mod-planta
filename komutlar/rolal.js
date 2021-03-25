@@ -17,14 +17,13 @@ exports.run = async (bot, message, args) => {
       let yetkili = ayarlar.logger;
 
   
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"));
 
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
     if (!rMember) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol almam için bir kişiyi etiketlemelisin!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let role = message.mentions.roles.first();
 
-        if(message.member.roles.highest.position <= rMember.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Etiketlenen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     if (!role) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol alabilmem için rolü belirtmelisiniz!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let aRole = message.mentions.roles.first();
     if (!aRole) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Etiketlediğiniz rolü sunucuda bulamıyorum!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -38,12 +37,12 @@ await (rMember.roles.remove(aRole.id));
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['rolçıkar', 'rolsil'],
-  permLevel: "0"
+  aliases: ['rolal','rolçıkar', 'rolsil'],
+  permLevel: 0,
 };
 
 exports.help = {
-  name: "rolal",
+  name: "",
   description: "Kişilere Rol Yetkisi Verir",
-  usage: "rolal <mesaj>"
+  usage: " <mesaj>"
 };
