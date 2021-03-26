@@ -14,7 +14,7 @@ const data = require('quick.db')
   const silinen = await data.fetch(`snipe.mesaj.${message.guild.id}`)
   const embed = new MessageEmbed()
   .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
-  .setDescription(`Silinen mesaj: ` + silinen)
+  .setDescription(silinen)
   .setColor(`#f3c7e1`)
   .setTimestamp()
   message.channel.send(embed) }

@@ -14,7 +14,7 @@ exports.run = function(client, message, args) {
       let basarisiz = ayarlar.basarisizemoji;
       let yetkili = ayarlar.logger;
 
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"));
 
   
   let toplam = message.guild.memberCount;
@@ -27,10 +27,10 @@ exports.run = function(client, message, args) {
    let tag = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Planta Team İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Planta Team Tarafından Yapılmıştır.')
-  .setDescription(`**Sunucudaki Kullanıcı Sayısı** ${toplam}
- **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
-  **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
-  **Sunucudaki Boost Sayısı** ${boost}`);
+  .setDescription(`<a:planta_siyahtac:789879331391799306> **Sunucudaki Kullanıcı Sayısı** ${toplam}
+ <a:planta_siyahtac:789879331391799306> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
+  <a:planta_siyahtac:789879331391799306> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
+  <a:boost:789863691989549086> **Sunucudaki Boost Sayısı** ${boost}`);
   message.channel.send(acebots).then(x => x.delete({timeout: 25000}));
 };
 
@@ -43,6 +43,6 @@ exports.conf = {
 
 exports.help = {
   name: "say",
-  usage: "!say",
-  desscription: "!say"
+  usage: "say",
+  desscription: "say"
 }; 
