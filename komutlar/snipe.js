@@ -1,12 +1,14 @@
 const { MessageEmbed } = require('discord.js')
-const data = require('quick.db')
+const data = require('quick.db');
+const ayarlar = require('../ayarlar.json');
+let basarisiz = ayarlar.basarisizemoji;
 
    exports.run = async(client, message, args) => {
     const emirhan = await data.fetch(`snipe.id.${message.guild.id}`)
     if(!emirhan) {
     const embeds = new MessageEmbed()
   .setAuthor(client.user.username, client.user.avatarURL())
-  .setDescription(`Mesaj bulunamadı!`)
+  .setDescription(`${basarisiz} Mesaj bulunamadı!`)
   .setColor(`#f3c7e1`)
     message.channel.send(embeds);
           } else {
