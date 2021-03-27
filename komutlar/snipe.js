@@ -7,7 +7,7 @@ const data = require('quick.db')
     const embeds = new MessageEmbed()
   .setAuthor(client.user.username, client.user.avatarURL())
   .setDescription(`Mesaj bulunamadı!`)
-.setColor(`#f3c7e1`)
+  .setColor(`#f3c7e1`)
     message.channel.send(embeds);
           } else {
   let kullanıcı = client.users.cache.get(emirhan);
