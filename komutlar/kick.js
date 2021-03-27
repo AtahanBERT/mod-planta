@@ -68,7 +68,7 @@ kullanici.kick({reason: sebep}).then(x => message.react('✅')).catch();
                   });
                 };    
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Atıldı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
-kicklog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Atıldı !**\n**Kickleyen Yetkili:** ${message.author.id} (\`${message.author.id}\`)\n**Kicklenen Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
+kicklog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Atıldı !**\n**Kickleyen Yetkili:** ${message.author.id} (\`${message.author.id}\`)\n**Kicklenen Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
 }
 
 exports.conf = {
