@@ -37,7 +37,7 @@ member.roles.add(erkek3);//Verilecek 2. Erkek Rol
 
 const embed1 = new Discord.MessageEmbed().setColor('GREEN')
 .setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
-client.channels.cache.get(jaillogkanal).send(embed1);//Log Kanal İd
+client.channels.cache.get(jaillogkanal).send(embed1)
 message.react('✅');
 
   
