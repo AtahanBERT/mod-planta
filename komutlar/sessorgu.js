@@ -10,38 +10,35 @@ exports.run = async (client, message, args) => {
   if (!member)
     return message.channel.send(
       new Discord.MessageEmbed()
-        .setDescription("Bir Kullanıcı Etiketle")
-        .setColor("DARK_PURPLE")
-    );
+        .setDescription((`${basarisiz} Bir Kullanıcı Etiketle`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp())
+  )
+  message.react(basarisiz);
   if (!member.voice.channel)
-    return message.channel.send(new Discord.MessageEmbed(`${basarisiz} Bu Kullanıcı Ses Kanalında Değil`))
+    return message.channel.send(new Discord.MessageEmbed((`${basarisiz} Bu Kullanıcı Ses Kanalında Değil`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp())
+  message.react(basarisiz);
     let seskanali = member.voice.channel.name;
 
     if (message.member.voice.selfDeaf == true) {
       let sorgu = new Discord.MessageEmbed()
-        .setColor("GOLD")
-        .setAuthor(message.author.tag, message.author.avatarURL())
-  
-        .setDescription(
+        .setDescription((
           `${basari} ${member} İsimli Kişi **${seskanali}** Ses Kanalında Şuan Aktif Ve Kulaklığı Kapalı`
-        )
-      message.react(basari);
+        ).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}))
+      message.react(basari)
       
       message.channel.send(sorgu);
     } else {
       let sorguu = new Discord.MessageEmbed()
-        .setColor("GREY")
-        .setAuthor(message.author.tag, message.author.avatarURL())
-        .setDescription(
+        .setDescription((
           `${basari} ${member} İsimli Kişi **${seskanali}** Ses Kanalında Şuan Aktif Ve Kulaklığı Açık`
-        )
-      message.react(basari);
+        ).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}))
+      message.react(basari)
   
       message.channel.send(sorguu);
     }
   
     if (!member.voice.channel)
-      return message.channel.send(new Discord.MessageEmbed(`${basarisiz} Ses Kanalında Yok`))
+      return message.channel.send(new Discord.MessageEmbed((`${basarisiz} Ses Kanalında Yok`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}))
+      message.react(basarisiz)
   };
 
 exports.conf = {
