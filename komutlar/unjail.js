@@ -65,7 +65,7 @@ kullanici.roles.remove(cezalırol)
 message.guild.roles.cache.forEach(async r => {
 let roller = datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
 if(roller != r.id)  return ;
-if(roller){kullanici.roles.add(roller)}
+if(roller) kullanici.roles.add(roller)
 })
   
   
