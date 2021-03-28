@@ -64,8 +64,8 @@ message.react('✅')
 message.guild.roles.cache.forEach(r => {
 datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
 kullanici.roles.add(r.id)
-if (kullanici.roles.add(r.id)) return
-datab.delete(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
+kullanici.roles.remove(cezalırol);
+if (kullanici.roles.remove) datab.delete(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
 })
   
   
