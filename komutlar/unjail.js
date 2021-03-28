@@ -61,11 +61,9 @@ moment.locale("tr");
 jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezası Bitirildi !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
 message.react('✅')
 
-message.guild.roles.cache.forEach(async r => {
-const roller = await datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}` )
-if(roller != r.id)  return ;
-if(roller){kullanici.roles.add(roller)}
-})
+kullanici.roles.add(cezalırol);
+kullanici.roles.cache.forEach(r => {
+kullanici.roles.remove(r.id)}
   
   
 }
