@@ -15,7 +15,7 @@ let basarisiz = ayarlar.basarisizemoji;
   let kullanıcı = client.users.cache.get(emirhan);
   const silinen = await data.fetch(`snipe.mesaj.${message.guild.id}`)
   const embed = new MessageEmbed()
-  .setAuthor(kullanıcı.user.tag, kullanıcı.avatarURL())
+  .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
   .setDescription(silinen)
   .setColor(`#f3c7e1`)
   .setTimestamp()
