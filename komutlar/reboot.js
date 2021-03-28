@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if(message.author.id !== "429357746002067493") return message.channel.send(`${basarisiz} Yapımcım Değilsin!`)
     
     message.channel.send(`${basari} Bot yeniden başlatılıyor...`).then(msg => {
-    console.log(`BOT: Yeniden Başlatılıyor.....`);
+    console.log(`${basari} BOT: Yeniden Başlatılıyor.....`);
     process.exit(0);
   })
     
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["reboot","yeniden başlat"],
+  aliases: ["reboot","yeniden başlat","restart"],
 permLevel: 4
 };
 
