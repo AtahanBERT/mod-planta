@@ -10,14 +10,14 @@ exports.run = (bot, message, args) =>
    {
      if(collection.first() == null)
      {
-       const embed = new Discord.RichEmbed()
+       let embed = new Discord.MessageEmbed()
        .setTitle(`${basarisiz} Banlanan Kullanıcı bulunamadı`)
        .setColor("RED");
-       message.channel.send({embed});
+       message.channel.send(embed);
      }
      else
      {
-       const embed = new Discord.RichEmbed()
+       let embed = new Discord.MessageEmbed()
        .setTitle("Ban Listesi: Sunucudan Banlananlar.")
        .setColor("RED");
        for(userlist of collection)
@@ -25,7 +25,7 @@ exports.run = (bot, message, args) =>
            var user = userlist[1];
            embed.addField(` **${user.tag}**`, `_________ _____________`);
        }
-       message.channel.send({embed});
+       message.channel.send(embed);
      }
    });
  }
