@@ -61,9 +61,9 @@ moment.locale("tr");
 jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezası Bitirildi !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
 message.react('✅')
 
-kullanici.roles.add(cezalırol);
+kullanici.roles.remove(cezalırol);
 kullanici.roles.cache.forEach(r => {
-kullanici.roles.remove(r.id)}
+kullanici.roles.add(r.id)})
   
   
 }
