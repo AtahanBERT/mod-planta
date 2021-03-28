@@ -36,7 +36,7 @@ member.roles.remove(cezalı);
 const embed1 = new Discord.MessageEmbed()
 .setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`erkek\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
 client.channels.cache.get(jaillogkanal).send(embed1)
-message.react('✅');
+message.react('✅').catch;
 
   
 };

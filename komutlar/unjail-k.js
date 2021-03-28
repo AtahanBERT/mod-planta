@@ -27,18 +27,18 @@ if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColo
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first();
 let member = message.guild.member(kullanıcı);
-member.roles.add(kızrol1);//Verilecek Erkek Rol
-member.roles.add(kızrol2);//Verilecek 2. Erkek Rol
-member.roles.remove(cezalı);//Cezalı Rol
+member.roles.add(kızrol1);
+member.roles.add(kızrol2);
+member.roles.remove(cezalı);
 
-member.roles.add(erkek3);//Verilecek 2. Erkek Rol
+member.roles.add(erkek3);
 
    
 
 const embed1 = new Discord.MessageEmbed().setColor('GREEN')
 .setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
 client.channels.cache.get(jaillogkanal).send(embed1)
-message.react('✅');
+message.react('✅').catch;
 
   
   
