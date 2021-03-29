@@ -26,7 +26,7 @@ exports.run = async (bot , message, args) => {
     try{
       
     message.channel.send(new MessageEmbed().setDescription(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
-    message.guild.unbanGuildMember(banlımember.user)
+    message.guild.members.unban(banlımember.user)
     message.react('✅');
    
     }catch(err){   
