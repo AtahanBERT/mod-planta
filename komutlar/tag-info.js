@@ -13,7 +13,7 @@ const sonuc = message.guild.members.cache.filter(mr => mr.user.username.includes
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Belirtilen Taga Sahip Bu Sunucuda `+sonuc+` Kişi Var!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
 }
 module.exports.conf = {
-aliases: []
+aliases: ["bul"]
 }
 
 module.exports.help = {
