@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 exports.run = async (bot , message, args) => {
   
-  let basari = ayarlar.basarilismoji;
+  let basari = ayarlar.basariliemoji;
   let basarisiz = ayarlar.basarisizemoji;
   if(!message.member.roles.get == ayarlar.banyetkili)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
@@ -21,12 +21,12 @@ exports.run = async (bot , message, args) => {
 
     if(!banlımember) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Lütfen Banı Açılcak Bir Kullanıcıyı Belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    
-    if(!sebep) sebep = `bir sebep belirtilmedi`
+    if(!sebep) sebep = `bir sebep belirtilmemiş`
 
     try{
       
     message.channel.send(new MessageEmbed().setDescription(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
-    message.guild.unban(banlımember.user)
+    message.guild.unbanGuildMember(banlımember.user)
     message.react('✅');
    
     }catch(err){   
