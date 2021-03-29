@@ -5,7 +5,7 @@ exports.run = async (bot , message, args) => {
   
   let basari = ayarlar.basarilismoji;
   let basarisiz = ayarlar.basarisizemoji;
-  if(!message.member.roles.get == ayarlar.banyetkili)return message.channel.send(new MessageEmbed(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+  if(!message.member.roles.get == ayarlar.banyetkili)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
    const user = message.mentions.members.first()
 
@@ -21,11 +21,11 @@ exports.run = async (bot , message, args) => {
 
     if(!banlımember) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Lütfen Banı Açılcak Bir Kullanıcıyı Belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    
-    if(!sebep) sebep = `${basarisiz} bir sebep belirtilmedi`
+    if(!sebep) sebep = `bir sebep belirtilmedi`
 
     try{
       
-    message.channel.send(new MessageEmbed(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
+    message.channel.send(new MessageEmbed().setDescription(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
     message.guild.unban(banlımember.user)
     message.react('✅');
    
@@ -34,7 +34,7 @@ exports.run = async (bot , message, args) => {
     }
    
 
-     let embed = new Discord.RichEmbed()
+     let embed = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setAuthor(`${message.guild.name} Bilgi`, message.guild.iconURL)
     .addField("**Banı Açan Üye:**", `**Adı:** ${message.author}\n **İD'si:** ${message.author.id}`)
