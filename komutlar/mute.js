@@ -98,7 +98,7 @@ new MessageEmbed()
 **Kullanıcı:** <@${member.id}> (\`${member.id}\`)
 **Yetkili:** <@${message.author.id}> (\`${message.author.id}\`)
 **Süre:** \`${zamandilimi}\`
-**Tarih:** (\`${moment(Date.now()).format("DD")} ${aylar[moment(Date.now()).format("MM")]} ${moment(Date.now()).add(10,"hours").format("YYYY HH:mm:ss")}\`)
+**Tarih:** (\`${moment(Date.now()).format("DD")} ${aylar[moment(Date.now()).format("MM")]} ${moment(Date.now()).add(3,"hours").format("YYYY HH:mm:ss")}\`)
         
 `))
 mute.roles.add(muterol)
