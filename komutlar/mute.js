@@ -78,7 +78,7 @@ Sebep: sebep,
 Ceza: "MUTE",
 Süre: zamandilimi,
 cezano: numara,
-Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
 });
 };
   
@@ -114,7 +114,7 @@ new MessageEmbed()
 **Metin Kanallarında Susturulması Bitti !**
 **Kullanıcı:** <@${member.id}> (\`${member.id}\`)
 **Süre:** \`${zamandilimi}\`
-**Tarih:** (\`${moment(Date.now()).format("DD")} ${aylar[moment(Date.now()).format("MM")]} ${moment(Date.now()).add(10,"hours").format("YYYY HH:mm:ss")}\`)`)
+**Tarih:** (\`${moment(Date.now()).format("DD")} ${aylar[moment(Date.now()).format("MM")]} ${moment(Date.now()).add(3,"hours").format("YYYY HH:mm:ss")}\`)`)
 );
 }, ms(zaman));
         
