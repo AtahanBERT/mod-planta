@@ -10,10 +10,6 @@ exports.run = async (client, message, emoji, args) => {
 
     let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
-    let kanal = ayarlar.botkomut;
-  
-  if(message.channel.id !== kanal) return message.react(basarisiz);
-  
   
 	let uye = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   
