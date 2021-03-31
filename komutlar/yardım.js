@@ -48,7 +48,7 @@ const ace = new Discord.MessageEmbed()
 exports.conf = {
 	enabled : true,
 	guildOnly : false,
-	aliases : ['help'],
+	aliases : ['help','yardim'],
 	permLevel : 0
 }
 
