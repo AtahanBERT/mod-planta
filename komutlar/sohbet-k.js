@@ -28,12 +28,12 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["sohbet-k"],
+  aliases: [],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'sohbet-kapat',
+  name: '',
   description: 'İstediğiniz kişiyi uyarır.',
   usage: 'kapat'
 };
