@@ -193,7 +193,7 @@ console.log(`Bir hata oluştu! ${e}`)
 });
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
-client.on("guildMemberAdd", member => {
+client.off("guildMemberAdd", member => {
  const rolver = ayarlar.kayıtsız;
     member.roles.add(rolver); 
 });
