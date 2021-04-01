@@ -16,7 +16,7 @@ exports.run = async(client, message, args) => {
 
 
 const ace = new Discord.MessageEmbed()
-.setFooter('Planta Team Tarafından Yapılmıştır.')
+.setFooter('Extacy Community Tarafından Yapılmıştır.')
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setDescription(`
 > **\`${prefix}pp -> .pp veya .pp @üye\`** 

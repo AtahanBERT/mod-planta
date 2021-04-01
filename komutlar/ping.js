@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
   
 const exampleEmbed = new Discord.MessageEmbed()
-  .setFooter(`ま PŁΛЛTΛ TΞΛM`)
+  .setFooter(`Extacy Community Tarafından Yapılmıştır`)
   .addField(`Pingim` ,`${client.ws.ping}ms`)
   message.channel.send(exampleEmbed)
   

@@ -83,7 +83,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
               `Başvuru Soruları:\n**1. ${s1}\n2. ${s2}\n3. ${s3}**\n\n\`Örnek Kullanım:\` __m!başvuru Atahan 17  Fazla Davet Yapa Bilirim__\n${s4}`
             )
             .setTimestamp()
-            .setFooter("Planta Tarafından Yapılmıştır.")
+            .setFooter("Extacy Community Tarafından Yapılmıştır.")
         );
       
       let data = db.get(`basvuru.${message.author.id}`);
@@ -108,7 +108,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
             }\`\n**Ne Yapa Bilir:** \`${args.slice(2).join(" ")}\``
           )
           .setTimestamp()
-          .setFooter("Planta Tarafından Yapılmıştır.");
+          .setFooter("Extacy Community Tarafından Yapılmıştır.");
         return ch.send(csd).then(mr => {
           message.react('✅')
           message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başvurun sırayı eklendi <@&${yetkili}> rolündeki yetkililerin cevaplamısını bekle!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
