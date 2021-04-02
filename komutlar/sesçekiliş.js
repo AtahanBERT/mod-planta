@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ayarlar = require('../ayarlar.json');
-let basarisiz = ayarlar.basarisiz;
+let basarisiz = ayarlar.basarisizemoji;
 
 
 module.exports.run = async (client, message, args) => {
