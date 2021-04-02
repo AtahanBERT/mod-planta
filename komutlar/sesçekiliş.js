@@ -7,9 +7,8 @@ module.exports.run = async (client, message, args) => {
   
 if (!message.member.roles.cache.get(ayarlar.rewardsyetkili)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   if (!message.member.voice.channel)
-    return message.reply(
-      "**Bu Komutu Kullana Bilmek İçin Sesli Kanalda Olman Gerekli!**"
-    );
+    return message.channel.send(new Discord.MessageEmbed().setDescription(
+      `${basarisiz} **Bu Komutu Kullana Bilmek İçin Sesli Kanalda Olman Gerekli!**`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   let odul = args.slice(0).join(" ");
   if (!odul) return message.reply("**Bir Ödül Yazman Gerek!**");
 
@@ -23,12 +22,12 @@ if (!message.member.roles.cache.get(ayarlar.rewardsyetkili)) return message.chan
     .setDescription(
       `**Kazanan: <@${sonuç}>\nSeslide Çekiliş Yapan: ${message.author}\nÖdül: \`${odul}\`**`
     )
-    .setFooter("Planta Tarafından Yapılmıştır.")
+    .setFooter("Extacy Community Tarafından Yapılmıştır.")
     .setTimestamp();
   message.channel.send(cse);
 };
 module.exports.conf = {
-  aliases: ["sesçekiliş"]
+  aliases: ["sesçekiliş","sescekilis"]
 };
 
 module.exports.help = {
