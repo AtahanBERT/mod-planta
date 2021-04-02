@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
-let basarisiz = ayarlar.basarisizemoji;
 let basari = ayarlar.basariliemoji;
+let basarisiz = ayarlar.basarisizemoji;
  
 module.exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission(ayarlar.banyetkili)) return message.channel.send(`${basarisiz} Bu komutu kullanabilmek için `Üyeleri Yasakla` yetkisine sahip olmanız gerek.`);
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`${basarisiz} Bu komutu kullanabilmek için ``Üyeleri Yasakla`` yetkisine sahip olmanız gerek.`);
     if (!args[0]) {
         return message.channel.send(`${basarisiz} Hey Bu Komutu Kullanmak İçin Bir Kullanıcının ID'sini Belirtmen Gerek!`)
    }
@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
                if (bans.has(seyfooo)) {
                    return message.channel.send(`${basarisiz} Bu Kullanıcı Zaten Yasaklanmış.`)
                }
-               message.guild.members.ban(seyfooo, sebeb)
+               message.guild.ban(seyfooo, sebeb)
                    .then(async (member) => {
                        let user;
                        if (member instanceof Discord.GuildMember) {
@@ -29,11 +29,11 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(`${basari} <@!${user.id}> adlı kullanıcı banlandı`);
+                       message.channel.send(`<@!${user.id}> adlı kullanıcı banlandı `);
                    })
                    .catch(error => {
                        message.channel.send(`${basarisiz} Bir Hata Oluştu`);
-                       console.error(`${basarisiz} Hata:`, error);
+                       console.error('Hata:', error);
                    });
            });
    } else {
@@ -48,13 +48,13 @@ module.exports.run = async (client, message, args) => {
                        if (member instanceof Discord.GuildMember) {
                            user = member.user;
                        }
-                       else if (member instanceof discord.User) {
+                       else if (member instanceof Discord.User) {
                            user = member;
                        }
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(`${basari} <@!${user.id}> sunucudan yasaklandı`);
+                       message.channel.send(`${basari} <@!${user.id}> sunucudan yasaklandı `);
                    })
                    .catch(error => {
                        message.channel.send(`${basarisiz} Bir Hata Oluştu`);
@@ -67,13 +67,13 @@ module.exports.run = async (client, message, args) => {
 exports.conf = {
    enabled: true,
    guildOnly: false,
-   aliases: ['forceban'],
-   permLevel: 4
+   aliases: ['force-ban'],
+   permLevel: 0
  
 };
  
 exports.help = {
    name: 'forceban',
    description: 'Oylama yapmanızı sağlar.',
-   usage: 'forceban <id>'
+   usage: 'forceban '
 };
