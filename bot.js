@@ -139,8 +139,21 @@ client.on('message', async (msg, member, guild) => {
    
 if (msg.content.toLowerCase() === '10s'){
  
-  
+
 msg.channel.send('<a:10s:824360871244988477>');    
+}
+  
+}
+});
+
+client.on('message', async (msg, member, guild) => {
+  
+ {
+   
+if (msg.content.toLowerCase() === '20s'){
+ 
+
+msg.channel.send('<a:20s:827644450351611914>');    
 }
   
 }
