@@ -12,7 +12,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
 
 let tag = ayarlar.tag;
 let isim = args.slice(1).join(' ');
-let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
+let kullanici = message.guild.member(message.mentions.members.first());
                                     
   
 if(!kullanici) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -23,7 +23,7 @@ if(isim.length > 32) return message.reply(new Discord.MessageEmbed().setDescript
   
 message.guild.members.cache.get(kullanici.id).setNickname(`${tag} ${isim}`)
 message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} Başarılı bir şekilde \`${kullanici.username}\` adlı kişinin kullanıcı adı \`${tag} ${isim}\` olarak değiştirildi.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}))
-message.react('✅');
+message.react(basari);
 }
 
 exports.conf = {
