@@ -18,6 +18,7 @@ let basarisiz = ayarlar.basarisizemoji;
   .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
   .setDescription(silinen)
   .setColor(`#f3c7e1`)
+  .setFooter(message.guild.name, message.guild.iconURL())
   .setTimestamp()
   message.channel.send(embed) }
 }
