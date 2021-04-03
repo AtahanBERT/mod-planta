@@ -5,7 +5,6 @@ let basarisiz = ayarlar.basarisizemoji;
 
    exports.run = async(client, message, args) => {
     const emirhan = await data.fetch(`snipe.id.${message.guild.id}`)
-    if(message.author.bot === true) return;
     if(!emirhan) {
     const embeds = new MessageEmbed()
   .setAuthor(client.user.username, client.user.avatarURL())
@@ -26,7 +25,7 @@ let basarisiz = ayarlar.basarisizemoji;
 exports.conf = {
     enabled:true,
     guildOnly: false,
-    aliases: [],
+    aliases: ['snipe'],
     permLevel: 0,
 }
 exports.help = {

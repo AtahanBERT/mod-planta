@@ -36,5 +36,5 @@ exports.conf = {
 exports.help = {
   name: '',
   description: 'İstediğiniz kişiyi uyarır.',
-  usage: 'aç'
+  usage: ''
 };
