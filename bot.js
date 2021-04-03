@@ -165,6 +165,7 @@ client.on("ready", () => {
   });      
 
 client.on('messageDelete', message => {
+  if(message.author.bot === false) return;
   db.set(`snipe.mesaj.${message.guild.id}`, message.content)
   db.set(`snipe.id.${message.guild.id}`, message.author.id)
 })
@@ -706,3 +707,11 @@ if(client.ping > 550) {
            .then(msg.reply('✅ Bölge Değiştirildi! ')) 
            .catch(console.error);
 }});
+
+
+client.on('message', message => {
+let prefix = ayarlar.prefix;
+if (message.content === `<@${client.user.id}>`) {
+ message.reply(`Prefix'im: **${prefix}**, Yardım için: **${prefix}yardım**`)
+}
+});
