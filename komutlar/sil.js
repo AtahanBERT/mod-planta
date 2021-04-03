@@ -20,13 +20,13 @@ if(isNaN(args[0])) {
 return message.channel.send((errembed).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 }
   
-if (args[0] < 1) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} **1** adetten az mesaj silemem!`)).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-if (args[0] > 100) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} **100** adetten fazla mesaj silemem!`)).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (args[0] < 1) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} **1** adetten az mesaj silemem!`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (args[0] > 100) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} **100** adetten fazla mesaj silemem!`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
 message.channel.bulkDelete(args[0]).then(deletedMessages => {
-if (deletedMessages.size < 1) return message.reply((`${basarisiz} Hiç mesaj silemedim! _(**14** günden önceki mesajları silemem!)_`).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (deletedMessages.size < 1) return message.reply((`${basarisiz} Hiç mesaj silemedim! _(**14** günden önceki mesajları silemem!)_`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 })
-message.channel.send(new Discord.MessageEmbed().setDescription((`${basarili} **${args[0]}** adet mesaj başarıyla silindi!`)).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
+message.channel.send(new Discord.MessageEmbed().setDescription((`${basarili} **${args[0]}** adet mesaj başarıyla silindi!`)).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 };
 
 exports.conf = {
