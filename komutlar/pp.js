@@ -19,7 +19,7 @@ return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setIma
 exports.conf = {
 enabled: true,
 guildOnly: false,
-aliases: ["pp"],
+aliases: ["pp","av","avatar"],
 permLevel: 0
   
 };

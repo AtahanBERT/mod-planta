@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
     errors: ['time'],
     })
     .then((collected) => {
-      message.channel.send(new Discord.MessageEmbed().setColor('RED').setTitle(`${basari} Bot kendini yeniden başlatıyor...`).setDescription(`${basari} Onay Verildi! Yeniden Başlatılıyorum...`).setFooter(message.author.tag, message.author.displayAvatarURL()).setTimestamp()).then(msg => {
+      message.channel.send(new Discord.MessageEmbed().setColor('RED').setTitle(`Bot kendini yeniden başlatıyor...`).setDescription(`${basari} Onay Verildi! Yeniden Başlatılıyorum...`).setFooter(message.author.tag, message.author.displayAvatarURL()).setTimestamp()).then(msg => {
     console.log(`${basari} Yeniden Başlatılıyor...`);
     process.exit(0);
     })
