@@ -10,12 +10,17 @@ exports.run = async (client, message, args) => {
   if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
   
+let basarisiz = ayarlar.basarisizemoji;
+let basari = ayarlar.basariliemoji;
+let yetkili = ayarlar.kickyetkili;
+let kicklog = ayarlar.kicklog;
+
 //-------------------------------------------------------------------------------\\  
 
-if (!message.member.roles.cache.get(ayarlar.kickyetkili) & !message.member.hasPermission("ADMINISTRATOR"))
+if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
-const kicklog = message.guild.channels.cache.find(c => c.id === ayarlar.kicklog)//Kick log kanalı  
+const kicklog = message.guild.channels.cache.find(c => c.id === kicklog)//Kick log kanalı  
   
 //-------------------------------------------------------------------------------\\
 
@@ -41,8 +46,6 @@ if(!args[1] || isNaN(args[1])) return message.channel.send(new MessageEmbed().se
 return message.guild.fetchKick(args.slice(1).join(' ')).then(({ user, reason }) => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x330033').setTimestamp().setDescription(`**Banlanan Üye:** ${user.tag} (\`${user.id}\`)\n**Ban Sebebi:** ${reason ? reason : "Belirtilmemiş!"}`))).catch(err => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp().setDescription("Belirtilen ID numarasına sahip bir ban bulunamadı!")).then(x => x.delete({timeout: 5000})));
 }
 
-let basarisiz = ayarlar.basarisizemoji
-let basari = ayarlar.basariliemoji
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 let sebep = args.splice(1).join(" ")
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
