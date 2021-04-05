@@ -26,7 +26,7 @@ exports.run = function(client, message, args) {
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
    let tag = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
   
-  const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Planta Team Tarafından Yapılmıştır.')
+  const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Extacy Community Tarafından Yapılmıştır.')
   .setDescription(`<a:planta_siyahtac:789879331391799306> **Sunucudaki Kullanıcı Sayısı** ${toplam}
  <a:planta_siyahtac:789879331391799306> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
   <a:planta_siyahtac:789879331391799306> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
