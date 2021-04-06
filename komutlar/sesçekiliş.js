@@ -27,7 +27,7 @@ if (!message.member.roles.cache.get(ayarlar.rewardsyetkili)) return message.chan
   message.channel.send(cse);
 };
 module.exports.conf = {
-  aliases: ["sesçekiliş","sescekilis"]
+  aliases: ["sesçekiliş","sescekilis","sesçekilis"]
 };
 
 module.exports.help = {
