@@ -1,7 +1,7 @@
 {
-  "//1": "AceBots Gelişmiş Public Moderasyon Altyapısı",
-  "//2": "Abone Olmayı Unutmayın!",
-  "//3": "Projeyi Gizliye Alıp 'ÖNEMLİ' Kısmını Okumayı Unutmayınız...",
+  "//1": "Extacy Community Public Moderasyon Altyapısı",
+  "//2": "Sunucuya Gelmeyi Unutmayın",
+  "//3": "Projeyi Gizliye Alıp 'Oku' Kısmını Okumayı Unutmayınız...",
   "name": "hello-express",
   "version": "0.0.1",
   "description": "Gelişmiş Public Moderasyon Botu Altyapısı",
@@ -29,7 +29,9 @@
     "ytdl-core": "^2.1.5",
     "ms": "^2.1.3",
     "axel": "^0.0.3",
-    "pretty-ms": "^7.0.1"
+    "pretty-ms": "^7.0.1",
+    "path": "^0.12.7",
+    "discord-spam-protector": "^1.1.4"
   },
   "engines": {
     "node": "12.x"
