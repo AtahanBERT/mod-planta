@@ -1,5 +1,6 @@
 dependencies:
   ascii-table: 0.0.9
+  axel: 0.0.3
   chalk: 4.0.0
   discord-anti-spam: 2.5.0
   discord-logs: 1.7.7
@@ -12,6 +13,7 @@ dependencies:
   moment-duration-format: 2.3.2
   ms: 2.1.3
   parse-ms: 2.1.0
+  pretty-ms: 7.0.1
   quick.db: 7.1.1
   request: 2.88.2
   simple-youtube-api: 5.2.1
@@ -501,6 +503,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-9VGjrMsG1vePxcSweQsN20KY/c4zN0h9fLjqAbwbPfahM3t+NL+M9HC8xeXG2I8pX5NoamTGNuomEUFI7fcUjA==
+  /ansi/0.3.1:
+    dev: false
+    resolution:
+      integrity: sha1-DELU+xcWDVqa8eSEus4cZpIsGyE=
   /any-base/1.1.0:
     dev: false
     resolution:
@@ -548,6 +554,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3YDiu347mtVtjpyV3u5kVqQLP242c06zwDOgpeRnybmXlYYsLbtTrUBUm8i8srONt+FWobl5aibnU1030PeeuA==
+  /axel/0.0.3:
+    dependencies:
+      ansi: 0.3.1
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-dMj3XTfYKvZl6AMKE9OjbNoAEhU=
   /base64-js/1.3.1:
     dev: false
     resolution:
@@ -1455,6 +1468,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-AkKN+pf4fSEihjapLEEj8n85YIw/tN6BQqkhzbDc0RvEZGdkpJBGMUYx66AAMcPG2KzmPQS7Cm16an4HVBRRMA==
+  /pretty-ms/7.0.1:
+    dependencies:
+      parse-ms: 2.1.0
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==
   /prism-media/1.2.2:
     dev: false
     peerDependencies:
@@ -1981,6 +2002,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
+  axel: ^0.0.3
   chalk: ^4.0.0
   discord-anti-spam: ^2.5.0
   discord-logs: ^1.7.7
@@ -1993,6 +2015,7 @@ specifiers:
   moment-duration-format: ^2.2.2
   ms: ^2.1.3
   parse-ms: ^2.1.0
+  pretty-ms: ^7.0.1
   quick.db: ^7.1.1
   request: ^2.88.2
   simple-youtube-api: ^5.2.1
