@@ -719,18 +719,18 @@ if (message.content === `<@${client.user.id}>`) {
 
 client.on('guildMemberUpdate', async(oldMember, newMember) => {
 
-if(oldMember.roles.has('787602746630078505')) {
+if(oldMember.roles.has('BOOSTER ROL ID')) {
 
-if(!newMember.roles.has('787602746630078505')) return client.channels.get('786556292935319552').send(newMember.user.tag + ' Boostunu çekti! üzdü :c')
+if(!newMember.roles.has('BOOSTER ROL ID')) return client.channels.get('LOG KANAL ID').send(newMember.user.tag + ' Boostunu çekti ')
 }}
 );
 
 
 client.on('guildMemberUpdate', async(oldMember, newMember) => {
 
-if(!oldMember.roles.has('787602746630078505')) {
+if(!oldMember.roles.has('BOOSTER ROL ID')) {
 
-if(newMember.roles.has('787602746630078505')) return client.channels.get('786556292935319552').send(newMember.user.tag + ' Boost Bastı! SEN BİRTANESİN :D')
+if(newMember.roles.has('BOOSTER ROL ID')) return client.channels.get('LOG KANAL ID').send(newMember.user.tag + ' Boost Bastı ! SEN BİRTANESİN :)')
 
 }}
 );
