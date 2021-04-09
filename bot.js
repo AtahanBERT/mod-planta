@@ -715,3 +715,22 @@ if (message.content === `<@${client.user.id}>`) {
  message.reply(`Prefix'im: **${prefix}**, Yardım için: **${prefix}yardım**`)
 }
 });
+
+
+client.on('guildMemberUpdate', async(oldMember, newMember) => {
+
+if(oldMember.roles.has('BOOSTER ROL ID')) {
+
+if(!newMember.roles.has('BOOSTER ROL ID')) return client.channels.get('LOG KANAL ID').send(newMember.user.tag + ' Boostunu çekti ')
+}}
+);
+
+
+client.on('guildMemberUpdate', async(oldMember, newMember) => {
+
+if(!oldMember.roles.has('BOOSTER ROL ID')) {
+
+if(newMember.roles.has('BOOSTER ROL ID')) return client.channels.get('LOG KANAL ID').send(newMember.user.tag + ' Boost Bastı ! SEN BİRTANESİN :)')
+
+}}
+);
