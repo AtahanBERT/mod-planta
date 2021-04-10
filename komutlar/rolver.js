@@ -1,17 +1,12 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-const db = require("quick.db")
+const db = require("quick.db");
 
 var prefix = ayarlar.prefix;
 
 
 
 exports.run = async (bot, message, args) => {
- 
-   if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
-}
-  
   
      let basarili = ayarlar.basariliemoji;
      let basarisiz = ayarlar.basarisizemoji;
