@@ -9,6 +9,7 @@ dependencies:
   express: 4.17.1
   fs: 0.0.2
   http: 0.0.0
+  humanize-duration: 3.25.1
   jimp: 0.12.1
   moment: 2.26.0
   moment-duration-format: 2.3.2
@@ -1107,6 +1108,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-huYybSnF0Dnen6xYSkVon5KfT3I=
+  /humanize-duration/3.25.1:
+    dev: false
+    resolution:
+      integrity: sha512-P+dRo48gpLgc2R9tMRgiDRNULPKCmqFYgguwqOO2C0fjO35TgdURDQDANSR1Nt92iHlbHGMxOTnsB8H8xnMa2Q==
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -2082,6 +2087,7 @@ specifiers:
   express: ^4.17.1
   fs: ^0.0.2
   http: ^0.0.0
+  humanize-duration: ^3.25.1
   jimp: ^0.12.1
   moment: ^2.26.0
   moment-duration-format: ^2.2.2

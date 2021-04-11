@@ -31,7 +31,8 @@
     "axel": "^0.0.3",
     "pretty-ms": "^7.0.1",
     "path": "^0.12.7",
-    "discord-spam-protector": "^1.1.4"
+    "discord-spam-protector": "^1.1.4",
+    "humanize-duration": "^3.25.1"
   },
   "engines": {
     "node": "12.x"
