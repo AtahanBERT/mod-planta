@@ -52,9 +52,8 @@ if (!client.commands.has(command)) {
     } else {
       if(command == '') return;
 message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${basarisiz} Botta ` + command + ' Adında Bir Komut Bulunamadı.')
-.setColor('#2c2f33')
-.setTimestamp())
+.setDescription(`${basarisiz} Botta **` + command + '** Adında Bir Komut Bulunamadı.')
+.setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   }}
 
 };
