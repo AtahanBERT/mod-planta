@@ -45,6 +45,20 @@ const ms = require('parse-ms');
   let params = message.content.split(" ").slice(1);
   let perms = client.elevation(message);
   let cmd;
+  
+if (!client.commands.has(command)) {
+    if (client.aliases.has(command)) {
+      cmd = client.commands.get(client.aliases.get(command));
+    } else {
+      if(command == '') return;
+const kraker = new Discord.MessageEmbed()
+.setDescription("Botta `" + command + '` Adında Bir Komut Bulunamadı.')
+.setColor('#2c2f33')
+.setTimestamp()
+    message.reply(kraker)
+  }
+  };
+  
   if (client.commands.has(command)) {
     cmd = client.commands.get(command);
   } else if (client.aliases.has(command)) {
