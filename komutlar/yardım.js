@@ -15,7 +15,7 @@ exports.run = async(client, message, args) => {
 
 
 
-const ace = new Discord.MessageEmbed()
+const extacy = new Discord.MessageEmbed()
 .setFooter('Extacy Community Tarafından Yapılmıştır.')
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setDescription(`
@@ -26,7 +26,9 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}rolal -> .rolal @üye @rol\`** 
 > **\`${prefix}ban -> .ban @üye <sebep>\`** 
 > **\`${prefix}kick -> .kick @üye <sebep>\`**
-> **\`${prefix}git -> .git @üye\`** 
+> **\`${prefix}uyar -> .uyar @üye <sebep>\`**
+> **\`${prefix}git -> .git @üye\`**
+> **\`${prefix}gel -> .gel @üye\`**
 > **\`${prefix}çek -> .çek @üye\`** 
 > **\`${prefix}say -> .say\`** 
 > **\`${prefix}sohbet-aç -> .sohbet-aç\`** 
@@ -36,13 +38,13 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}smute -> .mute @üye <Süre> <Sebep>\`** 
 > **\`${prefix}sunmute -> .unmute @üye\`** 
 > **\`${prefix}jail -> .jail @üye <Sebep>\`**
-> **\`${prefix}unjail -> .unj @üye <sebep> \`**
+> **\`${prefix}unjail -> .unj @üye <Sebep>\`**
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** 
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** 
 > **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`**
-> **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \`** 
-> **\`${prefix}isimdeğiştir -> .isim @üye <isim> \`** `)
- message.channel.send(ace)
+> **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \`**
+> **\`${prefix}isimdeğiştir -> .isim @üye <İsim> \`** `)
+ message.channel.send(extacy)
   
 }
 exports.conf = {
