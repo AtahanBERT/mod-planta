@@ -209,7 +209,7 @@ console.log(`Bir hata oluştu! ${e}`)
 
 client.on("guildMemberAdd", member => {
  const rolver = ayarlar.kayıtsız;
-let tag = ayarlar.tag;
+ let tag = ayarlar.tag;
   member.setNickname(`${tag}` + `${ayarlar.kayitsizad}`);
     member.roles.add(rolver); 
 });
