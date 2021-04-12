@@ -207,7 +207,7 @@ console.log(`Bir hata oluştu! ${e}`)
 });
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
-client.on("guildMemberAdd", member => {
+client.off("guildMemberAdd", member => {
  const rolver = ayarlar.kayıtsız;
  let tag = ayarlar.tag;
   member.setNickname(`${tag}` + `${ayarlar.kayitsizad}`);
