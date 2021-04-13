@@ -21,7 +21,6 @@ const extacy = new Discord.MessageEmbed()
 .setDescription(`
 > **\`${prefix}pp -> .pp veya .pp @üye\`** 
 > **\`${prefix}sicil -> .sicil veya .sicil @üye\`** 
-> **\`${prefix}yetki -> .yetki <giriş orta üst alty ortay üsty yönetim> @üye\`** 
 > **\`${prefix}rolver -> .rolver @üye @rol\`** 
 > **\`${prefix}rolal -> .rolal @üye @rol\`** 
 > **\`${prefix}ban -> .ban @üye <sebep>\`** 
