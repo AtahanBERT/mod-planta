@@ -68,7 +68,7 @@ data.add('case', 1)
                     Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };    
-message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
+message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
 banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklandı !**\n**Banlayan Yetkili:** ${message.author.id} (\`${message.author.id}\`)\n**Banlanan Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
 }
 
