@@ -10,10 +10,9 @@ if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermiss
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
   if (!args[0]) {
+    
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Doğru bir argüman gir Aç veya Kapat.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-const peka = new Discord.MessageEmbed().setColor("RED").setDescription(`Doğru bir argüman giriniz. Aç veya kapat`)
-
-return message.channel.send(peka);
 
     return;
   }
@@ -21,31 +20,19 @@ let kufur = await db.fetch(`kufur_${message.guild.id}`);
 if (args[0] == "aç") {
 if (kufur) {
 
-const ikrudka = new Discord.MessageEmbed().setColor('RED').setDescription("**Görünüşe Göre Reklam Engel ve Küfür Engel Sistemi Zaten Aktif!**")
-
-return message.channel.send(ikrudka);
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Görünüşe göre reklam koruması zaten aktif!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
       return;
     } else {
       db.set(`kufur_${message.guild.id}`, "Açık");
 
-const ace = new Discord.MessageEmbed()
-
-        .setColor("GREEN")
-        .setDescription("Reklam Engel ve Küfür Engel Sistemi Başarıyla Açıldı!")
-
-return message.channel.send(ace);
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author} Reklam koruması başarıyla açıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
     }
   } else if (args[0] == "kapat") {
     db.delete(`kufur_${message.guild.id}`);
 
-const AsD = new Discord.MessageEmbed()
-
-      .setColor("GREEN")
-      .setDescription("Reklam Engel ve Küfür Engel Sistemi Başarıyla Kapandı!")
-
-return message.channel.send(AsD);
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author} Reklam koruması başarıyla kapandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
     
     
     
@@ -57,7 +44,7 @@ return message.channel.send(AsD);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["rk"],
+  aliases: ["rk","reklam","küfür"],
   permLevel: 2
 };
 
