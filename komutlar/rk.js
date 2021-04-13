@@ -2,14 +2,13 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 let prefix = ayarlar.prefix;
+let basari = ayarlar.basariliemoji;
+let basarisiz = ayarlar.basarisizemoji;
 
 exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("BAN_MEMBERS")) {
-
-const pekabot = new Discord.MessageEmbed().setDescription(`Komudu kullanmak için gerekli yetkin yok`).setColor("RED");
-message.channel.send(pekabot);
-    return;
-  }
+if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermission("ADMINISTRATOR"))
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+  
   if (!args[0]) {
 
 const peka = new Discord.MessageEmbed().setColor("RED").setDescription(`Doğru bir argüman giriniz. Aç veya kapat`)
