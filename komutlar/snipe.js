@@ -9,7 +9,7 @@ let basarisiz = ayarlar.basarisizemoji;
     const embeds = new MessageEmbed()
   .setAuthor(client.user.username, client.user.avatarURL())
   .setDescription(`${basarisiz} Mesaj bulunamadı!`)
-  .setColor(`#f3c7e1`)
+  .setColor(`#3498db`)
     message.channel.send(embeds);
           } else {
   let kullanıcı = client.users.cache.get(emirhan);
@@ -17,7 +17,7 @@ let basarisiz = ayarlar.basarisizemoji;
   const embed = new MessageEmbed()
   .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
   .setDescription(silinen)
-  .setColor(`#f3c7e1`)
+  .setColor(`#3498db`)
   .setFooter(message.guild.name, message.guild.iconURL())
   .setTimestamp()
   message.channel.send(embed) }
