@@ -258,7 +258,7 @@ client.on("message", async message => {
             .setDescription(` <@${message.author.id}> Atıldıktan Sonra Tekrar Reklam Yaptığı İçin Sunucudan Yasaklandı!`)
          return message.channel.send(ikrudka).then(x => x.delete({timeout: 3000}));}}}}});
 
-client.on("message", async message => {
+client.off("message", async message => {
 
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
