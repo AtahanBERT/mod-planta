@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 
 exports.run = (client, message, args) => {
-  if (message.author.id !== "429357746002067493") return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (message.author.id !== "429357746002067493") 
 if (!message.guild) {
   const ozelmesajuyari = new Discord.MessageEmbed()
     .setColor('RANDOM')
