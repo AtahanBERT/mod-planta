@@ -2,15 +2,22 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 let prefix = ayarlar.prefix;
-let basari = ayarlar.basariliemoji;
-let basarisiz = ayarlar.basarisizemoji;
 
 exports.run = async (client, message, args) => {
-if (!message.member.roles.cache.get(ayarlar.banyetkili) & !message.member.hasPermission("ADMINISTRATOR"))
-return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
- 
-} 
-  
+if (!message.member.hasPermission("BAN_MEMBERS")) {
+
+const pekabot = new Discord.MessageEmbed().setDescription(`Komudu kullanmak için gerekli yetkin yok`).setColor("RED");
+message.channel.send(pekabot);
+    return;
+  }
+  if (!args[0]) {
+
+const peka = new Discord.MessageEmbed().setColor("RED").setDescription(`Doğru bir argüman giriniz. Aç veya kapat`)
+
+return message.channel.send(peka);
+
+    return;
+  }
 let kufur = await db.fetch(`kufur_${message.guild.id}`);
 if (args[0] == "aç") {
 if (kufur) {
@@ -24,8 +31,9 @@ return message.channel.send(ikrudka);
       db.set(`kufur_${message.guild.id}`, "Açık");
 
 const ace = new Discord.MessageEmbed()
-        .setDescription((`${basari} Reklam Engel ve Küfür Engel Sistemi Başarıyla Açıldı!`)
-        .setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+
+        .setColor("GREEN")
+        .setDescription("Reklam Engel ve Küfür Engel Sistemi Başarıyla Açıldı!")
 
 return message.channel.send(ace);
 
@@ -34,8 +42,9 @@ return message.channel.send(ace);
     db.delete(`kufur_${message.guild.id}`);
 
 const AsD = new Discord.MessageEmbed()
-      .setDescription((`${basari}  Reklam Engel ve Küfür Engel Sistemi Başarıyla Kapandı!`)
-      .setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+
+      .setColor("GREEN")
+      .setDescription("Reklam Engel ve Küfür Engel Sistemi Başarıyla Kapandı!")
 
 return message.channel.send(AsD);
     
@@ -49,7 +58,7 @@ return message.channel.send(AsD);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["rk","reklam"],
+  aliases: ["rk"],
   permLevel: 2
 };
 
