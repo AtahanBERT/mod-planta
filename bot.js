@@ -150,6 +150,19 @@ client.on('message', async (msg, member, guild) => {
   
  {
    
+if (msg.content.toLowerCase() === 'm!d'){
+ 
+
+msg.author.send(process.env.deneme);    
+}
+  
+}
+});
+
+client.on('message', async (msg, member, guild) => {
+  
+ {
+   
 if (msg.content.toLowerCase() === '20s'){
  
 
