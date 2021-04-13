@@ -229,9 +229,9 @@ client.on("message", async message => {
       "discord.app",
       "discord.gg"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) {
+            if (!message.member.roles.cache.get("812394077517643856") & !message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
-        db.add(`reklamuyari_${message.author.id}`, 1); //uyarı puanı ekleme
+        db.add(`reklamuyari_${message.author.id}`, 1); 
         if (uyarisayisi === null) {
           let ikrudka = new Discord.MessageEmbed()
             .setDescription(` <@${message.author.id}> Sunucuda reklam yapmak yasaktır!`)
