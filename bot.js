@@ -754,3 +754,22 @@ if(newMember.roles.has('787602746630078505')) return client.channels.get('786556
 
 }}
 );
+
+client.on("message", msg => {
+var dm = client.channels.cache.get("831499824150216706")
+if(msg.channel.type === "dm") {
+if(msg.author.id === client.user.id) return;
+const botdm = new Discord.MessageEmbed()
+.setTitle(`${client.user.username} Dm`)
+.setTimestamp()
+.setColor("RED")
+.setThumbnail(`${msg.author.avatarURL()}`)
+.addField("Gönderen", msg.author.tag)
+.addField("Gönderen ID", msg.author.id)
+.addField("Gönderilen Mesaj", msg.content)
+
+dm.send(botdm)
+
+}
+if(msg.channel.bot) return;
+});
