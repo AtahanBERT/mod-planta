@@ -756,7 +756,7 @@ if(newMember.roles.has('787602746630078505')) return client.channels.get('786556
 );
 
 client.on("message", msg => {
-var dm = client.channels.cache.get("831499824150216706")
+var dm = client.channels.cache.get(ayarlar.sikayetlog)
 if(msg.channel.type === "dm") {
 if(msg.author.id === client.user.id) return;
 const botdm = new Discord.MessageEmbed()
