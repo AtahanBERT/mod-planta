@@ -12,7 +12,7 @@ if(!args[0].endsWith('.png')) return message.channel.send(new MessageEmbed().set
 if(!args[1]) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir emoji adı yazmalısın. Örnek: **m!eepng https://cdn.discordapp.com/emojis/601379275769118731.png plantateam**`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(['ç', 'ö', 'ü', 'ş', 'İ', 'I', 'ğ', 'Ç', 'Ö', 'Ü', 'Ş', 'Ğ'].includes(args[1])) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} **Emoji adını yazarken Türkçe karakter kullanmamalısın!**`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 message.guild.emojis.create(args[0], args.slice(1).join(' ')).then(s => {
-message.channel.send(new MessageEmbed().setDescription(`${basari} ${s.name} adında emoji oluşturuldu. (${s})`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
+message.channel.send(new MessageEmbed().setDescription(`${basari} ${s.name} adında emoji oluşturuldu. (${s})`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp())
 });
 };
 exports.conf = {
