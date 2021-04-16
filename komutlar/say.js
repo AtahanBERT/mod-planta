@@ -27,10 +27,10 @@ exports.run = function(client, message, args) {
    let tag = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Extacy Community Tarafından Yapılmıştır.')
-  .setDescription(`<a:planta_siyahtac:789879331391799306> **Sunucudaki Kullanıcı Sayısı** ${toplam}
- <a:planta_siyahtac:789879331391799306> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
-  <a:planta_siyahtac:789879331391799306> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
-  <a:boost:789863691989549086> **Sunucudaki Boost Sayısı** ${boost}`);
+  .setDescription(`<a:extacy_siyahtac:832658958531297300> **Sunucudaki Kullanıcı Sayısı** ${toplam}
+ <a:extacy_siyahtac:832658958531297300> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
+  <a:extacy_siyahtac:832658958531297300> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
+  <a:boost:832667238087393370> **Sunucudaki Boost Sayısı** ${boost}`);
   message.channel.send(acebots).then(x => x.delete({timeout: 25000}));
 };
 
