@@ -177,7 +177,7 @@ client.on("userUpdate", async (oldUser, newUser) => {
     
   if (oldUser.username !== newUser.username) {
   
-          let tag = ayarlar.tag
+          let tag = ayarlar.tag | ayarlar.tag2
           let sunucu = ayarlar.sunucu
           let kanal = ayarlar.tagkanal
           let rol = ayarlar.tagrol
