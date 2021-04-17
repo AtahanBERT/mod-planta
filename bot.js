@@ -229,7 +229,7 @@ client.on("message", async message => {
       "discord.app",
       "discord.gg"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.roles.cache.get("812394077517643856") & !message.member.hasPermission("ADMINISTRATOR")) {
+            if (!message.member.roles.cache.get("832564510547378199") & !message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
         db.add(`reklamuyari_${message.author.id}`, 1); 
         if (uyarisayisi === null) {
