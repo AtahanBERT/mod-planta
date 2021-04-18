@@ -15,10 +15,10 @@ let basarisiz = ayarlar.basarisizemoji;
   let kullanıcı = client.users.cache.get(emirhan);
   const silinen = await data.fetch(`snipe.mesaj.${message.guild.id}`)
   const embed = new MessageEmbed()
-  .setAuthor(kullanıcı.username, kullanıcı.avatarURL())
+  .setAuthor(kullanıcı.username, kullanıcı.avatarURL({ dynamic: true}))
   .setDescription(silinen)
   .setColor(`#3498db`)
-  .setFooter(message.guild.name, message.guild.iconURL())
+  .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
   .setTimestamp()
   message.channel.send(embed) }
 }
