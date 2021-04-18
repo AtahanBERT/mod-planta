@@ -227,7 +227,8 @@ client.on("message", async message => {
   if (reklamkick == "Açık") {
     const reklam = [
       "discord.app",
-      "discord.gg"];
+      "discord.gg",
+      ".gg"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
             if (!message.member.roles.cache.get("832564510547378199") & !message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
