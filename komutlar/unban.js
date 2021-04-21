@@ -1,12 +1,14 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js');
+const moment = require('moment');
 const ayarlar = require('../ayarlar.json');
 exports.run = async (bot , message, args) => {
   
   let basari = ayarlar.basariliemoji;
   let basarisiz = ayarlar.basarisizemoji;
   if(!message.member.roles.get == ayarlar.banyetkili)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-
+  const banlog = message.guild.channels.cache.find(c => c.id === ayarlar.banlog)//Ban log kanalı  
+  
    const user = message.mentions.members.first()
 
     let member = user || args[0]
@@ -27,26 +29,32 @@ exports.run = async (bot , message, args) => {
 
     try{
       
-    message.channel.send(new MessageEmbed().setDescription(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
+    message.channel.send(new MessageEmbed().setDescription(`${basari} **${banlımember.user}** Kullanıcısı **${message.author}** Tarafından **${sebep}** Nedeniyle banı kaldırıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
     message.guild.members.unban(banlımember.user)
     message.react('✅');
    
     }catch(err){   
       console.log(err.message)
+    
     }
    
-
-     let embed = new Discord.MessageEmbed()
-    .setColor('RANDOM')
-    .setAuthor(`${message.guild.name} Bilgi`, message.guild.iconURL)
-    .addField("**Banı Açan Üye:**", `**Adı:** ${message.author}\n **İD'si:** ${message.author.id}`)
-    .addField("**Banı Açılma Nedeni:**", `${sebep}`)
-    .addField("**Banı Açılan Üye:**", `**Adı:** ${banlımember.user.tag}\n **İD'si:** ${banlımember.user.id}`)
-    .setTimestamp()
-    .setFooter("Ban Bilgisi", `${banlımember.user.displayAvatarURL}`)
- 
-         if(!kanal || kanal === null) return
-    kanal.send(embed)
+  let tumaylar = {
+"01": "Ocak",  
+"02": "Şubat", 
+"03": "Mart",  
+"04": "Nisan",  
+"05": "Mayıs", 
+"06": "Haziran", 
+"07": "Temmuz",
+"08": "Ağustos", 
+"09": "Eylül", 
+"10": "Ekim", 
+"11": "Kasım", 
+"12": "Aralık", 
+}
+let aylar = tumaylar;  
+moment.locale("tr");
+  banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklanması Açıldı!**\n**Banı Açan Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Banı Açılan Üye:** ${banlımember.user.tag} (\`${banlımember.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
 }
   exports.conf = {
   enabled: true,
