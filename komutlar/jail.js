@@ -68,7 +68,8 @@ member.roles.remove(r.id);
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
-    db.add(`jailsayısı_${message.author.id}`, 1); 
+
+    db.add(`${message.guild.id}.jail.${kullanıcı.id}.roles.${r.id}`)
 
 return message.react('✅')
   
