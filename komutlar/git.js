@@ -16,9 +16,8 @@ exports.run = async (client, message, emoji, args) => {
   
   if (!uye) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Ses odasına gidilecek üyeyi belirtmelisin!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} İkiniz veya ikinizden birisi ses kanalında değil!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
- {
-      await message.member.voice.setChannel(uye.voice.channelID);
-  }  {
+  if (message.member.hasPermission("ADMINISTRATOR")) {await uye.voice.setChannel(message.member.voice.channelID);} else {
+   {
     const reactionFilter = (reaction, user) => {
       return ['✅'].includes(reaction.emoji.name) && user.id === uye.id;
     };
@@ -39,6 +38,7 @@ message.channel.send(striga)
 	
       );
     };
+  };
   };
 exports.conf = {
   enabled: true,
