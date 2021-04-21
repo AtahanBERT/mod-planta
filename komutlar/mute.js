@@ -32,17 +32,17 @@ if (!mute) { new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz
 } else {
 if (mute.roles.highest.position >= message.member.roles.highest.position) 
               {
-return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`));
+return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 } else {
 let zaman = args[1]   
 .replace("sn", "s")
 .replace("dk", "m")
 .replace("sa", "h")
 .replace("gün", "d");
-if (!zaman) { message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Lütfen Bir zaman dilimi belirtin.`));
+if (!zaman) { message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir zaman dilimi belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 } else {
 let sebep = args[2]
-if(!sebep) return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`))  
+if(!sebep) return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                 
 let zamandilimi = zaman
 .replace("m", " dakika")

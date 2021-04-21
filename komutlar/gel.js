@@ -18,7 +18,7 @@ return ['✅', '❌'].includes(reaction.emoji.name) && user.id === kullanıcı.i
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
 let kullanıcı = message.mentions.members.first()
-if (!kullanıcı) return message.channel.send((`${basarisiz} ${message.author}, Lütfen Bir Kullanıcı Belirt.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Lütfen Bir Kullanıcı Belirt.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 let member = message.guild.member(kullanıcı);
 
