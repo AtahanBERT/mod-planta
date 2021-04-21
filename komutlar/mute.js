@@ -25,24 +25,24 @@ const muterol = message.guild.roles.cache.find(r => r.id === ayarlar.susturulmu�
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
 let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-if (!member) return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, lütfen bir kullanıcı etiketle !`))
+if (!member) return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, lütfen bir kullanıcı etiketle !`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
           
 let mute = message.mentions.members.first() || message.guild.members.cache.find(r => r.id === args[0]);
 if (!mute) { new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, lütfen mute atmam gereken kullanıcı belirt !`);
 } else {
 if (mute.roles.highest.position >= message.member.roles.highest.position) 
               {
-return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Bu Kullanıcı Senden Üst/Aynı Pozisyonda.`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 } else {
 let zaman = args[1]   
 .replace("sn", "s")
 .replace("dk", "m")
 .replace("sa", "h")
 .replace("gün", "d");
-if (!zaman) { message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir zaman dilimi belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (!zaman) { message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir zaman dilimi belirtin.`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 } else {
 let sebep = args[2]
-if(!sebep) return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+if(!sebep) return message.channel.send(new MessageEmbed().setDescription((`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                 
 let zamandilimi = zaman
 .replace("m", " dakika")
