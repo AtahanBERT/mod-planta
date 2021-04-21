@@ -20,7 +20,8 @@ const ms = require('ms');
 
 
 const app = express();
-app.get("/", (request, response) => {
+app.get("/", (request, response) => { 
+  response.send("Bot Aktif | Discord: https://discord.gg/yF6RRnq9Ks/nNOT: iletisim veya uptime etmek için discordumuza gelebilirsiniz.")
   console.log(Date.now() + " Ping tamamdır.");
   response.sendStatus(200);
 });
