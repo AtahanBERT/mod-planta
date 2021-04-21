@@ -68,11 +68,9 @@ member.roles.remove(r.id);
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
-message.guild.cache.forEach(r => {
-db.add(`${message.guild.id}.jail.${kullanıcı.id}.roles.${r.id}`)
-})
-message.react('✅')
-};
+db.add(`jailsayısı_${message.author.id}`, 1); 
+return message.react('✅')
+  
 
 exports.conf = {
   enabled: true,
@@ -86,4 +84,4 @@ exports.help = {
   name: 'jail',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
   usage: '.jail @etiket Sebep'
-}
+};
