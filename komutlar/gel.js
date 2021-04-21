@@ -9,7 +9,7 @@ exports.run = async (client, message, emoji, args) => {
 }
   
 if (!message.member.voice.channel) 
-return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} ${message.author}, Ses kanalında olman lazım!`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Ses kanalında olman lazım!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
 const filter = (reaction, user) => {
 return ['✅', '❌'].includes(reaction.emoji.name) && user.id === kullanıcı.id;
