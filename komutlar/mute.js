@@ -134,5 +134,3 @@ exports.conf = {
   exports.help = {
     name: "mute"
   };
-  
-  
