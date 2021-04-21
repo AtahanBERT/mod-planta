@@ -17,6 +17,7 @@ exports.run = async (client, message, args) => {
   let erkek3 = ayarlar.erkekrol3;
   let basarili = ayarlar.basariliemoji;
   let basarisiz = ayarlar.basarisizemoji;
+  let sebep = args.splice(1).join(" ");
  
   
    if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);  

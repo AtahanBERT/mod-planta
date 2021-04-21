@@ -60,7 +60,8 @@ var vakit = zaman1
                   });
                 };
   
-member.roles.cache.forEach(r => {
+message.guild.cache.forEach(r => {
+db.add(`${message.guild.id}.jail.${kullanıcı.id}.roles.${r.id}`)
 member.roles.add(cezalı);
 member.roles.remove(r.id);
 });
@@ -68,7 +69,6 @@ member.roles.remove(r.id);
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
-db.add(`jailsayısı_${message.author.id}`, 1); 
 return message.react('✅')
   
 };

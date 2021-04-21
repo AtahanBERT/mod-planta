@@ -6,7 +6,7 @@ const kdb = new db.table("kullanici");
 const moment = require('moment')
 
 
-exports.run = async (client, message, args) => {
+exports.off = async (client, message, args) => {
   
      if(db.fetch(`bakim`)) {
   if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
@@ -73,7 +73,7 @@ return message.react('✅')
   
 };
 
-exports.c = {
+exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ["ceza","cezalandır"],
