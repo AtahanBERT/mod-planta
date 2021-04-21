@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 }
  
   let yetkili = ayarlar.jailyetkili;
-  let jaillogkanal = ayarlar.jaillog;
+  let jaillogkanal = message.guild.channels.cache.find(c => c.id === ayarlar.jaillog)//Jail Log
   let kızrol1 = ayarlar.kızrol1;
   let kızrol2 = ayarlar.kızrol2;
   let cezalı = ayarlar.cezalı;
@@ -36,8 +36,8 @@ member.roles.add(erkek3);
    
 
 const embed1 = new Discord.MessageEmbed().setColor('GREEN')
-.setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))
-client.channels.cache.get(jaillogkanal).send(embed1)
+.setDescription((`Başarılı bir şekilde ${kullanıcı} adlı \`kız\` kullanıcı, ${message.author.tag} tarafından jailden çıkarıldı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
+jaillogkanal.send(embed1)
 message.react('✅').catch;
 
   

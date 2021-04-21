@@ -61,6 +61,7 @@ let aylar = tumaylar;
        {
 message.react(basari)
 message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp().setDescription(`${basari} ${message.author} tarafından ${member} **${sebep}** sebebiyle mute kaldırıldı`));
+moment.locale("tr");
 mutelog.send(
 new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL ({ dynamic: true}))
@@ -70,7 +71,7 @@ new MessageEmbed()
 Yetkili: <@${message.author.id}> (\`${message.author.id}\`)
 **Süre:** \`${vakit}\`
 **Sebep:** \`${sebep}\`
-**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\`)
+**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\`)
 
 `))
 mute.roles.remove(muterol)

@@ -38,7 +38,7 @@ exports.run = async (bot , message, args) => {
     
     }
    
-  let tumaylar = {
+let tumaylar = {
 "01": "Ocak",  
 "02": "Şubat", 
 "03": "Mart",  
