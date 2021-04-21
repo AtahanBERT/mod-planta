@@ -73,7 +73,7 @@ return message.react('✅')
   
 };
 
-exports.c = {
+exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ["ceza","cezalandır"],

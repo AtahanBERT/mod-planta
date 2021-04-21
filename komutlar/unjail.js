@@ -62,7 +62,7 @@ jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.au
 message.react('✅')
 
 message.guild.cache.forEach(async r => {
-let roller = datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
+let roller = datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles_${r.id}`)
 if(roller != r.id)  return ;
 if(roller){kullanici.roles.add(roller)}
 })
