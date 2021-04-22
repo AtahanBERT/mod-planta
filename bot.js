@@ -261,7 +261,6 @@ client.on("message", async message => {
         return message.channel.send(ikrudka).then(x => x.delete({timeout: 3000}));
         }
         if (uyarisayisi === 2) {
-        
             message.delete();
           await kullanici.kick({reason: `Reklam Yapma Orsp Cocu!`});
           let ikrudka = new Discord.MessageEmbed()
