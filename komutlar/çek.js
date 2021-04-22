@@ -25,7 +25,7 @@ exports.run = async (client, message, emoji, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ['gel'],
   permLevel: 0
 }
 
