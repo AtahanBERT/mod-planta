@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { Discord, MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
 let basari = ayarlar.basariliemoji;
