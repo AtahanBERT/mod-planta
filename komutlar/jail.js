@@ -63,13 +63,12 @@ var vakit = zaman1
   
 member.roles.cache.forEach(r => {
 member.roles.add(cezalı);
-member.roles.remove(r.id);
-});
-  
+member.roles.remove(r.id)
+db.set(`${message.guild.id}.jail.${member.id}.roles.${r.id}`, r.id )});
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
-db.add(`jailsayısı_${message.author.id}`, 1); 
+db.set(`jailsayısı_${message.author.id}`, 1); 
 return message.react('✅')
   
 };

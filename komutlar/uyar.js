@@ -24,6 +24,7 @@ if(!sebep)
  else
  message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarılcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
   return uyarılcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())
+message.react('✅')
 };
 
 exports.conf = {

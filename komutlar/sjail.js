@@ -81,7 +81,7 @@ db.set(`süreJail_${message.mentions.users.first().id + message.guild.id}`, zama
                     Ceza: "JAIL",
                     Süre: vakit,
                     cezano: numara,
-                    Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+                    Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };
 kullanici.roles.add(cezalırol);
@@ -89,11 +89,11 @@ kullanici.roles.cache.forEach(r => {
 kullanici.roles.remove(r.id)
 db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
 moment.locale("tr");
-jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezalandırıldı !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Süre:** \`${zaman1}\` \n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
+jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezalandırıldı !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Süre:** \`${zaman1}\` \n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
 message.react('✅')
 setTimeout(async () =>{
 kullanici.roles.remove(cezalırol)
-jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Kullanıcının Cezası Bitti.**\n ${kullanici.user} (\`${kullanici.user.id}\`)\n**Süre:** \`${zaman1}\` \n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
+jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Kullanıcının Cezası Bitti.**\n ${kullanici.user} (\`${kullanici.user.id}\`)\n**Süre:** \`${zaman1}\` \n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
 }, ms(zaman));
             setTimeout(async () =>{
 message.guild.roles.cache.forEach(async r => {
