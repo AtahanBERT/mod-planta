@@ -48,7 +48,7 @@ uyarilcak.roles.add(ayarlar.cezalı);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["uyarı", "uyarıver","uyari"],
+  aliases: ["uyarı","uyarıver","uyari"],
   permlevel: 0
 };
 
