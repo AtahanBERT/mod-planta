@@ -4,11 +4,12 @@ let basarisiz = ayarlar.basarisizemoji;
 let basari = ayarlar.basariliemoji;
  
 module.exports.run = async (client, message, args) => {
- if (message.author.id !== ["429357746002067493","448377317065097228","794721378724741120"]) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
     if (!args[0]) {
         return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı İD si gir.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    }
    var sebeb = args.slice(1).join(" ");
+   let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
    var seyfooo = args[0]
    var now = new Date()
    if (!sebeb) {
@@ -16,7 +17,7 @@ module.exports.run = async (client, message, args) => {
            .then(bans => {
                if (bans.has(seyfooo)) {
                    return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-                 if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Etiketlenen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+                 if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, İD si girilen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
                message.guild.members.ban(seyfooo, sebeb)
                    .then(async (member) => {
@@ -69,7 +70,7 @@ exports.conf = {
    enabled: true,
    guildOnly: false,
    aliases: ['forceban'],
-   permLevel: 0,
+   permLevel: 5,
  
 };
  
