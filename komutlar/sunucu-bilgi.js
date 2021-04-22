@@ -52,7 +52,7 @@ let sunucu = new Discord.MessageEmbed()
 }; 
 
 module.exports.conf = {
-aliases: ['sunucubilgi','sunucu'],
+aliases: ['sunucubilgi','sunucu','sbilgi'],
 permLevel: 0, 
 kategori: 'Sunucu'
 };
