@@ -7,7 +7,7 @@ let basarisiz = ayarlar.basarisizemoji;
 exports.run = async (client, message, args) => {
  
 if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermission("ADMINISTRATOR"))
-return message.channel.send(new Discord.Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
  let uyarı1 = ayarlar.uyarı1;
  let uyarı2 = ayarlar.uyarı2;
@@ -18,7 +18,7 @@ return message.channel.send(new Discord.Discord.MessageEmbed().setDescription(`$
  let sebep = args.slice(1).join(" ");
 
 if(!uyarilcak)
-  return message.channel.send(new Discord.Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}))
+  return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}))
 
 if(!sebep)
   return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -30,18 +30,18 @@ if(!sebep)
  message.react('✅');
 
 db.add(`uyari.sayi_${uyarilcak.id}`, 1);
-if (uyarisayisi === null) {return uyarilcak.roles.add(uyarı1)}
+if (uyarisayisi === null) return uyarilcak.roles.add(uyarı1)
   
-if (uyarisayisi === 1) {return uyarilcak.roles.add(uyarı2)}
+if (uyarisayisi === 1) return uyarilcak.roles.add(uyarı2)
   
-if (uyarisayisi === 2) {return uyarilcak.roles.add(uyarı3)}
+if (uyarisayisi === 2) return uyarilcak.roles.add(uyarı3)
   
-if (uyarisayisi === 3) {return
+if (uyarisayisi === 3) return
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı);
 
-})};
+});
 
 };
 
