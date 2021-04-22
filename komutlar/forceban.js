@@ -4,9 +4,9 @@ let basarisiz = ayarlar.basarisizemoji;
 let basari = ayarlar.basariliemoji;
  
 module.exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(":no_entry: Bu komutu kullanabilmek için `Üyeleri Yasakla` yetkisine sahip olmanız gerek.");
+ if (message.author.id !== ["429357746002067493","448377317065097228","794721378724741120"]) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
     if (!args[0]) {
-        return message.channel.send(`${basarisiz} Hey Bu Komutu Kullanmak İçin Bir Kullanıcının ID'sini Belirtmen Gerek!`)
+        return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı İD si gir.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    }
    var sebeb = args.slice(1).join(" ");
    var seyfooo = args[0]
@@ -15,7 +15,8 @@ module.exports.run = async (client, message, args) => {
        message.guild.fetchBans()
            .then(bans => {
                if (bans.has(seyfooo)) {
-                   return message.channel.send(`${basarisiz} Bu Kullanıcı Zaten Yasaklanmış.`)
+                   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+                 if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Etiketlenen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
                message.guild.members.ban(seyfooo, sebeb)
                    .then(async (member) => {
@@ -29,7 +30,7 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(new MessageEmbed().set(`${basari} <@!${user.id}> adlı kullanıcı banlandı`);
+                       message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
                    })
                    .catch(error => {
                        message.channel.send(`:x: Bir Hata Oluştu`);
@@ -40,7 +41,7 @@ module.exports.run = async (client, message, args) => {
        message.guild.fetchBans()
            .then(bans => {
                if (bans.has(seyfooo)) {
-                   return message.channel.send(`${basarisiz} Bu Kullanıcı Zaten Yasaklanmış.`)
+                   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
                message.guild.ban(seyfooo, sebeb)
                    .then(async (member) => {
@@ -54,10 +55,10 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(`${basari} <@!${user.id}> sunucudan yasaklandı`);
+                       message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> sunucudan yasaklandı`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                    })
                    .catch(error => {
-                       message.channel.send(`${basarisiz} Bir Hata Oluştu`);
+                       message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir Hata Oluştu`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                        console.error(' Hata:', error);
                    });
            });
@@ -68,7 +69,7 @@ exports.conf = {
    enabled: true,
    guildOnly: false,
    aliases: ['forceban'],
-   permLevel: 4,
+   permLevel: 0,
  
 };
  
