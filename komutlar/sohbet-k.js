@@ -18,14 +18,14 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 
   let every = message.guild.roles.cache.find(r => r.name === "@everyone");
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
-  let kız = (![ayarlar.kızrol1, ayarlar.kızrol2, ayarlar.kızrol3].some(role => message.guild.roles.cache.get(role)));
-  message.channel.createOverwrite( {
+  let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
+  message.channel.createOverwrite(kız, {
     SEND_MESSAGES: false,
     VIEW_CHANNEL: true,
     READ_MESSAGE_HISTORY: true
   });
-  
-  message.channel.createOverwrite(kız, {
+
+  message.channel.createOverwrite(erkek, {
     SEND_MESSAGES: false,
     VIEW_CHANNEL: true,
     READ_MESSAGE_HISTORY: true
