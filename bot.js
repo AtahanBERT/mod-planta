@@ -739,24 +739,6 @@ if (message.content === `<@${client.user.id}>`) {
 });
 
 
-client.on('guildMemberUpdate', async(oldMember, newMember) => {
-
-if(oldMember.roles.has('832622873188237324')) {
-
-if(!newMember.roles.has('832622873188237324')) return client.channels.get('832564512070172676').send(newMember.user.tag + ' Boostunu çekti ')
-}}
-);
-
-
-client.on('guildMemberUpdate', async(oldMember, newMember) => {
-
-if(!oldMember.roles.has('832622873188237324')) {
-
-if(newMember.roles.has('832622873188237324')) return client.channels.get('832564512070172676').send(newMember.user.tag + ' Boost Bastı ! SEN BİRTANESİN :)')
-
-}}
-);
-
 client.on("message", msg => {
 var dm = client.channels.cache.get(ayarlar.sikayetlog)
 if(msg.channel.type === "dm") {

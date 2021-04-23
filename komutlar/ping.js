@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
-
+const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-
   
 const exampleEmbed = new Discord.MessageEmbed()
   .setFooter(`Extacy Community Tarafından Yapılmıştır`)
