@@ -13,6 +13,8 @@ module.exports.run = async(client, message, args) => {
   let basari = ayarlar.basariliemoji
   let basarisiz = ayarlar.basarisizemoji
   let everyone = message.guild.roles.cache.find(a => a.name === "@everyone");
+  let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
+  let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
   let permObjesi = {};
   let everPermleri = message.channel.permissionOverwrites.get(everyone.id);
   everPermleri.allow.toArray().forEach(p => {
