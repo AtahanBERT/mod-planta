@@ -21,7 +21,15 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
   let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
   message.channel.createOverwrite(kız, {
-    SEND_MESSAGES: true
+    SEND_MESSAGES: true,
+    VIEW_CHANNEL: true,
+    READ_MESSAGE_HISTORY: true
+  });
+  
+  message.channel.createOverwrite(erkek, {
+    SEND_MESSAGES: true,
+    VIEW_CHANNEL: true,
+    READ_MESSAGE_HISTORY: true
   });
 
 
@@ -31,7 +39,7 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["sohbet-aç"],
+  aliases: ["kilit-aç","sohbet-a"],
   permLevel: 0
 };
 
