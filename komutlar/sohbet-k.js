@@ -18,8 +18,8 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 
   let every = message.guild.roles.cache.find(r => r.name === "@everyone");
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
-  let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
-  message.channel.createOverwrite(erkek, {
+  let kız = (![ayarlar.kızrol1, ayarlar.kızrol2, ayarlar.kızrol3].some(role => message.guild.roles.cache.get(role)));
+  message.channel.createOverwrite( {
     SEND_MESSAGES: false,
     VIEW_CHANNEL: true,
     READ_MESSAGE_HISTORY: true
@@ -38,7 +38,7 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["kilit-k","sohbet-k"],
+  aliases: ["kilit-aç","sohbet-k","kilit-a"],
   permLevel: 0
 };
 

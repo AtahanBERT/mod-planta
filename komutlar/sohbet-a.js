@@ -39,7 +39,7 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["kilit-aç","sohbet-a"],
+  aliases: ["kilit-kapat","sohbet-a","kilit-k"],
   permLevel: 0
 };
 
