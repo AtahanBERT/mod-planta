@@ -20,23 +20,23 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
   let every = message.guild.roles.cache.find(r => r.name === "@everyone");
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
   let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
-  message.channel.createOverwrite(every, erkek, kız, {
+  message.channel.createOverwrite(kız, {
     SEND_MESSAGES: true
   });
 
 
- message.react(basarili);
+ message.react('✅');
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ["sohbet-aç"],
   permLevel: 0
 };
 
 exports.help = {
-  name: '',
-  description: 'İstediğiniz kişiyi uyarır.',
-  usage: ''
+  name: 'sohbet-aç',
+  description: 'Sohbet Kanalını Açar',
+  usage: 'sohbet-aç'
 };

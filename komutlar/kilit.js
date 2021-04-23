@@ -15,30 +15,22 @@ module.exports.run = async(client, message, args) => {
   let everyone = message.guild.roles.cache.find(a => a.name === "@everyone");
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
   let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
-  let permObjesi = {};
-  let everPermleri = message.channel.permissionOverwrites.get(everyone.id);
-  everPermleri.allow.toArray().forEach(p => {
-    permObjesi[p] = true;
-  });
-  everPermleri.deny.toArray().forEach(p => {
-    permObjesi[p] = false;
-  });
+  let ever = kız + erkek + everyone
+  
   if(message.channel.permissionsFor(erkek, kız, everyone).has('SEND_MESSAGES')) {
    
     let kilitle = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
     .setDescription(`${basari} Kanal kilitlendi!`)
     .setColor('#7289DA')
-    permObjesi["SEND_MESSAGES"] = false;
-    message.channel.createOverwrite(everyone, erkek, kız, permObjesi);
+    ever["SEND_MESSAGES"] = false;
     message.channel.send(kilitle)
   } else {
     let kilit = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
     .setDescription(`${basari} Kanal kilidi açıldı!`)
     .setColor('#7289DA')
-    permObjesi["SEND_MESSAGES"] = null;
-    message.channel.createOverwrite(everyone, erkek, kız, permObjesi);
+    ever["SEND_MESSAGES"] = true;
     message.channel.send(kilit);
   };
 };
