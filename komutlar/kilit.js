@@ -23,29 +23,29 @@ module.exports.run = async(client, message, args) => {
   everPermleri.deny.toArray().forEach(p => {
     permObjesi[p] = false;
   });
-  if(message.channel.permissionsFor(everyone).has('SEND_MESSAGES')) {
+  if(message.channel.permissionsFor(erkek, kız, everyone).has('SEND_MESSAGES')) {
    
     let kilitle = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
     .setDescription(`${basari} Kanal kilitlendi!`)
     .setColor('#7289DA')
     permObjesi["SEND_MESSAGES"] = false;
-    message.channel.createOverwrite(everyone, permObjesi);
-    message.channel.send({embed:kilitle})
+    message.channel.createOverwrite(everyone, erkek, kız, permObjesi);
+    message.channel.send(kilitle)
   } else {
     let kilit = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
     .setDescription(`${basari} Kanal kilidi açıldı!`)
     .setColor('#7289DA')
     permObjesi["SEND_MESSAGES"] = null;
-    message.channel.createOverwrite(everyone, permObjesi);
-    message.channel.send({embed:kilit});
+    message.channel.createOverwrite(everyone, erkek, kız, permObjesi);
+    message.channel.send(kilit);
   };
 };
 exports.conf = {
  enabled: true, 
   guildOnly: true, 
-  aliases: ["kilit"], 
+  aliases: ["kilit","lock","kilitle"], 
   permLevel: 0 
 };
 

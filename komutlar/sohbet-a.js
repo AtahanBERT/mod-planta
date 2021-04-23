@@ -4,9 +4,9 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
   
-     let basarili = ayarlar.basariliemoji;
+    let basarili = ayarlar.basariliemoji;
     let basarisiz = ayarlar.basarisizemoji;
-        let yetkili = ayarlar.logger;
+    let yetkili = ayarlar.logger;
 
 
   if(db.fetch(`bakim`)) {
@@ -18,8 +18,10 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
 
 
   let every = message.guild.roles.cache.find(r => r.name === "@everyone");
-  message.channel.createOverwrite(every, {
-    SEND_MESSAGES: null
+  let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
+  let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
+  message.channel.createOverwrite(every, erkek, kız, {
+    SEND_MESSAGES: true
   });
 
 
