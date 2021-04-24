@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const moment = require('moment');
+const antispam = require('discord-anti-spam');
 var Jimp = require('jimp');
 const { Client, Util } = require('discord.js');
 const fs = require('fs');
@@ -759,38 +760,20 @@ if(msg.channel.bot) return;
 });
 
 
-client.on('message', message => {
-var antiraid = db.fetch(`sunucular.${message.guild.id}.spamkoruma`)
-if(!antiraid) return;
-if(message.author.bot) return;
-message.guild.fetchMember(message.author).then(member => {
-if(member.hasPermission('BAN_MEMBERS')) return;
-var b = []
-var aut = []
-setTimeout(() => {
-message.channel.fetchMessages({ limit: 7 }).then(m => {
-m.forEach(a => {
-if(m.filter(v => v.content === a.content).size > m.size / 2) {
-message.guild.fetchMember(m.author).then(member2 => {
-if(member2.hasPermission('BAN_MEMBERS')) return;
-b.push(a)
-aut.push(a.author)
-})}})
-if(!b.includes(":warning: | Saldırgan botlar susturulacak.")) { işlem() }
-else {}
-  
-function işlem() {
-
-if(b.length > 5) {
-  message.channel.send(':warning: | Saldırı yapan botlar susturulacak.')
-  aut.forEach(a => {
-    message.channel.overwritePermissions(a, {
-      "VİEW_CHANNEL": true,
-      "SEND_MESSAGES": false,
-      "READ_MESSAGE_HISTORY": true
-    })
-  })
-  message.channel.send(client.emojiler.evet + ' | Saldırı yapan botlar susturuldu.')
-} else return;
-}
-})})})})
+client.on('ready', () => {
+  // Module Configuration Constructor
+   antispam(client, {
+        warnBuffer: 3, 
+        maxBuffer: 5,
+        interval: 2000, 
+        warningMessage: "lütfen spamı durdurun!", // İleti kullanıcıları uyarıldığında alır. (mesaj '@ Kullanıcı' ile başlar, bu yüzden sadece devam etmek için giriş yapmanız gerekir..) 
+        banMessage: "spam nedeniyle yasaklanmış çekiç tarafından vuruldu!", // MKullanıcı yasaklandığında yazılı mesaj gönderilir. (mesaj '@ Kullanıcı' ile başlar, bu yüzden sadece devam etmek için giriş yapmanız gerekir..) 
+        maxDuplicatesWarning: 5,// Bir kullanıcının uyarılmadan önce bir zaman aralığında gönderebileceği maksimum yinelenen mesaj sayısı.
+        maxDuplicatesBan: 7, 
+        deleteMessagesAfterBanForPastDays: 7, 
+        exemptRoles: ["Kurucu"], 
+        exemptUsers: [""] 
+      });
+      
+  // Rest of your code
+});
