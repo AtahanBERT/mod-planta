@@ -768,7 +768,7 @@ if(member.hasPermission('BAN_MEMBERS')) return;
 var b = []
 var aut = []
 setTimeout(() => {
-message.channel.fetchMessages({ limit: 10 }).then(m => {
+message.channel.fetchMessages({ limit: 7 }).then(m => {
 m.forEach(a => {
 if(m.filter(v => v.content === a.content).size > m.size / 2) {
 message.guild.fetchMember(m.author).then(member2 => {
@@ -785,7 +785,9 @@ if(b.length > 5) {
   message.channel.send(':warning: | Saldırı yapan botlar susturulacak.')
   aut.forEach(a => {
     message.channel.overwritePermissions(a, {
-      "SEND_MESSAGES": false
+      "VİEW_CHANNEL": true,
+      "SEND_MESSAGES": false,
+      "READ_MESSAGE_HISTORY": true
     })
   })
   message.channel.send(client.emojiler.evet + ' | Saldırı yapan botlar susturuldu.')
