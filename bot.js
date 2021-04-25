@@ -758,22 +758,3 @@ dm.send(botdm)
 }
 if(msg.channel.bot) return;
 });
-
-
-client.on('ready', () => {
-  // Module Configuration Constructor
-   antispam(client, {
-        warnBuffer: 3, 
-        maxBuffer: 5,
-        interval: 2000, 
-        warningMessage: "lütfen spamı durdurun!", // İleti kullanıcıları uyarıldığında alır. (mesaj '@ Kullanıcı' ile başlar, bu yüzden sadece devam etmek için giriş yapmanız gerekir..) 
-        banMessage: "spam nedeniyle yasaklanmış çekiç tarafından vuruldu!", // MKullanıcı yasaklandığında yazılı mesaj gönderilir. (mesaj '@ Kullanıcı' ile başlar, bu yüzden sadece devam etmek için giriş yapmanız gerekir..) 
-        maxDuplicatesWarning: 5,// Bir kullanıcının uyarılmadan önce bir zaman aralığında gönderebileceği maksimum yinelenen mesaj sayısı.
-        maxDuplicatesBan: 7, 
-        deleteMessagesAfterBanForPastDays: 7, 
-        exemptRoles: ["Kurucu"], 
-        exemptUsers: [""] 
-      });
-      
-  // Rest of your code
-});
