@@ -291,17 +291,6 @@ client.off("message", async message => {
       ,"YAVŞAK","SÜRTÜK","sürtük","AMCIK","amcık","amcik","surtuk","SURTUK","oruspu çocuğu","OROSPU COCUGU","ORUSPU COCUGU","oruspu çocugu","oruspu çocuğu","sikecem","SİKECEM","Orospu Cocuğu","orospu","piç","yavşak","Amını Sikim","amk","aq","Götünü Sikim","ANANI SİKİM","SİKİM","AMK","OROSPU ÇOCUĞU","PİÇ","YAVŞAK","YARRAK","YARAK","yarrak","yarak","gavat","lavuk","LAVUK","GAVAT","şerefsiz","ŞEREFSİZ",
     "Ananı Sikim",
     "Anani Sikim"];
-    if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) {
-
-      {
-        message.delete();
-        db.add(`reklamuyari_${message.author.id}`, 1); //uyarı puanı ekleme
-        if (uyarisayisi === null) {
-        }
-        }}}}});
-
-
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
