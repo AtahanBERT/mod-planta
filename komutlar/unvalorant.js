@@ -18,7 +18,7 @@ exports.run = async (bot, message, args) => {
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
       
- rMember.roles.add("832564509909975077")
+ rMember.roles.remove("832564509909975077")
  message.react('✅')
 
 }};
@@ -26,12 +26,12 @@ exports.run = async (bot, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["valorant"],
+  aliases: ["unvalorant"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "vl",
+  name: "unvl",
   description: "Kişilere Rol Yetkisi Verir",
   usage: "rolver <mesaj>"
 };
