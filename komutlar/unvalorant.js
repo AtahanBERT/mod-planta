@@ -14,14 +14,14 @@ exports.run = async (bot, message, args) => {
      
 
   
- if (message.author.id == ["286495130096107523","501496194611281921"]) {
+ if (message.author.id == ["286495130096107523","501496194611281921"]);
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
       
  rMember.roles.remove("832564509909975077")
  message.react('✅')
 
-}};
+};
 
 exports.conf = {
   enabled: true,
