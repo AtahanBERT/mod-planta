@@ -38,15 +38,15 @@ function checkDays(date) {
 			const yukleniyor = await msg.channel.send(`Sunucu Bilgileri Araştırılıyor`);
 
 let sunucu = new Discord.MessageEmbed()
-.setAuthor('Sunucu Bilgi', msg.guild.iconURL())
-.setThumbnail(msg.guild.iconURL())
+.setAuthor('Sunucu Bilgi', msg.guild.iconURL({dynamic: true}))
+.setThumbnail(msg.guild.iconURL({dynamic: true}))
 .addField('Sunucu Bilgileri', `Sunucu İsmi: **${guild.name}** \nSunucu ID: **${msg.guild.id}** \nSunucu Sahibi: **${guild.owner}** \nBulunduğu Bölge: **${region[msg.guild.region]}** \nKuruluş Tarihi: **${checkDays(msg.guild.createdAt)}** 
 `)
 .addField(`Üye Bilgileri `, `Toplam Üye: **${humanCount}** \nToplam Bot: **${botCount}** \nRol Sayısı: **${guild.roles.cache.size}**`)
 .addField(`Kanallar`, ` Yazı: **${msg.guild.channels.cache.filter(c => c.type === 'text').size}** \n Sesli: **${msg.guild.channels.cache.filter(c => c.type === 'voice').size}** \n Kategori: **${msg.guild.channels.cache.filter(c => c.type === 'category').size}**`)
 .setTimestamp()
 .setColor('#D2EE07')
-.setFooter('Sunucu Bilgi', msg.guild.iconURL())
+.setFooter('Sunucu Bilgi', msg.guild.iconURL({dynamic: true}))
         return yukleniyor.edit('', sunucu);
 
 }; 
