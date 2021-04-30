@@ -9,9 +9,9 @@ exports.run = async (client, message, args) => {
 if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-  
- let sahip1 = "448377317065097228"
- let sahip2 = "786584505527828520"
+ let sahip = message.guild.members.cache.get(ayarlar.sahip);
+ let sahip2 = message.guild.members.cache.get("448377317065097228");
+ let sahip3 = message.guild.members.cache.get("786584505527828520");
  let uyarı1 = ayarlar.uyarı1;
  let uyarı2 = ayarlar.uyarı2;
  let uyarı3 = ayarlar.uyarı3;
@@ -31,7 +31,9 @@ if(!sebep)
  else
  message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())+
- sahipler.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+ sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyarıldı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
+ sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyarıldı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
+ sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyarıldı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
  message.react('✅');
 
 
