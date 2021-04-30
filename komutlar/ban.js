@@ -41,8 +41,7 @@ if(!args[1] || isNaN(args[1])) return message.channel.send(new MessageEmbed().se
 return message.guild.fetchBan(args.slice(1).join(' ')).then(({ user, reason }) => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x330033').setTimestamp().setDescription(`**Banlanan Üye:** ${user.tag} (\`${user.id}\`)\n**Ban Sebebi:** ${reason ? reason : "Belirtilmemiş!"}`))).catch(err => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp().setDescription("Belirtilen ID numarasına sahip bir ban bulunamadı!")).then(x => x.delete({timeout: 5000})));
 }
 
-let sahipler = ayarlar.whitelist;
-let sahip = client.guilds.cache.get(ayarlar.sunucu).members.cache.get(sahipler);
+let sahip = client.guilds.cache.get(ayarlar.sunucu).members.cache.get("");
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
@@ -72,7 +71,7 @@ data.add('case', 1)
                 };    
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
 banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklandı !**\n**Banlayan Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Banlanan Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
-sahipler.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 }
 
 exports.conf = {
