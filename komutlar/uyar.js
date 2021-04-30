@@ -9,9 +9,9 @@ exports.run = async (client, message, args) => {
 if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
- let sahip = message.guild.members.cache.get(ayarlar.sahip);
- let sahip2 = message.guild.members.cache.get("448377317065097228");
- let sahip3 = message.guild.members.cache.get("786584505527828520");
+ let sahip = message.guild.members.cache.get(ayarlar.ship);
+ let sahip2 = message.guild.members.cache.get("44837731706509722");
+ let sahip3 = message.guild.members.cache.get("78658450552782852");
  let uyarı1 = ayarlar.uyarı1;
  let uyarı2 = ayarlar.uyarı2;
  let uyarı3 = ayarlar.uyarı3;
@@ -27,24 +27,31 @@ if(!uyarilcak)
 if(!sebep)
   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-  
- else
- message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+ 
+message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())+
  sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
  sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
  sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
  message.react('✅');
-
-
+ 
 db.add(`uyari.${message.guild.id}_${kullanıcı.id}`, 1)
-if (uyarisayisi === null) { uyarilcak.roles.add(uyarı1)}
+if (uyarisayisi === null) {await
+uyarilcak.roles.add(uyarı1)
+return message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.\nUyarısı \`1\` oldu.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());                            
+}
   
-if (uyarisayisi === 1) { uyarilcak.roles.add(uyarı2)}
+if (uyarisayisi === 1) {await
+uyarilcak.roles.add(uyarı2)
+return message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.\nUyarısı \`2\` oldu.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());                        
+}
   
-if (uyarisayisi === 2) { uyarilcak.roles.add(uyarı3)}
+if (uyarisayisi === 2) {await
+uyarilcak.roles.add(uyarı3)
+return message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.\nUyarısı \`3\` oldu.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());                   
+}
   
-if (uyarisayisi === 3) {
+if (uyarisayisi === 3) {await
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı)
