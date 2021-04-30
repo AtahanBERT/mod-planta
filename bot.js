@@ -315,8 +315,9 @@ db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
           await kullanici.ban({reason: `ORSP COC!`});
           db.delete(`reklamuyari_${message.author.id}`);
           return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`5\` Kez Reklam Yaptığı İçin Sunucudan Yasaklandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
-
-          client.off("message", async message => {
+        }}}}};
+        
+client.off("message", async message => {
 
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
