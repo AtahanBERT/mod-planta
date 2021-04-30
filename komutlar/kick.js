@@ -46,6 +46,9 @@ if(!args[1] || isNaN(args[1])) return message.channel.send(new MessageEmbed().se
 return message.guild.fetchKick(args.slice(1).join(' ')).then(({ user, reason }) => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x330033').setTimestamp().setDescription(`**Banlanan Üye:** ${user.tag} (\`${user.id}\`)\n**Ban Sebebi:** ${reason ? reason : "Belirtilmemiş!"}`))).catch(err => message.channel.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp().setDescription("Belirtilen ID numarasına sahip bir ban bulunamadı!")).then(x => x.delete({timeout: 5000})));
 }
 
+let sahip = message.guild.members.cache.get(ayarlar.sahip);
+let sahip2 = message.guild.members.cache.get("448377317065097228");
+let sahip3 = message.guild.members.cache.get("786584505527828520");
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 let sebep = args.splice(1).join(" ")
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -72,6 +75,9 @@ kullanici.kick({reason: sebep}).then(x => message.react('✅')).catch();
                 };    
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Atıldı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
 kicklog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Atıldı !**\n**Kickleyen Yetkili:** ${message.author.id} (\`${message.author.id}\`)\n**Kicklenen Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `));
+sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Attı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Attı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Attı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
 }
 
 exports.conf = {
