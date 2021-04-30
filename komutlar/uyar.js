@@ -30,7 +30,7 @@ if(!sebep)
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())
  message.react('✅');
 
-db.add(`uyari.${message.guild.id}.${kullanıcı.id}`, +1)
+db.add(`uyari.${message.guild.id}.${kullanıcı.id}`, 1)
 if (uyarisayisi === null) {return uyarilcak.roles.add(uyarı1)}
   
 if (uyarisayisi === 1) {return uyarilcak.roles.add(uyarı2)}
@@ -40,9 +40,10 @@ if (uyarisayisi === 2) {return uyarilcak.roles.add(uyarı3)}
 if (uyarisayisi === 3) {return
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
-uyarilcak.roles.add(ayarlar.cezalı);
-
-})};
+uyarilcak.roles.add(ayarlar.cezalı)
+db.delete(`uyari.${message.guild.id}.${kullanıcı.id}`)
+message.channel.send(new MessageEmbed().setDescription(``).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+})}
 
 };
 
