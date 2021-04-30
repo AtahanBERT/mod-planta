@@ -221,6 +221,40 @@ console.log(`Bir hata oluştu! ${e}`)
  }
 } 
 });
+
+
+client.on("userUpdate", async (oldUser, newUser) => {  
+    
+  if (oldUser.username !== newUser.username) {
+  
+          let tag = ayarlar.tag2
+          let sunucu = ayarlar.sunucu
+          let kanal = ayarlar.tagkanal
+          let rol = ayarlar.tagrol
+
+          
+
+  try {
+
+  if (newUser.username.includes(tag) && !client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
+  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("GREEN").setDescription(`${newUser} adlı kullanıcı (\`${tag}\`) tagımızı alarak bizi mutlu etti. Tagımızı aldığın için sana <@&${rol}> adlı rolü verdim. Ailemize Hoşgeldin :)`));
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.add(rol);  
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id)(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice)
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id)(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+  }//Planta Team
+  if (!newUser.username.includes(tag) && client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.cache.has(rol)) {
+  await client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor("RED").setDescription(`${newUser} adlı kullanıcı (\`${tag}\`) tagımızı çıkararak bizi üzdü. Tagımızı çıkardığın için senden <@&${rol}> adlı rolü aldım. Ailemize tekrardan bekleriz...`));
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id).roles.remove(rol);//Planta Team
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id)(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).nickname.slice)
+  await client.guilds.cache.get(sunucu).members.cache.get(newUser.id)(client.guilds.cache.get(sunucu).members.cache.get(newUser.id).displayName);
+
+    
+  } 
+} catch (e) {
+console.log(`Bir hata oluştu! ${e}`)
+ }
+} 
+});
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
 client.off("guildMemberAdd", member => {
