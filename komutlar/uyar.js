@@ -37,12 +37,12 @@ if (uyarisayisi === 1) {return uyarilcak.roles.add(uyarı2)}
   
 if (uyarisayisi === 2) {return uyarilcak.roles.add(uyarı3)}
   
-if (uyarisayisi === 3) {return
+if (uyarisayisi === 3) {await
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı)
 db.delete(`uyari.${message.guild.id}.${kullanıcı.id}`)
-message.channel.send(new MessageEmbed().setDescription(``).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+return message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 })}
 
 };
