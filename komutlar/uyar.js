@@ -1,5 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
+const moment = require('moment')
+const jdb = new db.table("cezalar");
+const kdb = new db.table("kullanici");
 const ayarlar = require("../ayarlar.json");
 let basari = ayarlar.basariliemoji;
 let basarisiz = ayarlar.basarisizemoji;
@@ -32,6 +35,20 @@ if(!sebep)
   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
  message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişiyi başarıyla uyardım, özel mesajlarında uyarısı gözükücektir.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+ let muteler = jdb.get(`tempmute`) || [];
+                if (!muteler.some(j => j.id == uyarilcak.id)) {
+                  kdb.add(`kullanici.${message.author.id}.mute`, 1);
+db.add('case', 1)
+                    const numara = await db.fetch('case')
+                      moment.locale("tr");
+                  kdb.push(`kullanici.${uyarilcak.id}.sicil`, {
+                    Yetkili: message.author.id,
+                    Sebep: sebep,
+                    Ceza: "UYARI",
+                    cezano: numara,
+                    Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+                  });
+                };
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())+
  sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
  sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
