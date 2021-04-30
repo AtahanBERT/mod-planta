@@ -71,11 +71,11 @@ data.add('case', 1)
                     Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };    
-message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
+message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
 banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklandı !**\n**Banlayan Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Banlanan Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `))
-sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
-sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudam Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
-sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${kullanici} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucudan Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudam Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasakladı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 }
 
 exports.conf = {

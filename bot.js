@@ -270,6 +270,8 @@ client.off("guildMemberAdd", member => {
 
 client.on("message", async message => {
 
+  let basarisiz = ayarlar.basarisizemoji;
+  let basari = ayarlar.basariliemoji;
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
   let kullanici = message.member;
@@ -294,26 +296,27 @@ client.on("message", async message => {
         if (uyarisayisi === 1) {
             message.delete();
           let ikrudka = new Discord.MessageEmbed().setDescription(` <@${message.author.id}> Sunucuda reklam yapmak yasaktır.`)
-        return message.channel.send(ikrudka).then(x => x.delete({timeout: 3000}));
+        return message.channel.send(ikrudka).then(x => x.delete({timeout: 5000}));
         }
         if (uyarisayisi === 2) {
             message.delete();
-          await kullanici.kick({reason: `Reklam Yapma Orsp Cocu!`});
-          let ikrudka = new Discord.MessageEmbed()
- 
-           .setColor("#0054ff")
-            .setDescription(` <@${message.author.id}> Uyarılmasına Rağmen \`3\` Kez Reklam Yaptığı İçin Sunucudan Atıldı!`)
-         return message.channel.send(ikrudka).then(x => x.delete({timeout: 3000}));
-        }
+kullanici.roles.cache.forEach(r => {
+kullanici.roles.remove(r.id)
+kullanici.roles.add(ayarlar.cezalı)
+db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
+
+          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`3\` Kez Reklam Yaptığı İçin Jaile Atıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));         }  
         if (uyarisayisi === 3) {
+            message.delete();
+          await kullanici.kick({reason: `Reklam Yapma Orsp Cocu!`});
+          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`4\` Kez Reklam Yaptığı İçin Sunucudan Atıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())        }
+        if (uyarisayisi === 4) {
           message.delete();
           await kullanici.ban({reason: `ORSP COC!`});
           db.delete(`reklamuyari_${message.author.id}`);
-          let ikrudka = new Discord.MessageEmbed()
-            .setDescription(` <@${message.author.id}> Atıldıktan Sonra Tekrar Reklam Yaptığı İçin Sunucudan Yasaklandı!`)
-         return message.channel.send(ikrudka).then(x => x.delete({timeout: 3000}));}}}}});
+          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`5\` Kez Reklam Yaptığı İçin Sunucudan Yasaklandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
 
-client.off("message", async message => {
+          client.off("message", async message => {
 
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
