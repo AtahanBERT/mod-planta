@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
-const moment = require('moment')
+const moment = require("moment")
 const jdb = new db.table("cezalar");
 const kdb = new db.table("kullanici");
 const ayarlar = require("../ayarlar.json");
@@ -45,6 +45,7 @@ db.add('case', 1)
                     Yetkili: message.author.id,
                     Sebep: sebep,
                     Ceza: "UYARI",
+                    Süre: "Sınırsız",
                     cezano: numara,
                     Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
