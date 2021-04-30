@@ -68,7 +68,7 @@ data.add('case', 1)
                     Ceza: "BAN",
                     Süre: "Sınırsız",
                     cezano: numara,
-                    Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+                    Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };    
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author} tarafından ${kullanici} \`${sebep}\` Sebebiyle Sunucudan Yasaklandı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
