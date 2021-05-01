@@ -189,7 +189,7 @@ client.on('messageDelete', message => {
 ////////////////////////////KÜFÜR ENGEL////////////////////////////////
 
 
-client.on("userUpdate", async (oldUser, newUser) => {  
+client.off("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
   
