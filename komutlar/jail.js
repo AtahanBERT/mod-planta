@@ -11,7 +11,9 @@ exports.run = async (client, message, args) => {
      if(db.fetch(`bakim`)) {
   if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
 }
-    
+    let sahip = message.guild.members.cache.get(ayarlar.sahip);
+    let sahip2 = message.guild.members.cache.get("448377317065097228");
+    let sahip3 = message.guild.members.cache.get("786584505527828520");
     let basarili = ayarlar.basariliemoji;
     let sebep = args[2];
     let basarisiz = ayarlar.basarisizemoji;
@@ -57,7 +59,7 @@ var vakit = zaman1
                     Ceza: "JAIL",
                     Süre: vakit,
                     cezano: numara,
-                    Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+                    Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };
   
@@ -68,6 +70,9 @@ db.set(`${message.guild.id}.jail.${member.id}.roles.${r.id}`, r.id )});
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
+sahip.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.author}, Tarafından ${kullanıcı} \`${sebep}\` Sebebiyle Jaile Atdı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip2.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.author}, Tarafından ${kullanıcı} \`${sebep}\` Sebebiyle Jaile Atdı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+sahip3.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.author}, Tarafından ${kullanıcı} \`${sebep}\` Sebebiyle Jaile Atdı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 db.set(`jailsayısı_${message.author.id}`, 1); 
 return message.react('✅')
   
