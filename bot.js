@@ -189,7 +189,7 @@ client.on('messageDelete', message => {
 ////////////////////////////KÜFÜR ENGEL////////////////////////////////
 
 
-client.off("userUpdate", async (oldUser, newUser) => {  
+client.on("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
   
@@ -223,7 +223,7 @@ console.log(`Bir hata oluştu! ${e}`)
 });
 
 
-client.on("userUpdate", async (oldUser, newUser) => {  
+client.off("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
   
