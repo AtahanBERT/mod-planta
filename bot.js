@@ -24,7 +24,6 @@ const app = express();
 app.get("/", (request, response) => { 
   response.send(`Bot Aktif | Discord: https://discord.gg/yF6RRnq9Ks | İletisim Veya Uptime Etmek İçin Discordumuza Gelebilirsiniz.`)
   console.log(Date.now() + " Ping tamamdır.");
-  response.sendStatus(200);
 });
 app.listen(process.env.PORT);
 setInterval(() => {
