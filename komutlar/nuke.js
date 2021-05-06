@@ -1,8 +1,8 @@
 const database = require('quick.db');
 const { Discord, Client, MessageEmbed } = require('discord.js');
+const ayarlar = require('../ayarlar.json');
 
 exports.run = async (client, message, args) => {
-if (message.member.hasPermission("ADMINISTRATOR")); return
 
 let channel = message.mentions.channels.first() || message.channel;
 let position = channel.position;
@@ -19,7 +19,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 0
+  permLevel: 5,
 };
  
 exports.help = {
