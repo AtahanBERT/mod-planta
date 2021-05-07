@@ -26,6 +26,7 @@ const extacy = new Discord.MessageEmbed()
 > **\`${prefix}ban -> .ban @üye <sebep>\`** 
 > **\`${prefix}kick -> .kick @üye <sebep>\`**
 > **\`${prefix}uyar -> .uyar @üye <sebep>\`**
+> **\`${prefix}nuke -> .nuke (kanalın silip tekrar kurur)\`**
 > **\`${prefix}git -> .git @üye\`**
 > **\`${prefix}gel -> .gel @üye\`**
 > **\`${prefix}çek -> .çek @üye\`** 
