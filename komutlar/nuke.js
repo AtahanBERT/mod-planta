@@ -14,7 +14,7 @@ await channel.clone({ reason: "nuke" }).then(async kanal => {
   }).then(s => {
 s.setPosition(position);
 });
-};
+}};
 exports.conf = {
   enabled: true,
   guildOnly: false,

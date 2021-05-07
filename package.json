@@ -32,15 +32,15 @@
     "pretty-ms": "^7.0.1",
     "path": "^0.12.7",
     "discord-spam-protector": "^1.1.4",
-    "humanize-duration": "^3.25.1"
+    "humanize-duration": "^3.25.1",
+    "license": "^1.0.3"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://qmi-moderasyon.glitch.me"
+    "url": "https://planta-mod.glitch.me"
   },
-  "license": "GPL-3.0",
   "keywords": [
     "node",
     "glitch",
