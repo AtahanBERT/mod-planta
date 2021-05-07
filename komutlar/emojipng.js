@@ -1,10 +1,16 @@
 const Discord = require('discord.js');
+const db = require('quick.db');
 const { MessageEmbed } = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const basarisiz = ayarlar.basarisizemoji;
 const basari = ayarlar.basariliemoji;
 
 exports.run = (client, message, args) => {
+  
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))}
+}
+  
 if (!message.member.roles.cache.get(ayarlar.emojiyetkili) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(!args[0]) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir link ve ad yazmalısın. Örnek: **m!eepng https://cdn.discordapp.com/emojis/601379275769118731.png plantateam**`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));

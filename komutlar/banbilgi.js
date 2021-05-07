@@ -2,6 +2,11 @@ const { MessageEmbed, Discord } = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db')
 exports.run = async (client, message, args) => {
+  
+if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))}
+}
+
 //-------------------------------------------------------------------------------\\
   
 if(!["789637815268933673"].some(role => message.member.roles.cache.get(role)) && (!message.member.hasPermission("ADMINISTRATOR"))) 
@@ -15,7 +20,7 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
   try {
     message.guild.fetchBan(args.slice(0).join(' '))
     .then(({ user, reason }) => message.channel.send(new MessageEmbed().setAuthor(user.tag, user.avatarURL()).setColor('0x348f36').addField('Banlanan Kullanıcı', `**${user.tag}** \`(${user.id})\``).setDescription(`**Ban Sebebi:** \`${reason}\``)))
-  } catch(err) { message.channel.send(new MessageEmbed().setTimestamp().setColor('0x800d0d').setDescription(`${basarisiz} Belirtilen İD\'ye Ait Bir Ban Geçmişi Bulunamadı`)) 
+  } catch(err) { message.channel.send(new MessageEmbed().setTimestamp().setColor('0x800d0d').setDescription(`${basarisiz} Belirtilen İD\'ye Ait Bir Ban Geçmişi Bulunamadı`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000})
                                }
 };
 

@@ -27,7 +27,7 @@ const bans = new Map();
         let embed = new Discord.MessageEmbed()
             .addField(`Sunucuda Bulunan Yasaklılar` + `${basarisiz} Üzgünüm ama sunucunuzda fazla sayıda yasaklı kullanıcı bulunuyor Bu Yüzden gösteremiyorum. Discord buna izin vermiyor.`)
             .setColor('RED')
-          .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.avatarURL())
+            .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.avatarURL())
             .setTimestamp()
         message.channel.send(embed)
                       }

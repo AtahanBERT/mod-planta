@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const db = require('quick.db');
 const client = new Discord.Client();
 const ayarlar = require('../ayarlar.json');
 const prefix = ayarlar.prefix
@@ -6,6 +7,10 @@ let basari = ayarlar.basariliemoji;
 let basarisiz = ayarlar.basarisizemoji;
 
 exports.run = async (client, message, args) => {
+  
+  if(db.fetch(`bakim`)) {
+  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))}
+}
 
 if (!message.member.roles.cache.get(ayarlar.kayıtyetkili) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000})); 
