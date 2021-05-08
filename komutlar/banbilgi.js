@@ -23,7 +23,6 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
   } catch(err) { message.channel.send(new MessageEmbed().setTimestamp().setColor('0x800d0d').setDescription(`${basarisiz} ${message.author}, Belirtilen İD\'ye Ait Bir Ban Geçmişi Bulunamadı`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                                }
 };
-
 exports.conf = {
   enabled: true,
   guildOnly: false,
