@@ -5,7 +5,7 @@ let basarisiz = ayarlar.basarisizemoji;
 
 exports.run = async (client, message, args) => {
 
-if (ayarlar.whitelist.some(sahipler => message.author.id !== sahipler))
+if (message.author.id !== ayarlar.sahip)
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 {
 
@@ -20,7 +20,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['sunucu-pp','server-av','sunucu-av','server-pp','server-resim'],
-    permLevel: 0
+    permLevel: 0,
 }
 
 exports.help = {
