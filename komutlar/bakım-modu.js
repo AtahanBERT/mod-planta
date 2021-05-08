@@ -9,7 +9,7 @@ if(message.author.id !== ayarlar.sahip) return;
 
 function gönderkardesim(content) {
 const infoEmbed = new Discord.MessageEmbed()
-.setColor('BLUE')
+.setColor('0x348f36')
 .setDescription(content)
 .setTimestamp()
 .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }));
