@@ -24,7 +24,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'avatar-ayarla',
+  name: 'bot-resim',
   description: 'Botun avatarını ayarlar. Sen yapamazsın :D',
-  usage: 'avatar-ayarla <URL>'
-};
+  usage: 'bot-resim <URL>'
+}//! ま Atahan#1956

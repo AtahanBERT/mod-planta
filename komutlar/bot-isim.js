@@ -30,4 +30,4 @@ exports.help = {
     name: 'bot-isim',
     description: 'Botun İsmini Değişir',
     usage: 'bot-isim (bot ismi)'
-}//! ま Atahan.sńd#1956
+}//! ま Atahan#1956
