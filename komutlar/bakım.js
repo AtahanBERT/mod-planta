@@ -5,7 +5,7 @@ const ayarlar = require('../ayarlar.json')
 exports.run = (client, message, args) => {
 
   
-  if(message.author.id != ayarlar.sahip) return
+  if(message.author.id !== ayarlar.sahip) return
   
   if(!args[0]) return message.channel.send('Bakım modunu açmak için m!bakım aç')
   
@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: ["bakim"],
   permLevel: 0
 }
