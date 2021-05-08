@@ -35,7 +35,6 @@ message.channel.send(striga)
 }
 })
 }
-	
       );
     };
   };
