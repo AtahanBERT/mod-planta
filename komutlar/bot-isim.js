@@ -14,12 +14,11 @@ let isim = args.slice(0).join(" ")
 if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, İsmimi belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(isim.length > 32) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Lütfen \`32\` karakteri geçmeyecek şekilde bir isim giriniz!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-try {client.user.setUsername(isim)
+client.user.setUsername(isim).catch(error => {
+message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir Hata Oluştu!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))}
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarılı bir şekilde ismim \`${isim}\` olarak değiştirildi.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
-}
-catch(err) { message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, İsmimi çok hızlı değişiyorsun.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));}
-};
-}
+
+}}
 exports.conf = {
     enabled: true,
     guildOnly: false,
