@@ -16,6 +16,7 @@ exports.run = async(client, message, args) => {
 
 
 const extacy = new Discord.MessageEmbed()
+.setTitle(`Extacy Community Yardım`)
 .setFooter('Extacy Community Tarafından Yapılmıştır.')
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setDescription(`
@@ -44,8 +45,18 @@ const extacy = new Discord.MessageEmbed()
 > **\`${prefix}emojiekle-gif (gifli emoji ekler) -> .eegif \`**
 > **\`${prefix}emojiekle-png (png emoji ekler) -> .eepng \`**
 > **\`${prefix}isimdeğiştir -> .isim @üye <İsim> \`** `)
- message.channel.send(extacy)
-  
+message.channel.send(extacy)
+
+if (message.author.id !== ayarlar.sahip & message.author.id !== ayarlar.baran & message.author.id !== ayarlar.eray)
+message.channel.send(new Discord.MessageEmbed()
+.setTitle(`Extacy Community Sahiplerine Özel Yardım`)           
+.setFooter('Extacy Community Tarafından Yapılmıştır.')
+.setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+.setDescription(`
+> **\`${prefix}bot-isim -> .bot-i <İsim> (İsmimi Değiştirir)\`**
+> **\`${prefix}bot-avatar -> .bot-av <URL> (Avatarımı Değiştirir) \`**
+> **\`${prefix}sunucu-isim -> .sunucu-i <İsim> (Sunucu İsmini Değişir)\`**
+> **\`${prefix}sunucu-resim -> .sunucu-av <URL> (Sunucu Resmini Değişir)\`**`))
 }
 exports.conf = {
 	enabled : true,
