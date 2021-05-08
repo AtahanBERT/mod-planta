@@ -47,7 +47,7 @@ const extacy = new Discord.MessageEmbed()
 > **\`${prefix}isimdeğiştir -> .isim @üye <İsim> \`** `)
 message.channel.send(extacy)
 
-if (message.author.id !== ayarlar.sahip & message.author.id !== ayarlar.baran & message.author.id !== ayarlar.eray)
+if (message.author.id !== ayarlar.sahip & message.author.id !== ayarlar.baran & message.author.id !== ayarlar.eray) return
 message.channel.send(new Discord.MessageEmbed()
 .setTitle(`Extacy Community Sahiplerine Özel Yardım`)           
 .setFooter('Extacy Community Tarafından Yapılmıştır.')
