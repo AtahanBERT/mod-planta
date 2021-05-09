@@ -784,7 +784,7 @@ const botdm = new Discord.MessageEmbed()
 .setTimestamp()
 .setColor("RED")
 .setThumbnail(`${msg.author.avatarURL({dynamic: true})}`)
-.addField("Gönderen", msg.author.tag)
+.addField("Gönderen", msg.author, msg.author.)
 .addField("Gönderen ID", msg.author.id)
 .addField("Gönderilen Mesaj", msg.content)
 
