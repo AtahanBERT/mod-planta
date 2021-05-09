@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
+let basari = ayarlar.basariliemoji;
 exports.run = async (bot, message, args) => {
  const istatistikler = new Discord.MessageEmbed()
  message.channel.send(ayarlar.tag)
- return message.channel.send();
-  
+ message.react(basari)
 };
 
 exports.conf = {
