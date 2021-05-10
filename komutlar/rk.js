@@ -27,18 +27,13 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       db.set(`kufur_${message.guild.id}`, "Açık");
 
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author} Reklam koruması başarıyla açıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-
+message.react('✅')
     }
   } else if (args[0] == "kapat") {
     db.delete(`kufur_${message.guild.id}`);
 
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author} Reklam koruması başarıyla kapandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-    
-    
-    
-    
-
-    
+message.react('✅')
   }
 };
 exports.conf = {

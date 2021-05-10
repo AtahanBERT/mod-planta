@@ -25,6 +25,7 @@ if(!kullanıcıkanal) return message.channel.send(new Discord.MessageEmbed().set
 
 if(kullanıcıkanal) {
 message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, ${kullanıcı} adlı kullanıcı **${kullanıcıkanal}** kanalında bulunmakta.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp())
+message.react('✅')
 };
  };
 
