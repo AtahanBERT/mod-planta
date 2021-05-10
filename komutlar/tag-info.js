@@ -11,6 +11,7 @@ if(!tag) return message.channel.send(new MessageEmbed().setDescription(`${basari
 const sonuc = message.guild.members.cache.filter(mr => mr.user.username.includes(tag)).size
 
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Belirtilen Taga Sahip Bu Sunucuda `+sonuc+` Kişi Var!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
+message.react('✅')
 }
 module.exports.conf = {
 aliases: ["bul"]

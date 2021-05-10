@@ -4,7 +4,7 @@ let basari = ayarlar.basariliemoji;
 exports.run = async (bot, message, args) => {
  const istatistikler = new Discord.MessageEmbed()
  message.channel.send(ayarlar.tag)
- message.react(basari)
+ message.react('✅')
 };
 
 exports.conf = {
