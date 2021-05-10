@@ -24,7 +24,9 @@ exports.run = function(client, message, args) {
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
-   let tag = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
+   let tag1 = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
+   let tag2 = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag2)).size;
+   let tag = tag1 + tag2;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Extacy Community Tarafından Yapılmıştır.')
   .setDescription(`<a:extacy_siyahtac:832658958531297300> **Sunucudaki Kullanıcı Sayısı** ${toplam}
