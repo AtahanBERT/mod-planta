@@ -25,7 +25,6 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
   
 let kullanıcı = message.mentions.users.first()|| message.guild.members.cache.get(args[0])
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(`${basarisiz} Bir üye etiketlemen gerekiyor!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-if(!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Lütfen Bir Sebep Belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first();
 let member = message.guild.member(kullanıcı);
