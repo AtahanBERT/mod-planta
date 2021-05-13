@@ -191,6 +191,7 @@ client.on('messageDelete', message => {
 client.on("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
+  if(newUser.author.bot === true) return;
   
           let tag = ayarlar.tag
           let sunucu = ayarlar.sunucu
@@ -225,7 +226,7 @@ console.log(`Bir hata oluştu! ${e}`)
 client.off("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
-  
+  if(newUser.author.bot === true) return;
           let tag = ayarlar.tag2
           let sunucu = ayarlar.sunucu
           let kanal = ayarlar.tagkanal
@@ -340,7 +341,7 @@ client.off("message", async message => {
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
-const botadi = "Planta Tarafından Yapılmıştır."
+const botadi = "Planta Team Tarafından Yapılmıştır."
 const kanal = ayarlar.modlog
 const chat = ayarlar.chatlog
 
