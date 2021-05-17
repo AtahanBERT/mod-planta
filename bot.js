@@ -191,8 +191,7 @@ client.on('messageDelete', message => {
 client.on("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
-  if(newUser.author.bot === true) return;
-  
+
           let tag = ayarlar.tag
           let sunucu = ayarlar.sunucu
           let kanal = ayarlar.tagkanal
