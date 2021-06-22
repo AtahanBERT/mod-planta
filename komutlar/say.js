@@ -29,10 +29,11 @@ exports.run = function(client, message, args) {
    let tag = tag1 + tag2;
   
   const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Extacy Community Tarafından Yapılmıştır.')
-  .setDescription(`<a:extacy_siyahtac:832658958531297300> **Sunucudaki Kullanıcı Sayısı** ${toplam}
- <a:extacy_siyahtac:832658958531297300> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
+  .setDescription(`
+  <a:extacy_siyahtac:832658958531297300> **Sunucudaki Kullanıcı Sayısı** ${toplam}
+  <a:extacy_siyahtac:832658958531297300> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
   <a:extacy_siyahtac:832658958531297300> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
-  <a:boost:832667238087393370> **Sunucudaki Boost Sayısı** ${boost}`);
+  <a:tyfers_boost:856923899374469130> **Sunucudaki Boost Sayısı** ${boost}`);
   message.channel.send(acebots).then(x => x.delete({timeout: 25000}));
 };
 
