@@ -30,9 +30,9 @@ exports.run = function(client, message, args) {
   
   const acebots = new Discord.MessageEmbed().setAuthor('Extacy Community İstatistik').setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 })).setFooter('Extacy Community Tarafından Yapılmıştır.')
   .setDescription(`
-  <a:extacy_siyahtac:832658958531297300> **Sunucudaki Kullanıcı Sayısı** ${toplam}
-  <a:extacy_siyahtac:832658958531297300> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
-  <a:extacy_siyahtac:832658958531297300> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
+  <a:tyfers_siyahtac:856923742672388111> **Sunucudaki Kullanıcı Sayısı** ${toplam}
+  <a:tyfers_siyahtac:856923742672388111> **Tagımızı Bulunduran Kullanıcı Sayısı** ${tag}
+  <a:tyfers_siyahtac:856923742672388111> **Sesli Kanallarda Bulunan Kullanıcı Sayısı** ${count}
   <a:tyfers_boost:856923899374469130> **Sunucudaki Boost Sayısı** ${boost}`);
   message.channel.send(acebots).then(x => x.delete({timeout: 25000}));
 };
