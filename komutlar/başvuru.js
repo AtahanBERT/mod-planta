@@ -92,11 +92,14 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       let data = db.get(`basvuru.${message.author.id}`);
       if (!data) {
         if (!args[0]) return message.reply("**Günde Kaç Saat Aktif Olursun Yazman Gerek!**").then(x => x.delete({timeout: 3000}));
+        message.delete()
         if (!args[1]) return message.reply("**Günde Kaç Kayıt Yapabilirsin Yazman Gerek!**").then(x => x.delete({timeout: 3000}));
+        message.delete()
         if (!args.slice(2).join(" "))
           return message.reply(
             "**Başka Bize Ne Gibi Katkıların Olur Yazman Gerek!**"
           ).then(x => x.delete({timeout: 3000}));
+        message.delete()
         db.set(`basvuru.${message.author.id}`, "onayla");
         let ch = message.guild.channels.cache.get(log);
         let csd = new Discord.MessageEmbed()
@@ -115,7 +118,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
         return ch.send(csd).then(mr => {
           message.react('✅')
           message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başvurun sırayı eklendi <@&${yetkili}> rolündeki yetkililerin cevaplamısını bekle!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-        message.channel.send(`<@&${yetkili}> Bu Kanala Bakmayı Unutma <#${log}>`).then(x => x.delete({timeout: 3000}));
+        message.channel.send(`<@&${yetkili}> Bu Kanala Bakmayı Unutma <#${log}>`).then(x => x.delete({timeout: 7000}));
         });
       } else {
         message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Beklenen bir başvurun var.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
