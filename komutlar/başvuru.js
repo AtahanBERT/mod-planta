@@ -37,11 +37,8 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
     mem.roles.add(rol);
     message.react('✅')
     message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu onaylandı!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-    mem.send(
-      `${basari} Hey Tebrikler ` +
-        message.guild.name +
-        " Sunucusunda Yetkili Olma Talebin Onaylandı!"
-    );
+    mem.send(new Discord.MessageEmbed().setDescription(
+      `${basari} ${mem}, Tebrikler ${message.guild.name} Sunucusunda Yetkili Olma Talebin Onaylandı!`));
     db.delete(`basvuru.${mem.id}`);
   } else {
     if (args[0] === "red") {
@@ -66,11 +63,8 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
 
       message.react('✅')
       message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-      mem.send(
-        `${basarisiz} Hey Üzgünüm ` +
-          message.guild.name +
-          " Sunucusunda Yetkili Olma Talebin Reddedildi!"
-      );
+      mem.send(new Discord.MessageEmbed().setDescription(
+        `${basarisiz} ${mem}, Üzgünüm ${message.guild.name} Sunucusunda Yetkili Olma Talebin Reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp());
       db.delete(`basvuru.${mem.id}`);
     } else {
       let s1 = "Günde Kaç Saat Aktif Olursun?";
@@ -118,7 +112,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
         return ch.send(csd).then(mr => {
           message.react('✅')
           message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başvurun sırayı eklendi <@&${yetkili}> rolündeki yetkililerin cevaplamısını bekle!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-        message.channel.send(`<@&${yetkili}> Bu Kanala Bakmayı Unutma <#${log}>`).then(x => x.delete({timeout: 7000}));
+        ch.send(`<@&${yetkili}>`);
         });
       } else {
         message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Beklenen bir başvurun var.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
