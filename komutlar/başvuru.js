@@ -38,7 +38,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
     message.react('✅')
     message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu onaylandı!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
     mem.send(new Discord.MessageEmbed().setDescription(
-      `${basari} ${mem}, Tebrikler ${message.guild.name} Sunucusunda Yetkili Olma Talebin Onaylandı!`));
+      `${basari} ${mem}, Tebrikler ${message.guild.name} Sunucusunda Yetkili Olma Talebin Onaylandı!`).setFooter(`Tyfers Başvuru Sistemi`, message.guild.iconURL({dynamic: true})).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp());
     db.delete(`basvuru.${mem.id}`);
   } else {
     if (args[0] === "red") {
@@ -64,7 +64,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
       message.react('✅')
       message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Başarıyla başvurusu reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
       mem.send(new Discord.MessageEmbed().setDescription(
-        `${basarisiz} ${mem}, Üzgünüm ${message.guild.name} Sunucusunda Yetkili Olma Talebin Reddedildi!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp());
+        `${basarisiz} ${mem}, Üzgünüm ${message.guild.name} Sunucusunda Yetkili Olma Talebin Reddedildi!`).setFooter(`Tyfers Başvuru Sistemi`, message.guild.iconURL({dynamic: true})).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp());
       db.delete(`basvuru.${mem.id}`);
     } else {
       let s1 = "Günde Kaç Saat Aktif Olursun?";
