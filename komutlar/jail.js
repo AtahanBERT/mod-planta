@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
 
 
 
-   if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return
+   if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
    return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
    if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Jaile atabilmek için bir kullanıcı belirtmelisin!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -75,7 +75,7 @@ sahip.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.auth
 sahip2.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.author}, Tarafından ${kullanıcı} \`${sebep}\` Sebebiyle Jaile Atdı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())
 sahip3.send(new Discord.MessageEmbed().setDescription(`${basarili} ${message.author}, Tarafından ${kullanıcı} \`${sebep}\` Sebebiyle Jaile Atdı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 db.set(`jailsayısı_${message.author.id}`, 1); 
-return message.react('✅')
+message.react('✅')
   
 };
 
