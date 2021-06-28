@@ -315,7 +315,7 @@ client.off("message", async message => {
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
-const botadi = "Planta Team Tarafından Yapılmıştır."
+const botadi = "Tyfers Tarafından Yapılmıştır."
 const kanal = ayarlar.modlog
 const chat = ayarlar.chatlog
 
