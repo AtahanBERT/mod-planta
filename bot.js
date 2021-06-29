@@ -238,6 +238,10 @@ client.off("guildMemberAdd", member => {
   member.roles.add(rolver); 
 });
 
+client.on("guildMemberAdd", member => {
+ const rolver = ayarlar.sharer;
+member.roles.add(rolver); 
+});
 
 ////////////////////////////////////REKLAM ENGEL////////////////////////////////
 
