@@ -690,7 +690,7 @@ data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )})
 
 
 client.on('guildMemberAdd', async(member) => {
-let mute = member.guild.roles.cache.find(ayarlar.susturulmuş);
+let mute = member.guild.roles.cache.get(ayarlar.susturulmuş);
 let mutelimi = db.fetch(`muteli_${member.guild.id + member.id}`)
 let süre = db.fetch(`süre_${member.id + member.guild.id}`)
 if (!mutelimi) return;
@@ -708,7 +708,7 @@ db.delete(`muteli_${member.guild.id + member.id}`)
 
 
 client.on('guildMemberAdd', async(member) => {
-let rol = member.guild.roles.cache.find(ayarlar.cezalı);
+let rol = member.guild.roles.cache.get(ayarlar.cezalı);
 let cezalımı = db.fetch(`cezali_${member.guild.id + member.id}`)
 let sürejail = db.fetch(`süreJail_${member.id + member.guild.id}`)
 if (!cezalımı) return;
