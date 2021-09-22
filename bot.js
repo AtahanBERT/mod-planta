@@ -238,8 +238,8 @@ client.off("guildMemberAdd", member => {
   member.roles.add(rolver); 
 });
 
-client.on("guildMemberAdd", member => {
- const rolver = ayarlar.sharer;
+client.off("guildMemberAdd", member => {
+ const rolver = ayarlar.kayıtsız;
 member.roles.add(rolver); 
 });
 
