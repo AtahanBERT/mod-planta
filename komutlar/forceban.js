@@ -34,8 +34,7 @@ module.exports.run = async (client, message, args) => {
                        message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
                    })
                    .catch(error => {
-                       message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir Hata Oluştu!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-                       console.error(':x: Hata:', error);
+                                              console.error(':x: Hata:', error);
                    });
            });
    } else {
