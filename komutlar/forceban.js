@@ -33,9 +33,7 @@ module.exports.run = async (client, message, args) => {
                        }
                        message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
                    })
-                   .catch(error => {
-                                              console.error(':x: Hata:', error);
-                   });
+                   
            });
    } else {
        message.guild.fetchBans()
