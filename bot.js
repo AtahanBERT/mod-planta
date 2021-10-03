@@ -133,6 +133,14 @@ client.on('error', e => {
     console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
+client.on('message', async (msg, member, guild) => {
+let saas = await db.fetch(`saas.${mess.guild.id}`)
+{
+if (msg.content.toLowerCase() === 'sa'){
+if (!saas) return;
+msg.reply(`Aleyküm Selam^^`)}
+}})
+
 client.login(process.env.token);
 
 
@@ -320,7 +328,7 @@ client.off("message", async message => {
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
-const botadi = "Tyfers Tarafından Yapılmıştır."
+const botadi = "Atahan Tarafından Yapılmıştır."
 const kanal = ayarlar.modlog
 const chat = ayarlar.chatlog
 
