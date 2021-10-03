@@ -134,11 +134,14 @@ client.on('error', e => {
 });
 
 client.on('message', async (msg, member, guild) => {
-let saas = await db.fetch(`saas.${mess.guild.id}`)
+let saas = await db.fetch(`saas.${msg.guild.id}`)
 {
 if (msg.content.toLowerCase() === 'sa'){
 if (!saas) return;
-msg.reply(`Aleyküm Selam^^`)}
+if (saas === "Açık") {
+  
+msg.reply(`Aleyküm Selam^^`)
+}}
 }})
 
 client.login(process.env.token);
