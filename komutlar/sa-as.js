@@ -16,44 +16,27 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
 
     return;
   }
-let kufur = await db.fetch(`kufur_${message.guild.id}`);
+let kufur = await db.fetch(`saas_${message.guild.id}`);
 if (args[0] == "aç") {
 if (kufur) {
 
-return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Görünüşe göre reklam koruması zaten aktif!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Görünüşe göre sa-as sistemi zaten aktif!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
       return;
     } else {
-      db.set(`kufur_${message.guild.id}`, "Açık");
+      db.set(`saas_${message.guild.id}`, "Açık");
 
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Sa-as sistemi başarıyla açıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
 message.react('✅')
     }
   } else if (args[0] == "kapat") {
-    db.delete(`kufur_${message.guild.id}`);
+    db.delete(`saas_${message.guild.id}`);
 
 return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Sa-as sistemi başarıyla kapandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
 message.react('✅')
   }
 };
-exports.conf = {
-  enabled: true,
-  guildOnly: true,
-  aliases: ["rk","reklam","küfür"],
-  permLevel: 2
-};
 
-exports.help = {
-  name: "reklam-küfür",
-  description: "Bot",
-  usage: "reklam-engel"
-}; message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Sa-as sistemi başarıyla açıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 5000}));
-message.react('✅')
-    }
-  } else if (args[0] == "kapat") {
-    db.delete(`saas_${message.guild.id}`);
-
-return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Sa-as sistemi başarıyla kapandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()).then(x => x.delete({timeout: 
 exports.conf = {
   enabled: true,
   guildOnly: false,
