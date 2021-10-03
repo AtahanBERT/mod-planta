@@ -134,7 +134,7 @@ client.on('error', e => {
 });
 
 client.on('message', async (msg, member, guild) => {
-let saas = await db.fetch(`saas.${msg.guild.id}`)
+let saas = await db.fetch(`saas_${msg.guild.id}`)
 {
 if (msg.content.toLowerCase() === 'sa'){
 if (!saas) return;
