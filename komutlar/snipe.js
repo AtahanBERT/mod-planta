@@ -19,9 +19,9 @@ let basarisiz = ayarlar.basarisizemoji;
   .setAuthor(kullanıcı.username, kullanıcı.avatarURL({ dynamic: true}))
   .setDescription(silinen)
   .setColor(`#3498db`)
-  .setFooter(silinenk, message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
+  .setFooter((`Mesajın silindiği kanal: ${silinenk}`), message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
   .setTimestamp()
-  message.channel.send(embed) }
+  message.channel.send(embed) } 
 }
 exports.conf = {
     enabled:true,
