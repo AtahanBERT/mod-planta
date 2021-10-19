@@ -13,10 +13,9 @@ exports.run = (client, message, args) => {
   let basari = ayarlar.basariliemoji
   let basarisiz = ayarlar.basarisizemoji
     
-  if(args[0] === 'kapat'){
-    if (!data) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bakım modu zaten kapalı.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
-    message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Bakım modu başarıyla kapatıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
-    db.delete(`bakim`)
+  if(args[0] === 'aç'){
+    message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Bakım modu başarıyla açıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
+    db.set(`bakim`)
   }
   
 }
