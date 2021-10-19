@@ -11,12 +11,7 @@ exports.run = (client, message, args) => {
   
   let basari = ayarlar.basariliemoji
   let basarisiz = ayarlar.basarisizemoji
-  
-  if(args[0] === 'aç') {
-    message.channel.send(`${basari} Bakım modu açıldı.`)
-    db.set(`bakim`)
-  }
-  
+    
   if(args[0] === 'kapat'){
     message.channel.send(`${basari} Bakım modu kapatıldı.`)
     db.delete(`bakim`)
