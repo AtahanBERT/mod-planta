@@ -25,7 +25,7 @@ return gönderkardesim(`${basari} Bakım artık sona erdi.`);
 } else {
 
 await database.set(client.user.id, true);
-database.set(client.user.id+':)', { 
+database.set(client.user.id+'sa', { 
 author: message.author,
 time: Date.now() 
 });

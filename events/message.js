@@ -9,7 +9,7 @@ if(cmd && cmd.help.name !== 'bakım-modu') {
   const neblmölçmedimikamk = await require('quick.db').fetch(client.user.id);
   if(neblmölçmedimikamk == true) {
   var DURATION = require('humanize-duration');
-  const chimped = await db.fetch(client.user.id+':)');
+  const chimped = await db.fetch(client.user.id+'sa');
   var TIMESTAMP = Date.now() - chimped.time;
   var RESULT = DURATION(TIMESTAMP, { language: 'tr', round: true, conjunction: ', ', serialComma: false });
   message.react('❌');
