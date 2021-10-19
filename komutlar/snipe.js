@@ -8,7 +8,7 @@ let basarisiz = ayarlar.basarisizemoji;
     if(!emirhan) {
     const embeds = new MessageEmbed()
   .setAuthor(client.user.username, client.user.avatarURL())
-  .setDescription(`${basarisiz} Mesaj bulunamadı!`)
+  .setDescription(`${basarisiz} ${message.author}, Mesaj bulunamadı!`)
   .setColor(`#3498db`)
     message.channel.send(embeds);
           } else {
@@ -16,7 +16,7 @@ let basarisiz = ayarlar.basarisizemoji;
   const silinen = await data.fetch(`snipe.mesaj.${message.guild.id}`)
   const silinenk = await data.fetch(`snipe.kanal.${message.guild.id}`)
   const embed = new MessageEmbed()
-  .setAuthor(kullanıcı.username, kullanıcı.avatarURL({ dynamic: true}))
+  .setAuthor(`${kullanıcı.tag} (${kullanıcı.id})`, kullanıcı.avatarURL({ dynamic: true}))
   .setDescription(silinen)
   .setColor(`#3498db`)
   .setFooter((`Mesajın silindiği kanal: ${silinenk}`), message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
