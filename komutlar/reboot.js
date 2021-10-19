@@ -5,10 +5,11 @@ let basari = ayarlar.basariliemoji;
 let basarisiz = ayarlar.basarisizemoji;
 
 module.exports.run = async (bot, message, args) => {
-    if(message.author.id !== "429357746002067493") return message.channel.send(`${basarisiz} Yapımcım Değilsin!`)
+    if(message.author.id !== ayarlar.sahip) return message.channel.send(`${basarisiz} Yapımcım Değilsin!`)
     
-    message.channel.send(`${basari} Bot yeniden başlatılıyor...`).then(msg => {
-    console.log(`${basari} BOT: Yeniden Başlatılıyor.....`);
+    message.channel.send(`${basari} ${message.author}, Bot yeniden başlatılıyor...`).then(msg => {
+    console.log(`BOT: Yeniden Başlatılıyor.....`);
+    message.edit(`${basari} ${message.author}, Bot başarıyla yeniden başlatıldı.`)
     process.exit(0);
   })
     

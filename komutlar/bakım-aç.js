@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   
   if(!args[0]) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Doğru bir argüman gir Aç veya Kapat.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
-  let data = db.fetch(`bakim`)
+  let data = db.fetch(`bakim`, 'açık')
   let basari = ayarlar.basariliemoji
   let basarisiz = ayarlar.basarisizemoji
     
@@ -17,6 +17,7 @@ exports.run = (client, message, args) => {
     if (data) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bakım modu zaten açık.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
     message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Bakım modu başarıyla açıldı.`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
     db.set(`bakim`)
+    db.set(`bakim`, 'açık')
   }
   
 }
