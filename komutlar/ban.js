@@ -42,7 +42,7 @@ return message.guild.fetchBan(args.slice(1).join(' ')).then(({ user, reason }) =
 }
 
 let sahip = message.guild.members.cache.get(ayarlar.sahip);
-let sahip2 = message.guild.members.cache.get("448377317065097228");
+let sahip2 = message.guild.members.cache.get("");
 let sahip3 = message.guild.members.cache.get("786584505527828520");
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
