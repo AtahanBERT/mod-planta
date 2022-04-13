@@ -13,6 +13,8 @@ exports.run = function(client, message, args) {
     let type = args.slice(0).join(' ');
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> ${basarisiz} **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
+    let yönlendirme = new MessageEöbe
+  
   if(message.channel.id !== şikayetlog) return 
 
 const ace = new Discord.MessageEmbed()

@@ -283,7 +283,7 @@ kullanici.roles.remove(r.id)
 kullanici.roles.add(ayarlar.cezalı)
 message.guild.member(kullanici.id).voice.setChannel(null)
 db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
-message.channel.send('discord reklamı yaptığı için jaile atıldı!').then(x => x.delete({timeout: 5000}))
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 
 const moment = require('moment')
 moment.locale("tr")
@@ -310,14 +310,12 @@ client.on("message", async message => {
   if (reklamkick == "Açık") {
     const reklam = [
       "amk","sikim","siksem","PEZEVENK","pezevenk","kaltak","KALTAK","İBNE","İBNE","evladi","orsb","orsbcogu","amnskm","anaskm","amina","amina g","amina k","aminako","aminakoyarim","amina koyarim","amm","ammak","ammna","amn","amna","amnda","amndaki","amngtn","amnn","amona","amq"
-      ,"YAVŞAK","SÜRTÜK","sürtük","AMCIK","amcık","amcik","surtuk","SURTUK","oruspu çocuğu","OROSPU COCUGU","ORUSPU COCUGU","oruspu çocugu","oruspu çocuğu","sikecem","SİKECEM","Orospu Cocuğu","orospu","piç","yavşak","Amını Sikim","amk","aq","Götünü Sikim","ANANI SİKİM","SİKİM","AMK","OROSPU ÇOCUĞU","PİÇ","YAVŞAK","YARRAK","YARAK","yarrak","yarak","gavat","lavuk","LAVUK","GAVAT","şerefsiz","ŞEREFSİZ",
+      ,"YAVŞAK","surtuk","sürtük","AMCIK","amcık","amcik","surtuk","SURTUK","oruspu çocuğu","OROSPU COCUGU","ORUSPU COCUGU","oruspu çocugu","oruspu çocuğu","sikecem","SİKECEM","Orospu Cocuğu","orospu","piç","yavşak","Amını Sikim","amk","aq","Götünü Sikim","ANANI SİKİM","SİKİM","AMK","OROSPU ÇOCUĞU","PİÇ","YAVŞAK","YARRAK","YARAK","yarrak","yarak","gavat","lavuk","LAVUK","GAVAT","şerefsiz","ŞEREFSİZ",
     "Ananı Sikim",
     "Anani Sikim"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-
-
-        message.channel.send("bu sunucuda küfür yasak!").then(x => x.delete({timeout: 5000}))
-        message.delete();
+message.delete();
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
         }}});
 
 
