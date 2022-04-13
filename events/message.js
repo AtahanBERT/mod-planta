@@ -5,17 +5,7 @@ let talkedRecently = new Set();
 let basarisiz = ayarlar.basarisizemoji;
 module.exports = async message => {
  
-if(cmd && cmd.help.name !== 'bakım-modu') {
-  const neblmölçmedimikamk = await require('quick.db').fetch(client.user.id);
-  if(neblmölçmedimikamk == true) {
-  var DURATION = require('humanize-duration');
-  const chimped = await db.fetch(client.user.id+'sa');
-  var TIMESTAMP = Date.now() - chimped.time;
-  var RESULT = DURATION(TIMESTAMP, { language: 'tr', round: true, conjunction: ', ', serialComma: false });
-  message.react('❌');
-  return message.reply(`${basarisiz} ***${client.user.username}*** şu anda bakımda.\nYaklaşık ***${RESULT} önce*** bakıma alınmış.\nBakıma alan: ***${chimped.author.tag}***`);
-  };
-  };
+
   
 const ms = require('parse-ms');
   let client = message.client;
