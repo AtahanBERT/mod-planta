@@ -6,7 +6,7 @@ exports.run = async (client, message, emoji, args) => {
 	let uye = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   if (!uye) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} Ses odana çekilecek üyeyi belirtmelisin!`)).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setDescription((`${basarisiz} Belirtilen üyenin ve kendinin ses kanalında olduğundan emin ol!`)).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-  if (message.member.hasPermission("ADMINISTRATOR")) {await uye.voice.setChannel(message.member.voice.channelID);} else {
+  if (message.member.roles.cache.get(ayarlar.mod)) {await uye.voice.setChannel(message.member.voice.channelID);} else {
     const reactionFilter = (reaction, user) => {
       return ['✅'].includes(reaction.emoji.name) && user.id === uye.id;
     };
