@@ -24,6 +24,8 @@ const acee = new Discord.MessageEmbed()
 .addField("Kullanıcı Şikayeti", type)
 .setThumbnail(message.author.avatarURL)
  client.channels.cache.get(şikayetlog).send(acee);
+ client.channels.cache.get(şikayetlog).send('@everyone')
+ 
 };
 
 exports.conf = {
