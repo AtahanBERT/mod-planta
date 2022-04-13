@@ -273,9 +273,10 @@ client.on("message", async message => {
       "discord.gg",
       ".gg",
       "gg/",
-      ".gg/"];
+      ".gg/",
+      ".com"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.roles.cache.get("857661979686600705") & !message.member.hasPermission("ADMINISTRATOR")) {
+            if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
         db.add(`reklamuyari_${message.author.id}`, 1); 
               
