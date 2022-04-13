@@ -294,11 +294,11 @@ let embed = new Discord.MessageEmbed()
 .setFooter(`Atahan`)
 jaillog.send(embed)
             }}
-      const reklam2 = [".net",".com",".tk","www.","https://","http://"];
+      const reklam2 = [".net",".com",".tk","www.","https://","http://",".png",".gif",".webp"];
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
     if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Bu sunucuda link atmak yasak.`)).then(x => x.delete({timeout: 5000}))
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Bu sunucuda link atmak yasak.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
   }}}});
         
 client.on("message", async message => {
@@ -728,25 +728,6 @@ db.delete(`cezali_${member.guild.id + member.id}`)
 });
 
 
-//DDOS KORUMASI\\
-client.off('message', msg => {
-
-if(client.ping > 550) {
-
-            let bölgeler = ['singapore', 'eu-central', 'india', 'us-central', 'london',
-            'eu-west', 'amsterdam', 'brazil', 'us-west', 'hongkong', 
-            'us-south', 'southafrica', 'us-east', 'sydney', 'frankfurt',
-            'russia']
-           let yenibölge = bölgeler[Math.floor(Math.random() * bölgeler.length)]
-           let sChannel = msg.guild.channels.find(c => c.name === "saldırı-koruma")
-
-           sChannel.send(`⚠UYARI⚠\n \n🔸 Sunucunun Pingi Yükseldiğinden Dolayı Bölge Değiştirildi!\n🔸 Yeni Bölge: ${yenibölge} `+ client.ping)
-           msg.guild.setRegion(yenibölge)
-           .then(g => console.log("🌍 Bölge:" + g.region))
-           .then(g => msg.channel.send("✅ Bölge **"+ g.region  + " Olarak Değiştirildi! 🏡"))
-           .then(msg.reply('✅ Bölge Değiştirildi! ')) 
-           .catch(console.error);
-}});
 
 
 client.on('message', message => {
