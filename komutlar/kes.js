@@ -9,7 +9,7 @@ exports.run = async (client, message, emoji, args) => {
 if (!message.member.roles.cache.get(ayarlar.muteyetkili) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   
-let sebep = args.splice(1).join(" ")
+let sebep = args.slice(1).join(" ")
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
 const kanal = message.member.voiceChannel

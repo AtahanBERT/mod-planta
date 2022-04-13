@@ -31,5 +31,5 @@ module.exports.conf = {
 };
 
 module.exports.help = {
-  name: "ses-çekiliş"
+  name: "çekiliş"
 };
