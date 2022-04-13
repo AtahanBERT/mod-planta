@@ -21,7 +21,8 @@ exports.run = function(client, message, args) {
     let count = 0
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
-    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
+    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    
+   let boost = message.guild.premiumSubscriptionCount
    let tag1 = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag)).size;
    let tag2 = message.guild.members.cache.filter(m => m.user.username.includes(ayarlar.tag2)).size;
    let tag = tag1 + tag2;
