@@ -268,43 +268,31 @@ client.on("message", async message => {
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
+    const jaillog = message.guild.channels.cache.find(c => c.id === ayarlar.jaillog)
     const reklam = [
       "discord.app",
       "discord.gg",
       ".gg",
       "gg/",
-      ".gg/",
-      ".com"];
+      ".gg/",];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.roles.cache.get("943997574132670482")) {
+    if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
-        db.add(`reklamuyari_${message.author.id}`, 1); 
-              
-        if (uyarisayisi === null) {
-return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Sunucuda Reklam Yapmak Yasaktır!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));        }
-        if (uyarisayisi === 1) {
-            message.delete();
-          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Sunucuda Reklam Yapmak Yasaktır!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));        }
-        
-        if (uyarisayisi === 2) {
-            message.delete();
 kullanici.roles.cache.forEach(r => {
 kullanici.roles.remove(r.id)
 kullanici.roles.add(ayarlar.cezalı)
 db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
+message.channel.send('discord reklamı yaptığı için jaile atıldı!')
 
-          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`3\` Kez Reklam Yaptığı İçin Jaile Atıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())        }  
-        if (uyarisayisi === 3) {
-            message.delete();
-          await kullanici.kick({reason: `Reklam Yapma Orsp Cocu!`});
-          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`4\` Kez Reklam Yaptığı İçin Sunucudan Atıldı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())        }
-        
-        if (uyarisayisi === 4) {
-          message.delete();
-          await kullanici.ban({reason: `ORSP COC!`});
-          db.delete(`reklamuyari_${message.author.id}`);
-          return message.channel.send(new Discord.MessageEmbed().setDescription(`${basari} ${message.author}, Uyarılmasına Rağmen \`5\` Kez Reklam Yaptığı İçin Sunucudan Yasaklandı!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp()) 
-        }}}}});
+const moment = require('moment')
+moment.locale("tr")
+let embed = new Discord.MessageEmbed()
+.setColor('GRAY')
+.setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
+.setDescription(`${kullanici}, adlı üye \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde discord linki attığı için jaile atıldı.`)
+.setFooter(`Atahan`)
+jaillog.send(embed)
+            }}}});
         
 client.off("message", async message => {
 
