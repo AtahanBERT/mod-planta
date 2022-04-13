@@ -22,7 +22,7 @@ moment.locale("tr")
 let embed = new MessageEmbed()
 .setColor('GRAY')
 .setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
-.setDescription(`${kullanıcı}, adlı üye ${message.author} tarafından \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde dm den mesaj atıldı.`)
+.setDescription(`${kullanıcı}, adlı üye ${message.author} tarafından \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde dm den \`${extacy}\` mesaj atıldı.`)
 .setFooter(`Atahan`) 
   
 client.channels.cache.get(ayarlar.dmlog).send(embed)

@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
       let yetkili = ayarlar.logger;
 
   
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('deneme')
 
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
