@@ -24,7 +24,7 @@ let embed = new MessageEmbed()
 
 kullanici.roles.add("943997574296268843") 
 message.react('✅')
-client.channel.cache.get("963747543601283102").send(embed)
+client.channels.cache.get("963747543601283102").send(embed)
 }
 exports.conf = {
   enabled: true,
