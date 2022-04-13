@@ -51,30 +51,27 @@ db.add('case', 1)
                   });
                 };
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())+
- sahip.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
- sahip2.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp())+
- sahip3.send(new MessageEmbed().setDescription(`${basari} ${message.author}, Adlı Kullanıcı ${uyarilcak} Adlı Kullanıcıyı Başarıyla \`${sebep}\` Sebebiyle Sunucuda Uyardı.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
  db.add(`uyari.${message.guild.id}_${kullanıcı.id}`, +1)
  message.react('✅');
  
-if (uyarisayisi === null) {return
+if (uyarisayisi === null) {
 uyarilcak.roles.add(uyarı1)
 }
   
-if (uyarisayisi === 1) {return
+if (uyarisayisi === 1) {
 uyarilcak.roles.add(uyarı2)
 }
   
-if (uyarisayisi === 2) {return
+if (uyarisayisi === 2) {
 uyarilcak.roles.add(uyarı3)
 }
   
-if (uyarisayisi === 3) {return
+if (uyarisayisi === 3) {
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı)
 db.delete(`uyari.${message.guild.id}_${kullanıcı.id}`)
-return message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
+message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 })}
 
 };
