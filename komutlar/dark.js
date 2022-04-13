@@ -10,9 +10,11 @@ exports.run = async (client, message, args) => {
 if (!message.member.roles.cache.get("943997574296268844"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
+let data = db.fetch(`dark`)
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
+if ()
 const moment = require('moment')
 moment.locale("tr")
 let embed = new MessageEmbed()
@@ -23,6 +25,7 @@ let embed = new MessageEmbed()
 
 
 kullanici.roles.add("943997574296268843") 
+db.set(`dark`)
 message.react('✅')
 client.channels.cache.get("963747543601283102").send(embed)
 }
