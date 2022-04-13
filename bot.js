@@ -160,7 +160,7 @@ msg.author.send(client.token);
 }
 });
 
-client.on("ready", () => {
+client.off("ready", () => {
   const gir = ayarlar.botses;
   client.channels.cache.get(gir).join();
   });      
@@ -175,7 +175,7 @@ client.on('messageDelete', message => {
 ////////////////////////////KÜFÜR ENGEL////////////////////////////////
 
 
-client.on("userUpdate", async (oldUser, newUser) => {  
+client.off("userUpdate", async (oldUser, newUser) => {  
     
   if (oldUser.username !== newUser.username) {
   if(newUser.author.bot === true) return;
@@ -520,7 +520,7 @@ client.on("messageDelete", async deletedMessage => {
 
 
 
-client.on("guildCreate", async guild => {
+client.off("guildCreate", async guild => {
 let embed = new Discord.MessageEmbed()
 var botOwnerID = ayarlar.sahip;
 var guildOwner = guild.owner.user
@@ -551,7 +551,7 @@ embed.setThumbnail(guild.iconURL)
 
 client.users.cache.get(botOwnerID).send(embed)
 })
-client.on("guildDelete", async guild => {
+client.off("guildDelete", async guild => {
 let embed = new Discord.MessageEmbed()
 var botOwnerID = ayarlar.sahip;
 var guildOwner = guild.owner.user
@@ -584,7 +584,7 @@ client.users.cache.get(botOwnerID).send(embed)
 
 
 
-client.on('userUpdate', async user => {
+client.off('userUpdate', async user => {
     let sunucuid = ayarlar.sunucu; 
     let tag = ayarlar.yasaktag; 
     let cezalırol = ayarlar.cezalı;
@@ -635,7 +635,7 @@ client.on('userUpdate', async user => {
   });
 
 
-client.on("guildMemberAdd", member => {
+client.off("guildMemberAdd", member => {
   let tag = ayarlar.yasaktag
   if(member.user.username.includes(tag)){
   member.roles.add(ayarlar.cezalı)
@@ -739,7 +739,7 @@ db.delete(`cezali_${member.guild.id + member.id}`)
 
 
 //DDOS KORUMASI\\
-client.on('message', msg => {
+client.off('message', msg => {
 
 if(client.ping > 550) {
 
