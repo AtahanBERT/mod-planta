@@ -24,8 +24,8 @@ let embed = new MessageEmbed()
 .setFooter(`Atahan`)
 
 
-kullanici.roles.add("943997574296268843") 
-db.set(`dark`, "Var")
+kullanici.roles.add("948243692534251540") 
+db.set(`nude`, "Var")
 message.react('✅')
 client.channels.cache.get("963747543601283102").send(embed)
 }
@@ -40,7 +40,7 @@ let embed = new MessageEmbed()
 
 
 kullanici.roles.remove("943997574296268843") 
-db.delete(`dark`)
+db.delete(`nude`)
 message.react('✅')
 client.channels.cache.get("963747543601283102").send(embed)
 }
@@ -54,5 +54,5 @@ exports.conf = {
 };
  
 exports.help = {
-  name: 'dark'
+  name: 'nude'
 };

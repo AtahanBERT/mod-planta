@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 let basarisiz = ayarlar.basarisizemoji;
 let basari = ayarlar.basariliemoji;
-let yetkili = ayarlar.logger;
+let yetkili = ayarlar.mod;
 
 exports.run = async(client, message, args) => {
   
