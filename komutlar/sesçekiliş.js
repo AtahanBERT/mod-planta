@@ -5,7 +5,7 @@ let basarisiz = ayarlar.basarisizemoji;
 
 module.exports.run = async (client, message, args) => {
   
-if (!message.member.roles.cache.get(ayarlar.rewardsyetkili)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+if (!message.member.roles.cache.get(ayarlar.mod)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   if (!message.member.voice.channel)
     return message.channel.send(new Discord.MessageEmbed().setDescription(
       `${basarisiz} Bu Komutu Kullana Bilmek İçin Sesli Kanalda Olman Gerekli!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));

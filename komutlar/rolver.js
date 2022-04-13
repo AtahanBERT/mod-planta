@@ -14,7 +14,7 @@ exports.run = async (bot, message, args) => {
      
 
   
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"));
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")); return
 
   
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
