@@ -9,13 +9,18 @@ exports.run = function(client, message, args) {
     let basari = ayarlar.basariliemoji
     let basarisiz = ayarlar.basarisizemoji
     let şikayetlog = ayarlar.sikayetlog
+    let kanal = ayarlar.şikayetkanal
     let prefix = ayarlar.prefix
     let type = args.slice(0).join(' ');
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> ${basarisiz} **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
-    let yönlendirme = new MessageEöbe
+    let yönlendirme = new Discord.MessageEmbed()
+    .setColor('GRAY')
+    .setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
+    .setFooter(`Atahan`)
+    .setDescription(`${basarisiz} ${message.author}, Bu komut yanlızca <#${kanal}> kanalında kullanılabilir.`)
   
-  if(message.channel.id !== şikayetlog) return 
+  if(message.channel.id !== kanal) return message.channel.send(yönlendirme).then(x => x.delete({timeout: 5000}))
 
 const ace = new Discord.MessageEmbed()
 .setDescription(`${basari} <@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
