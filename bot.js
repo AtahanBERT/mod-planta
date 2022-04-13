@@ -325,10 +325,10 @@ client.on("message", async message => {
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
 const botadi = "Atahan"
-const kanal = ayarlar.modlog
+const kanal = ayarlar.modlogg
 const chat = ayarlar.chatlog
 
-  client.on('guildBanAdd', async (guild, user) => {
+  client.off('guildBanAdd', async (guild, user) => {
   let entry = await guild.fetchAuditLogs({type: 'BAN_ADD'}).then(audit => audit.entries.first())
   let yetkili = client.users.cache.get(entry.executor.id)
   let modlogs = kanal
@@ -343,7 +343,7 @@ const chat = ayarlar.chatlog
     modlogkanal.send(embed)
   }});
 
-  client.on('guildBanRemove', async (guild, user) => {
+  client.off('guildBanRemove', async (guild, user) => {
     let entry = await guild.fetchAuditLogs({type: 'BAN_REMOVE'}).then(audit => audit.entries.first())
     let yetkili = client.users.cache.get(entry.executor.id)
     let modlogs = kanal
@@ -360,7 +360,7 @@ const chat = ayarlar.chatlog
 
 
 
-  client.on('channelCreate', async channel => {
+  client.off('channelCreate', async channel => {
     let modlogs = kanal
     let entry = await channel.guild.fetchAuditLogs({type: 'CHANNEL_CREATE'}).then(audit => audit.entries.first())
     let user = client.users.cache.get(entry.executor.id)
@@ -383,7 +383,7 @@ const chat = ayarlar.chatlog
        .setTimestamp()
       modlogkanal.send(embed)}}});
 
-   client.on('channelDelete', async channel => {
+   client.off('channelDelete', async channel => {
       let entry = await channel.guild.fetchAuditLogs({type: 'CHANNEL_DELETE'}).then(audit => audit.entries.first())
       let user = client.users.cache.get(entry.executor.id)
     let modlogs = kanal
@@ -409,7 +409,7 @@ const chat = ayarlar.chatlog
       }
     });
 
-client.on('roleDelete', async role => {
+client.off('roleDelete', async role => {
     let modlogs = kanal
   let entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first())
   let user = client.users.cache.get(entry.executor.id)
@@ -423,7 +423,7 @@ client.on('roleDelete', async role => {
     .setTimestamp()
     modlogkanal.send(embed)}});
 
-client.on('emojiDelete', async emoji => {
+client.off('emojiDelete', async emoji => {
     let modlogs = kanal
  let entry = await emoji.guild.fetchAuditLogs({type: 'EMOJI_DELETE'}).then(audit => audit.entries.first())
  let user = client.users.cache.get(entry.executor.id)
@@ -440,7 +440,7 @@ client.on('emojiDelete', async emoji => {
 });
   
 
-client.on('roleCreate', async role => {
+client.off('roleCreate', async role => {
     let modlogs = kanal
 let entry = await role.guild.fetchAuditLogs({type: 'ROLE_CREATE'}).then(audit => audit.entries.first())
 let user = client.users.cache.get(entry.executor.id)
@@ -458,7 +458,7 @@ let user = client.users.cache.get(entry.executor.id)
 });
 
 
-   client.on('emojiCreate', async emoji => {
+   client.off('emojiCreate', async emoji => {
     let modlogs = kanal
     let entry = await emoji.guild.fetchAuditLogs({type: 'EMOJI_CREATE'}).then(audit => audit.entries.first())
     let user = client.users.cache.get(entry.executor.id)
@@ -473,7 +473,7 @@ let user = client.users.cache.get(entry.executor.id)
     modlogkanal.send(embed)}});
 
 
-client.on("messageUpdate", async (oldMessage, newMessage) => {
+client.off("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot || newMessage.channel.type === "dm") return;
   if (newMessage.content.startsWith(prefix)) return;
   let sc = chat;
@@ -492,7 +492,7 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
     .setTimestamp()
     scbul.send(embed); });
 
-client.on("messageDelete", async deletedMessage => {
+client.off("messageDelete", async deletedMessage => {
   if (deletedMessage.author.bot || deletedMessage.channel.type === "dm") return;
   if (deletedMessage.content.startsWith(prefix)) return;
   let sc = chat;

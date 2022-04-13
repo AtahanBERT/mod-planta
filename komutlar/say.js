@@ -12,7 +12,7 @@ exports.run = function(client, message, args) {
       let basarisiz = ayarlar.basarisizemoji;
       let yetkili = ayarlar.mod;
 
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"));
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return
 
   
   let toplam = message.guild.memberCount;

@@ -6,18 +6,16 @@ var prefix = ayarlar.prefix;
 
 
 
-exports.run = async (bot, message, args) => {
+exports.run = async (client, message, args) => {
  
- if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`))}
-}
+ 
 
       let basarili = ayarlar.basariliemoji;
       let basarisiz = ayarlar.basarisizemoji;
       let yetkili = ayarlar.logger;
 
   
- if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"));
+ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return
 
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
