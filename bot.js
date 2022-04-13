@@ -276,7 +276,7 @@ client.on("message", async message => {
       "gg/",
       ".gg/",];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-    if (message.content.toLowerCase().includes(`spotify.com`)) return
+    //if (message.content.toLowerCase().includes(`spotify.com`)) {if (reklam.some(word => message.content.toLowerCase().includes(word))) {message.delete();}}
     if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
 kullanici.roles.cache.forEach(r => {
