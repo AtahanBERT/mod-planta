@@ -14,13 +14,8 @@ exports.run = function(client, message, args) {
     let type = args.slice(0).join(' ');
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> ${basarisiz} **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
-    let yönlendirme = new Discord.MessageEmbed()
-    .setColor('GRAY')
-    .setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
-    .setFooter(`Atahan`)
-    .setDescription(`${basarisiz} ${message.author}, Bu komut yanlızca <#${kanal}> kanalında kullanılabilir.`)
   
-  if(message.channel.id !== kanal) return message.channel.send(yönlendirme).then(x => x.delete({timeout: 5000}))
+  if(message.channel.id !== kanal) return message.channel.send(`${message.author}, Bu komut yanlızca <#${kanal}> kanalında kullanılabilir.`).then(x => x.delete({timeout: 10000}))
 
 const ace = new Discord.MessageEmbed()
 .setDescription(`${basari} <@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)

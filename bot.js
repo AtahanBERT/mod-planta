@@ -758,7 +758,7 @@ if (message.content === `<@${client.user.id}>`) {
 
 
 client.on("message", msg => {
-var dm = client.channels.cache.get(ayarlar.sikayetlog)
+var dm = client.channels.cache.get(ayarlar.dmlog)
 if(msg.channel.type === "dm") {
 if(msg.author.id === client.user.id) return;
 const botdm = new Discord.MessageEmbed()
