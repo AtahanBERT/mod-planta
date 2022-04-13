@@ -27,7 +27,7 @@ const ms = require('parse-ms');
     const muah2  = new Discord.MessageEmbed()
     .setDescription(`${message.author.tag} adlı kullanıcı artık AFK değil`)
     .setColor("#00ff88")
-    message.channel.send(muah2)
+    message.channel.send(muah2).then(x => x.delete({timeout: 5000}))
 
   
   }

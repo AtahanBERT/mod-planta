@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
       `afkSebep_${message.author.id}_${message.guild.id}`
     );
 
-   message.channel.send(new MessageEmbed().setColor('BLACK').setDescription(`${basarili} ${kullanıcı} Başarıyla Afk Oldunuz Afk Olmanızın Sebebi: **${ramo}**`));
+   message.channel.send(new MessageEmbed().setColor('BLACK').setDescription(`${kullanıcı} Başarıyla Afk Oldunuz Afk Olmanızın Sebebi: **${ramo}**`)).then(x => x.delete({timeout: 5000}))
 
     message.member.setNickname(`[AFK] ` + b);
   }

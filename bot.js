@@ -658,12 +658,12 @@ client.on("message" , async msg => {
    const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
    if(msg.content.includes(kisi3)){
 
-       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basarisiz} <@` + msg.author.id + `> Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`))
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basarisiz} <@` + msg.author.id + `> Etiketlediğiniz Kişi Afk \nSebep : ${sebep}`)).then(x => x.delete({timeout: 5000}))
    }
  }
   if(msg.author.id === kisi){
 
-       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basari} <@${kisi}> Başarıyla Afk Modundan Çıktınız`))
+       msg.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`${basari} <@${kisi}> Başarıyla Afk Modundan Çıktınız`)).then(x => x.delete({timeout: 5000}))
    db.delete(`afkSebep_${msg.author.id}_${msg.guild.id}`)
    db.delete(`afkid_${msg.author.id}_${msg.guild.id}`)
    db.delete(`afkAd_${msg.author.id}_${msg.guild.id}`)
