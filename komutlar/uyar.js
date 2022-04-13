@@ -51,7 +51,7 @@ db.add('case', 1)
                   });
                 };
  return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('BLACK').setTimestamp())+
- db.add(`uyari.${message.guild.id}_${kullanıcı.id}`, +1)
+ db.add(`uyari.${kullanıcı.id}`, 1)
  message.react('✅');
  
 if (uyarisayisi === null) {

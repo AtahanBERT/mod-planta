@@ -331,7 +331,7 @@ client.off("message", async message => {
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
-const botadi = "Atahan Tarafından Yapılmıştır."
+const botadi = "Atahan"
 const kanal = ayarlar.modlog
 const chat = ayarlar.chatlog
 
@@ -378,7 +378,7 @@ const chat = ayarlar.chatlog
     let embed = new Discord.MessageEmbed()
       .setColor("#fffa00")
       .setDescription(`\`${channel.name}\` adlı metin kanalı oluşturuldu. Kanalı oluşturan kişi <@${user.id}>`)
-      .setFooter(`Herşey sizin için 🤍`)
+      .setFooter(`Atahan`)
       .setTimestamp()
       modlogkanal.send(embed)
     }
