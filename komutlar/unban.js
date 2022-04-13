@@ -5,13 +5,10 @@ const moment = require('moment');
 const ayarlar = require('../ayarlar.json');
 exports.run = async (bot , message, args) => {
   
-   if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new MessageEmbed().setColor('0x800d0d').setDescription(`${basarisiz} Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}))}
-}
-  
+   
   let basari = ayarlar.basariliemoji;
   let basarisiz = ayarlar.basarisizemoji;
-  if(!message.member.roles.get == ayarlar.banyetkili)return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+  if(!message.member.roles.cache.get(ayarlar.banyetkili)) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} Bu Komutu Kullanmaya Yetkin Yok`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
   const banlog = message.guild.channels.cache.find(c => c.id === ayarlar.banlog)//Ban log kanalı  
   
    const user = message.mentions.members.first()
