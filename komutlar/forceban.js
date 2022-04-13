@@ -63,8 +63,8 @@ module.exports.run = async (client, message, args) => {
 exports.conf = {
    enabled: true,
    guildOnly: false,
-   aliases: ['forceban'],
-   permLevel: 5,
+   aliases: ['ipban'],
+   permLevel: 0,
  
 };
  

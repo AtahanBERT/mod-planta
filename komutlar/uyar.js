@@ -12,9 +12,8 @@ exports.run = async (client, message, args) => {
 if (!message.member.roles.cache.get(ayarlar.logger) & !message.member.hasPermission("ADMINISTRATOR"))
 return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author} Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
- let sahip = message.guild.members.cache.get(ayarlar.sahip);
- let sahip2 = message.guild.members.cache.get("448377317065097228");
- let sahip3 = message.guild.members.cache.get("786584505527828520");
+  const banlog = message.guild.channels.cache.find(c => c.id === ayarlar.uyarılog)//Ban log kanalı  
+  
  let uyarı1 = ayarlar.uyarı1;
  let uyarı2 = ayarlar.uyarı2;
  let uyarı3 = ayarlar.uyarı3;
@@ -70,7 +69,7 @@ if (uyarisayisi === 3) {
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı)
-db.delete(`uyari.${message.guild.id}_${kullanıcı.id}`)
+db.delete(`uyari.${kullanıcı.id}`)
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 })}
 

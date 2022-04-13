@@ -13,7 +13,7 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
 let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 
-kullanici.roles.add("948243692534251540") 
+kullanici.roles.add("948243581838192730") 
 message.react('✅')
 }
 exports.conf = {
@@ -24,5 +24,5 @@ exports.conf = {
 };
  
 exports.help = {
-  name: 'nude'
+  name: 'nsfw'
 };
