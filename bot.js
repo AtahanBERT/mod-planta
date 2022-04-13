@@ -281,6 +281,7 @@ client.on("message", async message => {
 kullanici.roles.cache.forEach(r => {
 kullanici.roles.remove(r.id)
 kullanici.roles.add(ayarlar.cezalı)
+message.guild.member(kullanici.id).voice.setChannel(null)
 db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
 message.channel.send('discord reklamı yaptığı için jaile atıldı!')
 
@@ -292,9 +293,15 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`${kullanici}, adlı üye \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde discord linki attığı için jaile atıldı.`)
 .setFooter(`Atahan`)
 jaillog.send(embed)
-            }}}});
+            }}
+      const reklam2 = [".net",".com",".tk","www.","https://","http://"];
+    if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
+    if (!message.member.roles.cache.get("943997574132670482")) {
+        message.delete();
+        message.channel.send(new Discord.MessageEmbed().setDescription(``).then(x => x.delete({timeout: 5000}))
+  }}}});
         
-client.off("message", async message => {
+client.on("message", async message => {
 
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
