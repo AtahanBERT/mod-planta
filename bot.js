@@ -297,7 +297,7 @@ jaillog.send(embed)
             }}
       const reklam2 = [".net",".com",".tk","www.","https://","http://",".png",".gif",".webp"];
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
-    
+    if (message.content.toLowerCase().includes('spotify.com')) return
     if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
         message.channel.send(new Discord.MessageEmbed().setDescription(`Bu sunucuda link atmak yasak.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
