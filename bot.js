@@ -283,7 +283,7 @@ kullanici.roles.remove(r.id)
 kullanici.roles.add(ayarlar.cezalı)
 message.guild.member(kullanici.id).voice.setChannel(null)
 db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
-message.channel.send('discord reklamı yaptığı için jaile atıldı!')
+message.channel.send('discord reklamı yaptığı için jaile atıldı!').then(x => x.delete({timeout: 5000}))
 
 const moment = require('moment')
 moment.locale("tr")
@@ -298,7 +298,7 @@ jaillog.send(embed)
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
     if (!message.member.roles.cache.get("943997574132670482")) {
         message.delete();
-        message.channel.send(new Discord.MessageEmbed().setDescription(``).then(x => x.delete({timeout: 5000}))
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Bu sunucuda link atmak yasak.`)).then(x => x.delete({timeout: 5000}))
   }}}});
         
 client.on("message", async message => {
@@ -314,14 +314,11 @@ client.on("message", async message => {
     "Ananı Sikim",
     "Anani Sikim"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) {
 
-      {
+
+        message.channel.send("bu sunucuda küfür yasak!").then(x => x.delete({timeout: 5000}))
         message.delete();
-        db.add(`reklamuyari_${message.author.id}`, 1); //uyarı puanı ekleme
-        if (uyarisayisi === null) {
-        }
-        }}}}});
+        }}});
 
 
 
