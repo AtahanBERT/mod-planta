@@ -69,7 +69,7 @@ Yetkili: message.author.id,
 Sebep: sebep,
 Ceza: "VMUTE",
 Süre: sure,
-Tarih: (`${moment(Date.now()).add(10,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
+Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
 });
 
 

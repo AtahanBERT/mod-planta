@@ -275,7 +275,6 @@ client.on("message", async message => {
       "gg/",
       ".gg/"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
-            if (message.author.id !== "429357746002067493")
             if (!message.member.roles.cache.get("857661979686600705") & !message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
         db.add(`reklamuyari_${message.author.id}`, 1); 
