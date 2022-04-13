@@ -378,7 +378,7 @@ const chat = ayarlar.chatlog
     let embed = new Discord.MessageEmbed()
       .setColor("#fffa00")
       .setDescription(`\`${channel.name}\` adlı metin kanalı oluşturuldu. Kanalı oluşturan kişi <@${user.id}>`)
-      .setFooter(`Atahan`)
+      .setFooter(`${botadi}`)
       .setTimestamp()
       modlogkanal.send(embed)
     }
@@ -457,7 +457,7 @@ let user = client.users.cache.get(entry.executor.id)
   let embed = new Discord.MessageEmbed()
     .setColor("#fffa00")
     .setDescription(`\`${role.name}\` adlı rol oluşturuldu. Rolü oluşturan kişi <@${user.id}>`)
-    .setFooter(`${botadi} `)
+    .setFooter(`${botadi}`)
     .setTimestamp()
 
     modlogkanal.send(embed)

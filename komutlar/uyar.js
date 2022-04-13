@@ -72,7 +72,7 @@ uyarilcak.roles.add(ayarlar.cezalı)
 db.delete(`uyari.${kullanıcı.id}`)
 message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 })}
-
+banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Uyarıldı!**\n**Uyaran Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Uyarılan Üye:** ${kullanıcı.user.tag} (\`${kullanıcı.user.id}\`)\n**Sebep:** \`${sebep}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `))
 };
 
 exports.conf = {
