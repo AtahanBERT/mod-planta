@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
     let jaillogkanal = ayarlar.jaillog;
     let cezalı = ayarlar.cezalı;
     let jailsayı = db.fetch(`jailsayısı_${message.author.id}`);
-    let kullanıcı = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+    let kullanıcı = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     let member = message.guild.member(kullanıcı);
     let reason = args.slice(1).join(" ");
 
@@ -62,7 +62,7 @@ member.roles.cache.forEach(r => {
 member.roles.add(cezalı);
 member.roles.remove(r.id)
 db.set(`${member.guild.id}.jail.${member.id}`)
-db.set(`${message.guild.id}.jail.${member.id}.roles.${r.id}`, r.id)});
+db.set(`${member.guild.id}.jail.${member.id}.roles.${r.id}`, r.id)});
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
