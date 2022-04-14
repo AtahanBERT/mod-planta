@@ -15,30 +15,8 @@ module.exports.run = async (client, message, args) => {
    let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]))
    var seyfooo = args[0]
    var now = new Date()
-   if (!sebeb) {
-       message.guild.fetchBans()
-           .then(bans => {
-               if (bans.has(seyfooo)) {
-                   return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
-                 if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, İD si girilen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
-               }
-               message.guild.members.ban(seyfooo, sebeb)
-                   .then(async (member) => {
-                       let user;
-                       if (member instanceof Discord.GuildMember) {
-                           user = member.user;
-                       }
-                       else if (member instanceof Discord.User) {
-                           user = member;
-                       }
-                       else {
-                           user = await client.fetchUser(member);
-                       }
-                       message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
-                   })
-                   
-           });
-   } else {
+   if(!sebeb) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
+   
        message.guild.fetchBans()
            .then(bans => {
                if (bans.has(seyfooo)) {
@@ -62,13 +40,12 @@ module.exports.run = async (client, message, args) => {
                        message.react('✅');
                      })
                    });
-   }
  
 }
 exports.conf = {
    enabled: true,
    guildOnly: false,
-   aliases: ['ipban'],
+   aliases: [],
    permLevel: 0,
  
 };

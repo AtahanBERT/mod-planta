@@ -90,6 +90,7 @@ mutelog.send(
 new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL ({ dynamic: true}))
 .setColor('ffdb55')
+.setTimestamp()
 .setDescription(`
 **Metin Kanallarında Susturuldu !**
 **Kullanıcı:** <@${member.id}> (\`${member.id}\`)
