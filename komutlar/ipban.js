@@ -9,15 +9,16 @@ module.exports.run = async (client, message, args) => {
   if (!args[0]) 
         return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı İD si gir.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    
+   const banlog = message.guild.channels.cache.find(c => c.id === ayarlar.banlog)//Ban log kanalı  
    let sebeb = args.slice(1).join(" ");
-   let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
+   let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]))
    var seyfooo = args[0]
    var now = new Date()
    if (!sebeb) {
        message.guild.fetchBans()
            .then(bans => {
                if (bans.has(seyfooo)) {
-                   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+                   return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                  if(message.member.roles.highest.position <= kullanici.roles.highest.position) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, İD si girilen kullanıcı sizden üst/aynı pozisyondadır.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
                message.guild.members.ban(seyfooo, sebeb)
@@ -32,7 +33,7 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
+                       message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> adlı kullanıcı banlandı`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp())
                    })
                    
            });
@@ -40,7 +41,7 @@ module.exports.run = async (client, message, args) => {
        message.guild.fetchBans()
            .then(bans => {
                if (bans.has(seyfooo)) {
-                   return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+                   return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
                message.guild.ban(seyfooo, sebeb)
                    .then(async (member) => {
@@ -54,7 +55,7 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
-                       message.channel.send(new MessageEmbed().setDescription(`${basari} ${message.author}, <@!${user.id}> sunucudan yasaklandı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+                       message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> sunucudan yasaklandı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                        message.react('✅');
                      })
                    });
@@ -70,7 +71,7 @@ exports.conf = {
 };
  
 exports.help = {
-   name: 'forceban',
+   name: 'ipban',
    description: 'Oylama yapmanızı sağlar.',
    usage: 'forceban <id>'
 };

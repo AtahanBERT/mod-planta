@@ -49,14 +49,21 @@ db.add('case', 1)
                     Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
                 };
- return uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setFooter(`Uyarı Sayın: \`${uyarisayisi}\``, message.guild.iconURL({dynamic: true})).setColor('BLACK').setTimestamp())
+  
+ uyarilcak.send(new MessageEmbed().setDescription(`${sunucu}, Sunucusunda \`${sebep}\` Sebebiyle Uyarıldın!`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setFooter(`Uyarı Sayın: \`${uyarisayisi}\``, message.guild.iconURL({dynamic: true})).setColor('BLACK').setTimestamp())
  db.add(`uyari.${kullanıcı.id}`, 1)
  message.react('✅');
  
+
+//if (!uyarisayisi) {
+//uyarilcak.roles.add(uyarı1)
+//db.set(`uyari.${kullanıcı.id}`, "1")
+//}
+
 if (uyarisayisi === null) {
 uyarilcak.roles.add(uyarı1)
 }
-  
+
 if (uyarisayisi === 1) {
 uyarilcak.roles.add(uyarı2)
 }
