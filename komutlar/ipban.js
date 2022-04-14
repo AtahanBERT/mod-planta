@@ -1,5 +1,6 @@
 const { Discord, MessageEmbed } = require("discord.js");
 const ayarlar = require("../ayarlar.json");
+const moment = require("moment")
 let basarisiz = ayarlar.basarisizemoji;
 let basari = ayarlar.basariliemoji;
  
@@ -55,6 +56,8 @@ module.exports.run = async (client, message, args) => {
                        else {
                            user = await client.fetchUser(member);
                        }
+                       moment.locale("tr")
+                       banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklandı !**\n**Banlayan Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Banlanan Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebeb}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `))
                        message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> sunucudan yasaklandı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                        message.react('✅');
                      })
