@@ -9,9 +9,7 @@ exports.run = async (client, message, args) => {
     let yetkili = ayarlar.logger;
 
 
-  if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
-}
+  
   
 if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
 
@@ -26,12 +24,6 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
     READ_MESSAGE_HISTORY: true
   });
   
-  message.channel.createOverwrite(erkek, {
-    SEND_MESSAGES: true,
-    VIEW_CHANNEL: true,
-    READ_MESSAGE_HISTORY: true
-  });
-
 
  message.react('✅');
 };

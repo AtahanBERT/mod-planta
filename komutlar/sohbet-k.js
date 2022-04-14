@@ -8,9 +8,7 @@ exports.run = async (client, message, args) => {
     let basarisiz = ayarlar.basarisizemoji;
     let yetkili = ayarlar.logger;
 
-    if(db.fetch(`bakim`)) {
-  if(message.author.id !== ayarlar.sahip) {return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:plantacarp:815252488168931368> Şuanda bot kullanımı kapalıdır. Daha sonra tekrar deneyiniz.'))}
-}
+    
   
 if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.react(basarisiz);
 
@@ -20,12 +18,6 @@ if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("AD
   let erkek = message.guild.roles.cache.get(ayarlar.erkekrol1);
   let kız = message.guild.roles.cache.get(ayarlar.kızrol1);
   message.channel.createOverwrite(kız, {
-    SEND_MESSAGES: false,
-    VIEW_CHANNEL: true,
-    READ_MESSAGE_HISTORY: true
-  });
-
-  message.channel.createOverwrite(erkek, {
     SEND_MESSAGES: false,
     VIEW_CHANNEL: true,
     READ_MESSAGE_HISTORY: true
