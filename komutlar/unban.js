@@ -62,7 +62,7 @@ moment.locale("tr");
   enabled: true,
   guildOnly: false,
   aliases: ['unban'],
-  permLevel: 4
+  permLevel: 0
 };
 
 exports.help = {
