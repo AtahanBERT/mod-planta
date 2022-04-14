@@ -18,7 +18,7 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
  let uyarı2 = ayarlar.uyarı2;
  let uyarı3 = ayarlar.uyarı3;
  let kullanıcı = message.mentions.users.first()
- let uyarisayisi = db.fetch(`uyari.${kullanıcı.id}`)
+ let uyarisayisi = db.fetch(`uyari_${kullanıcı.id}`)
  let sunucu = message.guild;
  let uyarilcak = message.mentions.users.first() || message.guild.members.cache.get(args[0])
  let sebep = args.slice(1).join(" ");
@@ -62,24 +62,24 @@ db.add('case', 1)
 
 if (!uyarisayisi) {
 uyarilcak.roles.add(uyarı1)
- db.set(`uyari.${kullanıcı.id}`, "1")
+ db.set(`uyari_${kullanıcı.id}`, "1")
 }
 
 if (uyarisayisi == "1") {
 uyarilcak.roles.add(uyarı2)
- db.set(`uyari.${kullanıcı.id}`, "2")
+ db.set(`uyari_${kullanıcı.id}`, "2")
 }
   
 if (uyarisayisi == "2") {
 uyarilcak.roles.add(uyarı3)
- db.set(`uyari.${kullanıcı.id}`, "3")
+ db.set(`uyari_${kullanıcı.id}`, "3")
 }
   
 if (uyarisayisi == "3") {
 uyarilcak.roles.cache.forEach(r => {
 uyarilcak.roles.remove(r.id);
 uyarilcak.roles.add(ayarlar.cezalı)
-db.delete(`uyari.${kullanıcı.id}`)
+db.delete(`uyari_${kullanıcı.id}`)
 message.channel.send(new MessageEmbed().setDescription(`${message.author}, ${uyarilcak} Adlı kişi \`3\` kez uyarıldığı için başarıyla jaile attım.`).setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('0x348f36').setTimestamp());
 })}
 };

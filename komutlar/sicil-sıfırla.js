@@ -17,12 +17,12 @@ if(!member) return message.channel.send(new MessageEmbed().setDescription(`${bas
 
 if (!member) {
 let sicil = kdb.delete(`kullanici.${member.id}.sicil`) || [];
-message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${message.author} Sana Ait Sicil Verilerini Sildim!`))
+message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${message.author} Sana ait sicil verilerini aildim!`))
 }
   
 if(member) {
 let sicil = kdb.delete(`kullanici.${member.id}.sicil`) || [];
-message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${member} Kullanıcısına Ait Sicil Verilerini Sildim!`).setFooter(`ま PŁΛЛTΛ TΞΛM`))
+message.channel.send(new MessageEmbed().setColor('0x348f36').setDescription(`${basari} ${member} Kullanıcısına ait sicil verilerini sildim!`).setFooter(`ま PŁΛЛTΛ TΞΛM`))
 };
   
 }
