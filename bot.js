@@ -275,6 +275,7 @@ client.on("message", async message => {
       "gg/",
       ".gg/",];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
+    if (message.author.bot) return
         message.delete();
 kullanici.roles.cache.forEach(r => {
 kullanici.roles.remove(r.id)
@@ -296,10 +297,11 @@ jaillog.send(embed)
       const reklam2 = [".net",".com",".tk","www.","https://","http://",".png",".gif",".webp"];
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
     if (message.content.toLowerCase().includes('spotify.com')) return
-    if (!message.member.roles.cache.get("943997574132670482")) {
+    if (message.member.roles.cache.get("943997574132670482")) return
+    if (message.author.bot) return
         message.delete();
         message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Bu sunucuda link atmak yasak.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
-  }}});
+  }});
         
 client.on("message", async message => {
 
@@ -308,7 +310,7 @@ client.on("message", async message => {
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
-    const reklam2 = ["abaza","aq","abazan","piç","amarım","ambiti","amcığı","amcığın","amcığını","amcığınızı","amcık","hoşafı","amcıklama","amcıklandı","amcik","amck","amckl","amcklama","amcklaryla","amckta","amcktan","amcuk","amık","amına","amınako","amınakoyim","koyyim","sikem","sokam","amın","feryadı","amını","oglu","amınoğlu","oğlu","amısına","amısını","amina","aminako","aminakoyarim","aminakoyim","aminda","amindan","amindayken","amini","aminiyarraaniskiim","aminoglu","amiyum","amkafa","amlarnzn","amlı","ammak","ammna","amna","amnda","amndaki","amngtn","amnn","amona","amq","amsız","amsiz","amsz","amteri","amugaa","amuğa","amuna","anaaann","anal","analarn","anan","anana","anandan","ananı","ananın",
+    const reklam = ["abaza","aq","abazan","piç","amarım","ambiti","amcığı","amcığın","amcığını","amcığınızı","amcık","hoşafı","amcıklama","amcıklandı","amcik","amck","amckl","amcklama","amcklaryla","amckta","amcktan","amcuk","amık","amına","amınako","amınakoyim","koyyim","sikem","sokam","amın","feryadı","amını","oglu","amınoğlu","oğlu","amısına","amısını","amina","aminako","aminakoyarim","aminakoyim","aminda","amindan","amindayken","amini","aminiyarraaniskiim","aminoglu","amiyum","amkafa","amlarnzn","amlı","ammak","ammna","amna","amnda","amndaki","amngtn","amnn","amona","amq","amsız","amsiz","amsz","amteri","amugaa","amuğa","amuna","anaaann","anal","analarn","anan","anana","anandan","ananı","ananın",
                     "dölü","ananınki","ananısikerim","sikerim","ananısikeyim","sikeyim","ananızın","anani","ananin","ananisikerim","ananisikeyim","anann","ananz","anas","anasını","anasının","anası","orospu","anasi","anasinin","anay","anayin","anneni","annenin","annesiz","anuna","atkafası","atmık","attırdığım","attrrm","auzlu","ayklarmalrmsikerim","azdır","azdırıcı","babaannesi","kaşar","pezevenk","bacına","bacını","bacının","bacini","bacn","bacndan","bacy","bastard","beyinsiz","bızır","bitch","biting","bosalmak","boşalmak","cibilliyetini","cibilliyetsiz","çük","dalaksız","dallama","daltassak","dalyarak","dalyarrak","dangalak","dassagi","diktim","dildo","dingil","dingilini","dkerim","domal","domalan",
                     "domaldı","domaldın","domalık","domalıyor","domalmak","domalmış","domalsın","domalt","domaltarak","domaltıp","domaltır","domaltırım","domaltip","domaltmak","dönek","eben","ebeni","ebenin","ebeninki","ebleh","ecdadını","ecdadini","fahise","fahişe","feriştah","ferre","fuck","fucker","fuckin","fucking","gavad","gavat","giberim","giberler","gibis","gibiş","gibmek","gibtiler","goddamn","godoş","godumun","gotlalesi","gotlu","gotten","gotundeki","gotunden","gotveren","goyiim","goyum","goyuyim","goyyim","göt","deliği","götelek","götlalesi","götlek","götoğlanı","oğlanı","götoş","götten","götü","götün","götüne","götünekoyim","koyim","götünü","götveren","gtelek","gtn","gtnde","gtnden","gtne",
                     "gtten","gtveren","hasiktir","hassiktir","siktir","hödük","hsktr","huur","ıbnelık","ibina","ibine","ibinenin","ibne","ibnedir","ibneleri","ibnelik","ibnelri","ibneni","ibnenin","ibnerator","ibnesi","idiot","idiyot","ipne","iserim","işerim","itoğlu","kahpe","kahpenin","kaltak","kancık","kancik","kappe","karhane","kavat","kavatn","kaypak","kayyum","kerane","kerhane","kerhanelerde","kevase","kevaşe","kevvase","koduğmun","koduğmunun","kodumun","kodumunun","koduumun","koyarm","koyiim","koyiiym","koyum","krar","kukudaym","laciye","liboş","madafaka","malafat","mcik","meme","memelerini","mezveleli","minaamcık","mincikliyim","monakkoluyum","motherfucker","mudik","ocuun","oğlancı","orosbucocuu",
@@ -317,20 +319,26 @@ client.on("message", async message => {
                     "sikti","siktigimin","siktigiminin","siktiğim","siktiğimin","siktiğiminin","siktii","siktiim","siktiimin","siktiiminin","siktiler","siktim","siktimin","siktiminin","siktirgit","siktirir","siktiririm","siktiriyor","siktirolgit","sittimin","sittir","skcem","skecem","skem","sker","skerim","skerm","skeyim","skiim","skik","skime","skmek","sksin","sksn","sksz","sktiimin","sktrr","skyim","slaleni","sokarım","sokarim","sokarm","sokarmkoduumun","sokayım","sokaym","sokiim","soktuğumunun","sokuk","sokum","sokuş","sokuyum","soxum","sulaleni","sülaleni","sülalenizi","sürtük","şıllık","taaklarn","taaklarna","tarrakimin","tasak","tassak","taşak","taşşak","s.k","tipinizi","s.keyim","tiyniyat","toplarm","topsun","totoş","vajina","vajinanı","veled","veledizina","zina",
                     "verdiimin","weled","weledizina","whore","xikeyim","yaaraaa","yalama","yalarım","yalarun","yaraaam","yarak","yaraksız","yaraktr","yaram","yaraminbasi","yaramn","yararmorospunun","yarra","yarraaaa","yarraak","yarraam","yarraamı","yarragi","yarragimi","yarragina","yarragindan","yarragm","yarrağ","yarrağım","yarrağımı","yarraimin","yarrak","yarram","yarramin","yarraminbaşı","yarramn","yarran","yarrana","yarrrak","yavak","yavş","yavşak","yavşaktır","yogurtlayam","yoğurtlayam","yrrak","zıkkımım","zigsin","zikeyim","zikiiim","zikiim","zikik","zikim","ziksiiin","ziksiin","zulliyetini","zviyetini","skm","skrm","büzük","büzüğ","siksokçu","siksokcu","sksokcu","siksoker","siksokker","siksoke","sıksoker","sıksokcu","sıksokçu","sıksok","siksocer","sksocer","oçe","yarramı","amcı","amcıyım","amguard","skym","o.ç","anskym","anaskym","anasikim","anskim","anasikm","sik"
 ]
-    const reklam = ["am","it","oc","çoc","azdır","amı","piç"]   
+    const reklam2 = ["am","it","oc","çoc","azdır","amı","piç"]   
     
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
+    if (message.member.roles.cache.get("943997574132670482")) return
+    if (message.author.bot) return
 message.delete();
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
         }
  if (reklam2.some(word => message.content.toLowerCase() === (word))) {
+ if (message.member.roles.cache.get("943997574132670482")) return
+ if (message.author.bot) return
 message.delete();
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
  
   
  }}});
 
-
+client.on('ready', () => {
+        console.log(`${client.user.username} ismi ile giriş yapıldı!`);
+});
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
