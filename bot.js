@@ -298,6 +298,7 @@ jaillog.send(embed)
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
     if (message.content.toLowerCase().includes('spotify.com')) return
     if (!message.member.roles.cache.get("943997574132670482")) {
+    if (message.author.bot) return
         message.delete();
         message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Bu sunucuda link atmak yasak.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
   }}}});
@@ -315,15 +316,19 @@ client.on("message", async message => {
     const reklam2 = ["am","it","oc","çoc","azdır","amı"]   
     
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
+    if (!message.member.roles.cache.get("943997574132670482")) {
+    if (message.author.bot) return
 message.delete();
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
         }
  if (reklam2.some(word => message.content.toLowerCase() === (word))) {
+ if (!message.member.roles.cache.get("943997574132670482")) {
+ if (message.author.bot) return
 message.delete();
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
  
   
- }}});
+ }}}}});
 
 
 
