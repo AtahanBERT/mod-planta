@@ -18,7 +18,7 @@ return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${me
  let uyarı2 = ayarlar.uyarı2;
  let uyarı3 = ayarlar.uyarı3;
  let kullanıcı = message.mentions.users.first()
- let uyarisayisi = db.fetch(`uyari.${message.guild.id}_${kullanıcı.id}`);
+ let uyarisayisi = db.fetch(`uyari.${kullanıcı.id}`);
  let sunucu = message.guild;
  let uyarilcak = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
  let sebep = args.slice(1).join(" ");
