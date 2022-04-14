@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
                if (bans.has(seyfooo)) {
                    return message.channel.send(new MessageEmbed().setDescription(`${message.author}, Bu Kullanıcı Zaten Yasaklanmış.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                }
-               message.guild.ban(seyfooo, sebeb)
+               message.guild.ban(seyfooo)
                    .then(async (member) => {
                        
                        if (member instanceof Discord.GuildMember) {
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
                      })
                        moment.locale("tr")
                        banlog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Sunucudan Yasaklandı !**\n**Banlayan Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Banlanan Üye:** ${kullanici.user.tag} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebeb}\`\n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\` `))
-                       message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> sunucudan yasaklandı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
+                       message.channel.send(new MessageEmbed().setDescription(`${message.author}, <@!${user.id}> ${sebeb} sebebinden sunucudan yasaklandı!`).setColor('0x348f36').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                        message.react('✅');
                    });
  
