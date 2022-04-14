@@ -692,7 +692,7 @@ const data = require('quick.db')
 const asd = data.fetch(`${member.guild.id}.jail.${member.id}`)
 if(asd) {
 let data2 = await data.fetch(`jailrol_${member.guild.id}`)
-let rol = member.guild.roles.cache.get(data2)
+let rol = member.guild.roles.cache.get(ayarlar.cezalı)
 if(!rol) return;
 let kişi = member.guild.members.cache.get(member.id)
 kişi.roles.add(rol.id);
