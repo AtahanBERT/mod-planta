@@ -132,16 +132,7 @@ client.on('error', e => {
     console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
-client.on('message', async (msg, member, guild) => {
-let saas = await db.fetch(`saas_${msg.guild.id}`)
-{
-if (msg.content.toLowerCase() === 'sa'){
-if (!saas) return;
-if (saas === "Açık") {
-  
-msg.reply(`Aleyküm Selam^^`)
-}}
-}})
+
 
 client.login(process.env.token);
 
@@ -260,7 +251,6 @@ member.roles.add(rolver);
 
 client.on("message", async message => {
 
-  let guild = client.guilds.cache.get(ayarlar.sunucu)
   let cezalı = ayarlar.cezalı
   let basarisiz = ayarlar.basarisizemoji;
   let basari = ayarlar.basariliemoji;
@@ -305,7 +295,6 @@ jaillog.send(embed)
         
 client.on("message", async message => {
 
-  let guild = client.guilds.cache.get(ayarlar.sunucu)
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
   let kullanici = message.member;
@@ -691,7 +680,7 @@ client.on("message" , async msg => {
 client.on('guildMemberAdd', async member => {
 const data = require('quick.db')
 const asd = await data.fetch(`jail_${member.id}`)
-if(asd) {
+if(asd === member.id) {
 
 let cezalı = member.guild.roles.cache.get(ayarlar.cezalı)
 let rol = ayarlar.cezalı
