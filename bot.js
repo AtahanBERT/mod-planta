@@ -716,6 +716,7 @@ client.on('guildMemberAdd', async(member) => {
 let mute = member.guild.roles.cache.get(ayarlar.susturulmuş);
 let mutelimi = await db.fetch(`muteli_${member.guild.id + member.id}`)
 let süre = await db.fetch(`süre_${member.id + member.guild.id}`)
+console.log(mutelimi,süre)
 if (!mutelimi) return;
 if (mutelimi == "muteli") {
 member.roles.add(ayarlar.susturulmuş)
