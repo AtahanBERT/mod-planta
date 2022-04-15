@@ -62,12 +62,12 @@ jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.au
 message.react('✅')
 
 message.guild.roles.cache.forEach(async r => {
-const roller = await datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}` )
+const roller = await datab.fetch(`${kullanici.guild.id}.jail.${kullanici.id}.roles.${r.id}` )
 if(roller != r.id)  return ;
 if(roller){kullanici.roles.add(roller)}
 kullanici.roles.remove(ayarlar.cezalı)
 datab.delete(`${kullanici.guild.id}.jail.${kullanici.id}`)
-datab.delete(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
+datab.delete(`${kullanici.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
 })
   
   

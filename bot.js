@@ -133,7 +133,7 @@ client.on('error', e => {
 });
 
 client.on('message', async (msg, member, guild) => {
-let saas = await db.fetch(`saas_${msg.guild.id}`)
+let saas = await db.fetch(`saas_${guild.id}`)
 {
 if (msg.content.toLowerCase() === 'sa'){
 if (!saas) return;
@@ -699,10 +699,9 @@ let kişi = member.guild.members.cache.get(member.id)
 kişi.roles.add(ayarlar.cezalı)
 kişi.roles.cache.forEach(r => {
 kişi.roles.remove(r.id)
-data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )})
-    data.set(`${member.guild.id}.jail.${kişi.id}`)
+data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id)})
   const wasted = new Discord.MessageEmbed()
-  .setAuthor(member.user.tag, member.user.avatarURL({ dynamic : true }))
+  .setAuthor(member.username, member.user.avatarURL({ dynamic : true }))
   .setColor(`#0x800d0d`)
   .setDescription(`Dostum hadi ama !!! Jaildan Kaçamazsın ikimizde birbirimizi kandırmayalım...!`)
   .setTimestamp()
@@ -722,7 +721,7 @@ if (mutelimi == "muteli") {
 member.roles.add(ayarlar.susturulmuş)
  
 member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
- setTimeout(async function(){
+ setTimeout(function(){
 db.delete(`muteli_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Muten açıldı.`)
     member.roles.remove(ayarlar.susturulmuş);
