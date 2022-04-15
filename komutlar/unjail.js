@@ -16,7 +16,7 @@ const jaillog = message.guild.channels.cache.find(c => c.id === ayarlar.jaillog)
 
 let basari = ayarlar.basariliemoji
 let basarisiz = ayarlar.basarisizemoji
-let kullanici = message.mentions.members.first()// || message.guild.members.cache.get(args[0]));
+let kullanici = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 let sebep = args[1]
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(!sebep) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
@@ -64,7 +64,7 @@ message.react('✅')
 let roller = await datab.fetch(`jail_roller_${kullanici.id}`)
 //if(roller != r.id)  return ;
 if(roller) {
-kullanici.roles.set([roller])
+kullanici.roles.set(roller)
 datab.delete(`jail_roller_${kullanici.id}`)
 }
 

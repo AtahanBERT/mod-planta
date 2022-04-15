@@ -278,12 +278,9 @@ client.on("message", async message => {
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
     if (message.author.bot) return
         message.delete();
-kullanici.roles.cache.forEach(r => {
-kullanici.roles.remove(r.id)
-kullanici.roles.add(ayarlar.cezalı)
-db.set(`${message.guild.id}.jail.${kullanici.id}`)
+member.roles.set([cezalı])
+db.set(`jail_roller_${message.member.id}`, member.roles.cache.map(role => role.id))
 message.guild.member(kullanici.id).voice.setChannel(null)
-db.set(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`, r.id )})
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord linki yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 
 const moment = require('moment')
