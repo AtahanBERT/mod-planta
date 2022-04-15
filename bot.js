@@ -479,7 +479,7 @@ let user = client.users.cache.get(entry.executor.id)
     modlogkanal.send(embed)}});
 
 
-client.off("messageUpdate", async (oldMessage, newMessage) => {
+client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot || newMessage.channel.type === "dm") return;
   if (newMessage.content.startsWith(prefix)) return;
   let sc = chat;
