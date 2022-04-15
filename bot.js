@@ -260,10 +260,11 @@ member.roles.add(rolver);
 
 client.on("message", async message => {
 
+  let guild = client.guilds.cache.get(ayarlar.sunucu)
   let basarisiz = ayarlar.basarisizemoji;
   let basari = ayarlar.basariliemoji;
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
-  let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
+  let reklamkick = await db.fetch(`kufur_${guild.id}`);
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
@@ -306,8 +307,9 @@ jaillog.send(embed)
         
 client.on("message", async message => {
 
+  let guild = client.guilds.cache.get(ayarlar.sunucu)
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
-  let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
+  let reklamkick = await db.fetch(`kufur_${guild.id}`);
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
@@ -716,8 +718,9 @@ client.on('guildMemberAdd', async(member) => {
 let mute = member.guild.roles.cache.get(ayarlar.susturulmuş);
 let mutelimi = await db.fetch(`muteli_${member.guild.id + member.id}`)
 let süre = await db.fetch(`süre_${member.id + member.guild.id}`)
-console.log(mutelimi,süre)
-if (!mutelimi) return;
+console.log(mutelimi)
+console.log(süre)
+if (!mutelimi) return
 if (mutelimi == "muteli") {
 member.roles.add(ayarlar.susturulmuş)
  
