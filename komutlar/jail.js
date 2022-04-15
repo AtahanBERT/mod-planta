@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
   
      
     let basarili = ayarlar.basariliemoji;
-    let sebep = args[2];
+    let sebep = args.slice(1).join(" ")
     let basarisiz = ayarlar.basarisizemoji;
     let yetkili = ayarlar.jailyetkili;
     let jaillogkanal = ayarlar.jaillog;
@@ -30,17 +30,6 @@ exports.run = async (client, message, args) => {
    if (message.member.roles.highest.position <= member.roles.highest.position) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Belirttiğin kişi senden üstün veya onunla aynı yetkidesin!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    if(!reason) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Jaile atmak için sebep belirtmelisin!`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
    
-let zaman1 = args[1]
-.replace("sn", "s")
-.replace("dk", "m")
-.replace("sa", "h")
-.replace("gün", "d");
-  
-var vakit = zaman1
-.replace("m", " dakika")
-.replace("s", " saniye")
-.replace("h", " saat")
-.replace("d", " d");  
   
    let muteler = jdb.get(`tempmute`) || [];
                 if (!muteler.some(j => j.id == kullanıcı.id)) {
@@ -52,7 +41,7 @@ var vakit = zaman1
                     Yetkili: message.author.id,
                     Sebep: sebep,
                     Ceza: "JAIL",
-                    Süre: vakit,
+                    Süre: "SINIRSIZ",
                     cezano: numara,
                     Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`) 
                   });
@@ -62,7 +51,7 @@ member.roles.set([cezalı])
 db.set(`jail_roller_${member.id}`, member.roles.cache.map(role => role.id))
 db.set(`jail_${member.id}`, member.id)
 
-const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
+const logkanal = new Discord.MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezalandrıldı !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${member.user} (\`${member.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\``)
 client.channels.cache.get(jaillogkanal).send(logkanal);
 db.set(`jailsayısı_${message.author.id}`, 1); 
 message.react('✅')
