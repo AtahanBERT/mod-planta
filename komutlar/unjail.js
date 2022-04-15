@@ -61,11 +61,11 @@ moment.locale("tr");
 jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezası Bitirildi !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${kullanici.user} (\`${kullanici.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\``));
 message.react('✅')
 
-let roller = await datab.fetch(`jail_roller`)
+let roller = await datab.fetch(`jail_roller_${kullanici.id}`)
 //if(roller != r.id)  return ;
 if(roller) {
 kullanici.roles.set([roller])
-datab.delete(`jail_roller`)
+datab.delete(`jail_roller_${kullanici.id}`)
 }
 
   
