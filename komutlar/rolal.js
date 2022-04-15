@@ -37,7 +37,7 @@ exports.run = async (client, message, args) => {
 let embed = new Discord.MessageEmbed()
 .setColor('GRAY')
 .setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
-.setDescription(`${rMember}, adlı üyenin \`${aRole}\` rolü ${message.author} tarafından \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde alındı.`)
+.setDescription(`${rMember}, adlı üyenin ${aRole} rolü ${message.author} tarafından \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde alındı.`)
 .setFooter(`Atahan`) 
   
 client.channels.cache.get("963746646993285191").send(embed)
