@@ -326,9 +326,7 @@ message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Su
   
  }}});
 
-client.on('ready', () => {
-        console.log(`${client.user.username} ismi ile giriş yapıldı!`);
-});
+
 
 //-------------------------------------------------------------------------\\\ModLog//----------------------------------------------------------------------------------\\
 
