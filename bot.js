@@ -261,10 +261,11 @@ member.roles.add(rolver);
 client.on("message", async message => {
 
   let guild = client.guilds.cache.get(ayarlar.sunucu)
+  let cezalı = ayarlar.cezalı
   let basarisiz = ayarlar.basarisizemoji;
   let basari = ayarlar.basariliemoji;
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
-  let reklamkick = await db.fetch(`kufur_${guild.id}`);
+  let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
@@ -278,8 +279,8 @@ client.on("message", async message => {
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
     if (message.author.bot) return
         message.delete();
-member.roles.set([cezalı])
-db.set(`jail_roller_${message.member.id}`, member.roles.cache.map(role => role.id))
+kullanici.roles.set([cezalı])
+db.set(`jail_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
 message.guild.member(kullanici.id).voice.setChannel(null)
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord linki yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 
@@ -306,7 +307,7 @@ client.on("message", async message => {
 
   let guild = client.guilds.cache.get(ayarlar.sunucu)
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
-  let reklamkick = await db.fetch(`kufur_${guild.id}`);
+  let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
   let kullanici = message.member;
   if (!reklamkick) return;
   if (reklamkick == "Açık") {
@@ -689,16 +690,15 @@ client.on("message" , async msg => {
 
 client.on('guildMemberAdd', async member => {
 const data = require('quick.db')
-const asd = await data.fetch(`${member.guild.id}.jail.${member.id}`)
+const asd = await data.fetch(`jail_${member.id}`)
 if(asd) {
-let data2 = await data.fetch(`jailrol_${member.guild.id}`)
-//let rol = member.guild.roles.cache.get(ayarlar.cezalı)
-//if(!rol) return;
-let kişi = member.guild.members.cache.get(member.id)
-kişi.roles.add(ayarlar.cezalı)
-kişi.roles.cache.forEach(r => {
-kişi.roles.remove(r.id)
-data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id)})
+
+let cezalı = member.guild.roles.cache.get(ayarlar.cezalı)
+let rol = ayarlar.cezalı
+if(!cezalı) return;
+member.roles.set([rol])
+db.set(`jail_roller_${member.id}`, member.roles.cache.map(role => role.id))
+
   const wasted = new Discord.MessageEmbed()
   .setAuthor(member.username, member.user.avatarURL({ dynamic : true }))
   .setColor(`#0x800d0d`)

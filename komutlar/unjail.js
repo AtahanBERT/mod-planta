@@ -62,10 +62,10 @@ jaillog.send(new MessageEmbed().setAuthor(message.member.displayName, message.au
 message.react('✅')
 
 let roller = await datab.fetch(`jail_roller_${kullanici.id}`)
-//if(roller != r.id)  return ;
 if(roller) {
 kullanici.roles.set(roller)
 datab.delete(`jail_roller_${kullanici.id}`)
+datab.delete(`jail_${kullanici.id}`)
 }
 
   
