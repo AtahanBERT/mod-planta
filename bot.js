@@ -690,7 +690,7 @@ client.on("message" , async msg => {
 
 client.on('guildMemberAdd', async member => {
 const data = require('quick.db')
-const asd = data.fetch(`${member.guild.id}.jail.${member.id}`)
+const asd = await data.fetch(`${member.guild.id}.jail.${member.id}`)
 if(asd) {
 let data2 = await data.fetch(`jailrol_${member.guild.id}`)
 //let rol = member.guild.roles.cache.get(ayarlar.cezalı)
@@ -714,8 +714,8 @@ data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id)})
 
 client.on('guildMemberAdd', async(member) => {
 let mute = member.guild.roles.cache.get(ayarlar.susturulmuş);
-let mutelimi = db.fetch(`muteli_${member.guild.id + member.id}`)
-let süre = db.fetch(`süre_${member.id + member.guild.id}`)
+let mutelimi = await db.fetch(`muteli_${member.guild.id + member.id}`)
+let süre = await db.fetch(`süre_${member.id + member.guild.id}`)
 if (!mutelimi) return;
 if (mutelimi == "muteli") {
 member.roles.add(ayarlar.susturulmuş)
@@ -732,8 +732,8 @@ db.delete(`muteli_${member.guild.id + member.id}`)
 
 client.on('guildMemberAdd', async(member) => {
 let rol = member.guild.roles.cache.get(ayarlar.cezalı);
-let cezalımı = db.fetch(`cezali_${member.guild.id + member.id}`)
-let sürejail = db.fetch(`süreJail_${member.id + member.guild.id}`)
+let cezalımı = await db.fetch(`cezali_${member.guild.id + member.id}`)
+let sürejail = await db.fetch(`süreJail_${member.id + member.guild.id}`)
 if (!cezalımı) return;
 if (cezalımı == "cezali") {
 member.roles.add(ayarlar.cezalı)
