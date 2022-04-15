@@ -66,6 +66,7 @@ const roller = await datab.fetch(`${message.guild.id}.jail.${kullanici.id}.roles
 if(roller != r.id)  return ;
 if(roller){kullanici.roles.add(roller)}
 kullanici.roles.remove(ayarlar.cezalı)
+datab.delete(`${kullanici.guild.id}.jail.${kullanici.id}`)
 datab.delete(`${message.guild.id}.jail.${kullanici.id}.roles.${r.id}`)
 })
   

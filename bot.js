@@ -693,10 +693,10 @@ const data = require('quick.db')
 const asd = data.fetch(`${member.guild.id}.jail.${member.id}`)
 if(asd) {
 let data2 = await data.fetch(`jailrol_${member.guild.id}`)
-let rol = member.guild.roles.cache.get(ayarlar.cezalı)
-if(!rol) return;
+//let rol = member.guild.roles.cache.get(ayarlar.cezalı)
+//if(!rol) return;
 let kişi = member.guild.members.cache.get(member.id)
-kişi.roles.add(rol.id);
+kişi.roles.add(ayarlar.cezalı)
 kişi.roles.cache.forEach(r => {
 kişi.roles.remove(r.id)
 data.set(`${member.guild.id}.jail.${kişi.id}.roles.${r.id}`, r.id )})
@@ -722,7 +722,7 @@ if (mutelimi == "muteli") {
 member.roles.add(ayarlar.susturulmuş)
  
 member.send("Muteliyken Sunucudan Çıktığın için Yeniden Mutelendin!")
- setTimeout(function(){
+ setTimeout(async function(){
 db.delete(`muteli_${member.guild.id + member.id}`)
     member.send(`<@${member.id}> Muten açıldı.`)
     member.roles.remove(ayarlar.susturulmuş);
