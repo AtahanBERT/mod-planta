@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
  if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} ${message.author}, Komutu kullanmak için yetkin bulunmamakta.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 
   
-    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
+    let rMember = message.guild.member(message.mentions.members.first()) || message.guild.members.cache.get(args[0]);
     if (!rMember) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Rol vermem için bir kişiyi etiketlemelisin!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
     let role = message.mentions.roles.first() || message.guild.roles.cache.find(a => a.name == args.slice(1).join(" "));
 

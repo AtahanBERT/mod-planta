@@ -41,7 +41,7 @@ return message.guild.fetchBan(args.slice(1).join(' ')).then(({ user, reason }) =
 
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
-let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
+let kullanici = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]))
 let sebep = args.splice(1).join(" ")
 if(!kullanici) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir kullanıcı etiketlemelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
 if(!sebep) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Bir sebep belirtmelisin.`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
