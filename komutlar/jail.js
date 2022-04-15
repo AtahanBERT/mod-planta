@@ -58,11 +58,8 @@ var vakit = zaman1
                   });
                 };
   
-member.roles.cache.forEach(r => {
-member.roles.add(cezalı);
-member.roles.remove(r.id)
-db.set(`${member.guild.id}.jail.${member.id}`)
-db.set(`${message.guild.id}.jail.${member.id}.roles.${r.id}`, r.id)});
+member.roles.set([cezalı])
+db.set(`jail_roller`,message.member.roles.cache.map(role => role.id))
 
 const logkanal = new Discord.MessageEmbed().setColor('GREEN').setDescription(`Başarılı bir şekilde ${kullanıcı} adlı kullanıcı, ${message.author.tag} tarafından \`${reason}\` sebebi ile jaile atıldı. `)
 client.channels.cache.get(jaillogkanal).send(logkanal);
