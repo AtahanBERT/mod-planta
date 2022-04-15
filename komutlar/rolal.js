@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const db = require("quick.db")
+const moment = require("moment")
 
 var prefix = ayarlar.prefix;
 
@@ -32,6 +33,16 @@ exports.run = async (client, message, args) => {
     if (!rMember.roles.cache.has(aRole.id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${basarisiz} Bu rolü bu kullanıcıda göremiyorum!`).setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setColor('0x800d0d').setTimestamp()).then(x => x.delete({timeout: 5000}));
  
   await (rMember.roles.remove(aRole.id));
+  moment.locale("tr")
+let embed = new Discord.MessageEmbed()
+.setColor('GRAY')
+.setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
+.setDescription(`${rMember}, adlı üyenin \`${aRole}\` rolü ${message.author} tarafından \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde alındı.`)
+.setFooter(`Atahan`) 
+  
+client.channels.cache.get("963746646993285191").send(embed)
+
+
  message.react('✅')
 
 };

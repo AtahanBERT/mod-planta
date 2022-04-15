@@ -678,7 +678,7 @@ client.on("message" , async msg => {
 client.on('guildMemberAdd', async member => {
 const data = require('quick.db')
 const asd = await data.fetch(`jail_${member.id}`)
-if(asd === member.id) {
+if(asd) {
 
 let cezalı = member.guild.roles.cache.get(ayarlar.cezalı)
 let rol = ayarlar.cezalı
