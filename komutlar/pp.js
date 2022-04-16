@@ -5,7 +5,7 @@ exports.run = async (client, message, args)=> {
 
 let basarisiz = ayarlar.basarisizemoji
 let basari = ayarlar.basariliemoji
-let muser = message.mentions.members.first();
+let muser = message.mentions.users.first();
 let userid;
 if(isNaN(args[0])){
   if(!muser){
