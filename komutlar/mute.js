@@ -38,7 +38,7 @@ let zaman = args[1]
 .replace("gün", "d");
 if (!zaman) { message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Lütfen Bir zaman dilimi belirtin.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
 } else {
-let sebep = args[2]
+let sebep = args.slice(2).join(" ")
 if(!sebep) return message.channel.send(new MessageEmbed().setDescription(`${basarisiz} ${message.author}, Lütfen Bir sebep belirtiniz.`).setColor('0x800d0d').setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setTimestamp()).then(x => x.delete({timeout: 5000}));
                 
 let zamandilimi = zaman

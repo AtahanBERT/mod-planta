@@ -49,7 +49,7 @@ exports.run = async (client, message, args) => {
   
 member.roles.set([cezalı])
 db.set(`jail_roller_${member.id}`, member.roles.cache.map(role => role.id))
-db.set(`jail_${member.id}`, member.id)
+db.set(`jail_${member.id}`, "cezalı")
 
 const logkanal = new Discord.MessageEmbed().setAuthor(message.member.displayName, message.author.avatarURL({dynamic: true})).setColor('RANDOM').setTimestamp().setDescription(`**Cezalandrıldı !**\n**Yetkili:** ${message.author} (\`${message.author.id}\`)\n**Kullanıcı:** ${member.user} (\`${member.user.id}\`)\n**Sebep:** \`${sebep}\` \n**Tarih:** \`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}\``)
 client.channels.cache.get(jaillogkanal).send(logkanal);
@@ -62,7 +62,6 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ["ceza","cezalandır"],
-  kategori: "Yetkili Komutları",
   permLevel: 0
 }
 

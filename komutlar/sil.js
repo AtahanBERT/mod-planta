@@ -16,13 +16,13 @@ exports.run = function(client, message, args) {
     .setColor("0x800d0d")
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
     .setFooter(`Atahan`, Mesaj.guild.iconURL({dynamic: true}))
-    .setTimestamp()
+    .setTimestamp();
 
   const Başarılı = new MessageEmbed()
     .setColor("0x348f36")
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
     .setFooter(`Atahan`, Mesaj.guild.iconURL({dynamic: true}))
-    .setTimestamp()
+    .setTimestamp();
  
 
 if (!message.member.roles.cache.get(yetkili) & !message.member.hasPermission("ADMINISTRATOR"))
@@ -227,7 +227,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 1000) {
-          Hata.setDescription("En fazla 1000 adet mesaj silebilirsiniz.");
+          Hata.setDescription("En fazla **1000** adet mesaj silebilirsiniz.");
           Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
         }
 
