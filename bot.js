@@ -241,7 +241,7 @@ client.off("guildMemberAdd", member => {
   member.roles.add(rolver); 
 });
 
-client.off("guildMemberAdd", member => {
+client.on("guildMemberAdd", member => {
  const rolver = ayarlar.kayıtsız;
 member.roles.add(rolver); 
 });
@@ -685,6 +685,7 @@ let rol = ayarlar.cezalı
 //if(!cezalı) return;
 db.set(`jail_roller_${member.id}`, member.roles.cache.map(role => role.id))
 member.roles.set([rol])
+//member.roles.remove(ayarlar.kayıtsız)
 
   const wasted = new Discord.MessageEmbed()
   .setAuthor(member.username, member.user.avatarURL({ dynamic : true }))
