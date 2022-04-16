@@ -234,16 +234,13 @@ console.log(`Bir hata oluştu! ${e}`)
 });
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
-client.off("guildMemberAdd", member => {
- const rolver = ayarlar.kayıtsız;
- let tag = ayarlar.tag;
-  member.setNickname(`${tag}` + `${ayarlar.kayitsizad}`);
-  member.roles.add(rolver); 
-});
 
-client.on("guildMemberAdd", member => {
- const rolver = ayarlar.kayıtsız;
+client.on("guildMemberAdd", async member => {
+const asd = await db.fetch(`jail_${member.id + member.guild.id}`)
+const rolver = ayarlar.kayıtsız;
+if(asd !== 'cezalı') {
 member.roles.add(rolver); 
+}
 });
 
 ////////////////////////////////////REKLAM ENGEL////////////////////////////////
