@@ -80,7 +80,7 @@ Tarih: (`${moment(Date.now()).add(3,"hours").format("HH:mm:ss DD MMMM YYYY")}`)
 };
   
 moment.locale("tr")
-data.set(`muteli_${member.guild.id + member.id}`, 'muteli')
+data.set(`muteli_${member.id + member.guild.id}`, 'muteli')
 data.set(`süre_${member.id + member.guild.id}`, zamandilimi)
                  
 message.react('✅')
