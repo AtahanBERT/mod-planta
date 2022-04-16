@@ -62,7 +62,7 @@ message.react('✅')
 
 let roller = await datab.fetch(`jail_roller_${kullanici.id}`)
 if(!roller) {
-kullanici.roles.set([""])
+kullanici.roles.set(["943997574258511953"])
 }
 if(roller) {
 kullanici.roles.set(roller)
