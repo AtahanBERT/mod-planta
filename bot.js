@@ -495,7 +495,7 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
     .setTimestamp()
     scbul.send(embed); });
 
-client.off("messageDelete", async deletedMessage => {
+client.on("messageDelete", async deletedMessage => {
   if (deletedMessage.author.bot || deletedMessage.channel.type === "dm") return;
   if (deletedMessage.content.startsWith(prefix)) return;
   let sc = chat;
