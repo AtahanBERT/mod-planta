@@ -320,7 +320,7 @@ message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Su
 message.delete();
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici}, Sunucumuzda küfür etmek yasaktır.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
  } 
- if (reklam.some(word => message.content.toLowerCase().startsWith(word))) {
+ if (reklam.some(word => message.content.toLowerCase().startsWith(word + " "))) {
  if (message.member.roles.cache.get("943997574132670482")) return
  if (message.author.bot) return
 message.delete();
