@@ -33,19 +33,19 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
         Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
       } else {
         if (Sayı < 101) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
           Mesaj.channel.bulkDelete(Sayı);
         }
         if (Sayı > 100 && Sayı < 200) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
           Mesaj.channel.bulkDelete(100).then(() => {
             Mesaj.channel.bulkDelete(Sayı - 100);
           });
         }
         if (Sayı == 200) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(5000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -66,8 +66,8 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 300 && Sayı < 400) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
-          Mesaj.channel.send(Başarılı).then(msg => msg.delete(6000));
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
+          Mesaj.channel.send(Başarılı).then(msg => msg.delete({timeout: 5000}));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100).then(() => {
@@ -75,7 +75,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 400) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(7000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -83,7 +83,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 400 && Sayı < 500) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(7000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -93,7 +93,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
        if (Sayı == 500) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(8000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -102,7 +102,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 500 && Sayı < 600) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(8000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -113,7 +113,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 600) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -123,7 +123,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 600 && Sayı < 700) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -135,7 +135,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 700) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -146,7 +146,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 700 && Sayı < 800) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(10000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -159,7 +159,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 800) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -171,7 +171,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 800 && Sayı < 900) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(11000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -185,7 +185,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 900) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -198,7 +198,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 900 && Sayı < 1000) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(12000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -213,7 +213,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           });
         }
         if (Sayı == 1000) {
-          Başarılı.setDescription(`${Sayı} adet mesaj başarıyla silindi!`);
+          Başarılı.setDescription(`${Mesaj.author}, **${Sayı}** adet mesaj başarıyla silindi!`);
           Mesaj.channel.send(Başarılı).then(msg => msg.delete(13000));
           Mesaj.channel.bulkDelete(100);
           Mesaj.channel.bulkDelete(100);
@@ -227,7 +227,7 @@ return message.channel.send(new Discord.MessageEmbed().setDescription(`${basaris
           Mesaj.channel.bulkDelete(100);
         }
         if (Sayı > 1000) {
-          Hata.setDescription("En fazla **1000** adet mesaj silebilirsiniz.");
+          Hata.setDescription(`${Mesaj.author}, En fazla **1000** adet mesaj silebilirsiniz.`);
           Mesaj.channel.send(Hata).then(msg => msg.delete(5000));
         }
 
