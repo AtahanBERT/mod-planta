@@ -284,7 +284,10 @@ client.on("message", async message => {
     if (message.author.bot) return
         message.delete();
 if (uyarisayisi === null) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+}
+if (uyarisayisi === 1) {
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için ban atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 const moment = require('moment')
 moment.locale("tr")
@@ -295,15 +298,14 @@ let embed = new Discord.MessageEmbed()
 .setFooter(`Atahan`)
 jaillog.send(embed)
       
-            }}
+            }
       const reklam2 = [".net",".com",".tk","www.","https://","http://",".png",".gif",".webp"];
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
-    if (message.content.toLowerCase().includes('spotify.com')) return
-    if (message.member.roles.cache.get("943997574132670482")) return
+    //if (message.member.roles.cache.get("976890819518820372")) return
     if (message.author.bot) return
         message.delete();
-        message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Sunucumuzda link paylaşmak yasak.`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
-  }});
+        message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Sunucumuzda link paylaşmak yasak.`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+  }}});
         
 client.on("message", async message => {
 
