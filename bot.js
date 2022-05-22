@@ -235,7 +235,7 @@ console.log(`Bir hata oluştu! ${e}`)
 /////////////////////////////////////////////////TAG ALANA ROL////////////////////////////////////////////////////
 
 
-client.on("guildMemberAdd", async member => {
+client.off("guildMemberAdd", async member => {
 const asd = await db.fetch(`jail_${member.id + member.guild.id}`)
 const rolver = ayarlar.kayıtsız;
 if(asd !== 'cezalı') {
@@ -243,6 +243,23 @@ member.roles.add(rolver);
 }
 });
 
+client.on("guildMemberAdd", async member => {
+
+let rol = "976890714476662824"
+let kanal = ""
+let logkanal = member.guild.channels.cache.get(kanal)
+
+if (member.guild.roles.cache.get(rol)) {
+await member.roles.add(rol)}
+
+if (logkanal) {
+logkanal.send(new Discord.MessageEmbed()
+.setTitle(`${member.guild.name}`, member.guild.iconURL({dynamic: true}))
+.setDescription(`<@!${member.id}> adlı üyeye başarıyla <@&${rol}> rolünü verdim.`)
+.setFooter(`Atahan`)
+.setTimestamp())
+}
+})
 ////////////////////////////////////REKLAM ENGEL////////////////////////////////
 
 
