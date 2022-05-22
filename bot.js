@@ -328,7 +328,7 @@ jaillog.send(embed)
         message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Sunucumuzda link paylaşmak yasak.`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
   }}});
         
-client.on("message", async message => {
+client.off("message", async message => {
 
   let uyarisayisi = await db.fetch(`reklamuyari_${message.author.id}`);
   let reklamkick = await db.fetch(`kufur_${message.guild.id}`);
