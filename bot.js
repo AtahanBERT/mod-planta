@@ -268,7 +268,7 @@ if (member.guild.roles.cache.get(rol) && !roller) {
   
 if (member.bot) {
 await member.roles.add(botrol)}else{
-await member.roles.add(rol)}}
+await member.roles.add(rol)}
 
 if (logkanal) {
 logkanal.send(new Discord.MessageEmbed()
@@ -276,7 +276,7 @@ logkanal.send(new Discord.MessageEmbed()
 .setDescription(`<@!${member.id}> adlı üyeye başarıyla <@&${rol}> rolünü verdim.`)
 .setFooter(`Atahan`)
 .setTimestamp())
-}
+}}
 })
 ////////////////////////////////////REKLAM ENGEL////////////////////////////////
 
@@ -308,6 +308,7 @@ message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu 
 if (uyarisayisi === 1) {
 await db.set(`ban_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
 await db.delete(`reklamuyari_${message.author.id}`)
+message.member.ban({reason: "dc reklam korumasi"})
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için ban atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 const moment = require('moment')
