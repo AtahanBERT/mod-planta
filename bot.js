@@ -246,7 +246,7 @@ member.roles.add(rolver);
 client.on("guildMemberAdd", async member => {
 
 let rol = "976890714476662824"
-let kanal = ""
+let kanal = "977844177603813396"
 let logkanal = member.guild.channels.cache.get(kanal)
 
 if (member.guild.roles.cache.get(rol)) {
@@ -285,7 +285,6 @@ client.on("message", async message => {
         message.delete();
 kullanici.roles.set([cezalı])
 db.set(`jail_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
-message.guild.member(kullanici.id).voice.setChannel(null)
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord linki yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 
 const moment = require('moment')
