@@ -258,7 +258,7 @@ await db.delete(`ban_roller_${member.id}`)
 if (logkanal) {
 logkanal.send(new Discord.MessageEmbed()
 .setTitle(`${member.guild.name}`, member.guild.iconURL({dynamic: true}))
-.setDescription(`<@!${member.id}> adlı üye banı açildıgı için başarıyla rollerini geri verdim.`)
+.setDescription(`<@!${member.id}> adlı üye banı açildığı için başarıyla rollerini geri verdim.`)
 .setFooter(`Atahan`)
 .setTimestamp())
 }
@@ -303,10 +303,11 @@ client.on("message", async message => {
         message.delete();
 db.add(`reklamuyari_${message.author.id}`, 1);
 if (uyarisayisi === null) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak bidaha yaparsan ban atacam!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak bidaha yaparsan ban atacam!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 10000}))
 }
 if (uyarisayisi === 1) {
 await db.set(`ban_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
+await db.delete(`reklamuyari_${message.author.id}`)
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için ban atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 const moment = require('moment')
