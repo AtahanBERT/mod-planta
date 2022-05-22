@@ -247,10 +247,13 @@ client.on("guildMemberAdd", async member => {
 
 let rol = "976890714476662824"
 let kanal = "977844177603813396"
+let botrol = "976891827854651402"
 let logkanal = member.guild.channels.cache.get(kanal)
 
 if (member.guild.roles.cache.get(rol)) {
-await member.roles.add(rol)}
+if (member.bot) {
+await member.roles.add(botrol)}else{
+await member.roles.add(rol)}}
 
 if (logkanal) {
 logkanal.send(new Discord.MessageEmbed()
@@ -283,8 +286,9 @@ client.on("message", async message => {
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
     if (message.author.bot) return
         message.delete();
+db.add(`reklamuyari_${message.author.id}`, 1);
 if (uyarisayisi === null) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak bidaha yaparsan ban atacam!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 if (uyarisayisi === 1) {
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için ban atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
