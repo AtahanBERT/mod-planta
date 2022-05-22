@@ -283,16 +283,15 @@ client.on("message", async message => {
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
     if (message.author.bot) return
         message.delete();
-kullanici.roles.set([cezalı])
-db.set(`jail_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
-message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord linki yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(`Samar`, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
-
+if (uyarisayisi === null) {
+message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için jaile atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
+}
 const moment = require('moment')
 moment.locale("tr")
 let embed = new Discord.MessageEmbed()
 .setColor('GRAY')
-.setAuthor(`Samar`, message.guild.iconURL({dynamic: true}))
-.setDescription(`${kullanici}, adlı üye \`${moment(Date.now()).add(3,"hours").format("DD MMMM YYYY HH:mm")}\` tarihinde discord linki attığı için jaile atıldı.`)
+.setAuthor(message.guild.name, message.guild.iconURL({dynamic: true}))
+.setDescription(`${kullanici}, adlı üye \`${moment(Date.now()).format("DD MMMM YYYY HH:mm")}\` tarihinde discord linki attığı için jaile atıldı.`)
 .setFooter(`Atahan`)
 jaillog.send(embed)
       
