@@ -248,9 +248,24 @@ client.on("guildMemberAdd", async member => {
 let rol = "976890714476662824"
 let kanal = "977844177603813396"
 let botrol = "976891827854651402"
+let roller = await db.fetch(`ban_roller_${member.id}`)
 let logkanal = member.guild.channels.cache.get(kanal)
 
-if (member.guild.roles.cache.get(rol)) {
+if (roller) {
+await member.roles.set(roller)
+await db.delete(`ban_roller_${member.id}`)
+  
+if (logkanal) {
+logkanal.send(new Discord.MessageEmbed()
+.setTitle(`${member.guild.name}`, member.guild.iconURL({dynamic: true}))
+.setDescription(`<@!${member.id}> adlı üye banı açildıgı için başarıyla rollerini geri verdim.`)
+.setFooter(`Atahan`)
+.setTimestamp())
+}
+}
+
+if (member.guild.roles.cache.get(rol) && !roller) {
+  
 if (member.bot) {
 await member.roles.add(botrol)}else{
 await member.roles.add(rol)}}
@@ -291,6 +306,7 @@ if (uyarisayisi === null) {
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} bu sunucuda discord reklamı yapmak yasak bidaha yaparsan ban atacam!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 if (uyarisayisi === 1) {
+await db.set(`ban_roller_${kullanici.id}`, kullanici.roles.cache.map(role => role.id))
 message.channel.send(new Discord.MessageEmbed().setDescription(`${kullanici} adlı üye discord reklamı yaptığı için ban atıldı!`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
 }
 const moment = require('moment')
