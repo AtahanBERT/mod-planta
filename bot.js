@@ -300,6 +300,7 @@ client.on("message", async message => {
       ".gg/",];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
     if (message.author.bot) return
+    if (ayarlar.whitelist.includes(message.author.id)) return
         message.delete();
 db.add(`reklamuyari_${message.author.id}`, 1);
 if (uyarisayisi === null) {
@@ -325,6 +326,7 @@ jaillog.send(embed)
     if (reklam2.some(word => message.content.toLowerCase().includes(word))) {
     if (message.member.roles.cache.get("976890819518820372")) return
     if (message.author.bot) return
+    if (ayarlar.whitelist.includes(message.author.id)) return
         message.delete();
         message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}, Sunucumuzda link paylaşmak yasak.`).setFooter(`Atahan`).setAuthor(message.guild.name, message.guild.iconURL({dynamic: true})).setColor('GRAY')).then(x => x.delete({timeout: 5000}))
   }}});
