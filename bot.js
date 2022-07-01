@@ -652,7 +652,7 @@ client.users.cache.get(botOwnerID).send(embed)
 client.on("guildUpdate", async (oldGuild, newGuild) => {
   
 if (newGuild.name !== oldGuild.name) {
-  const embed = new Discord.MessageEmbed()
+const embed = new Discord.MessageEmbed()
 .setAuthor(newGuild.name, newGuild.iconURL({dynamic: true}))
 .setTitle('Bot Fiyatları')
 .addField(`Sunucuya Özel Bot Yapımı (Tüm Paket)`, `__100TL__`)
@@ -660,14 +660,15 @@ if (newGuild.name !== oldGuild.name) {
 .addField(`Guard, Mod ve Kayıt`, `__65TL__`)
 .setColor('BLACK')
 .setFooter(`Atahan`, newGuild.iconURL({dynamic: true}))
+.setThumbnail(newGuild.iconURL({dynamic: true}))
 .setTimestamp()
 
   
-client.channels.cache.get("976896134989643866").messages.cache.get("992492931992788992").edit(embed)
+client.channels.cache.get("976896134989643866").messages.fetch("992505404372299906").then(x => x.edit(embed))
 }
   
 if (newGuild.iconURL() !== oldGuild.iconURL()) {  
-  const embed = new Discord.MessageEmbed()
+const embed = new Discord.MessageEmbed()
 .setAuthor(newGuild.name, newGuild.iconURL({dynamic: true}))
 .setTitle('Bot Fiyatları')
 .addField(`Sunucuya Özel Bot Yapımı (Tüm Paket)`, `__100TL__`)
@@ -675,10 +676,11 @@ if (newGuild.iconURL() !== oldGuild.iconURL()) {
 .addField(`Guard, Mod ve Kayıt`, `__65TL__`)
 .setColor('BLACK')
 .setFooter(`Atahan`, newGuild.iconURL({dynamic: true}))
+.setThumbnail(newGuild.iconURL({dynamic: true}))
 .setTimestamp()
 
 
-client.channels.cache.get("976896134989643866").messages.cache.get("992492931992788992").edit(embed)
+client.channels.cache.get("976896134989643866").messages.fetch("992505404372299906").then(x => x.edit(embed))
 }
 })
 
